@@ -206,5 +206,41 @@
       return None
   ```
 
+### Configuration System for Environment Switching Pattern
+- **Problem**: CLI applications need to switch between development (mock) and production (real) adapters without code changes
+- **Solution**: Factory pattern with environment variable and CLI argument precedence
+- **Implementation**:
+  ```python
+  class AdapterFactory:
+      @staticmethod
+      def create_adapter(adapter_type: Optional[str] = None) -> OutlookAdapter:
+          # CLI argument → environment variable → default
+          if adapter_type is None:
+              adapter_type = os.environ.get('OUTLOOK_ADAPTER', 'mock')
+          
+          if adapter_type.lower() == 'mock':
+              return MockOutlookAdapter()
+          elif adapter_type.lower() == 'real':
+              return PyWin32OutlookAdapter()
+          else:
+              raise ValueError(f"Invalid adapter type: '{adapter_type}'. Valid options are: 'mock', 'real'")
+  ```
+- **CLI Integration**: Global `--adapter` argument with choices validation
+- **Benefits**: Enables cross-platform development with production deployment flexibility
+
+### CLI Output Cleanliness Pattern
+- **Problem**: Application logging pollutes CLI user experience with debug messages
+- **Solution**: File-only logging for CLI applications, console logging only for development scripts
+- **Implementation**: Remove console handler from logging configuration, keep only file handler
+- **UX Enhancement**: Add ANSI color codes for error (red) and success (green) messages
+- **Benefits**: Professional CLI experience with clean output and visual feedback
+
+### CLI Integration Test Automation Pattern
+- **Problem**: CLI applications need end-to-end validation that unit tests cannot provide
+- **Solution**: Comprehensive integration test suite that validates complete workflows
+- **Implementation**: Test actual CLI commands with captured stdout/stderr, validate output formats and error handling
+- **Coverage**: Test all success criteria, configuration systems, error conditions, and user workflows
+- **Benefits**: Ensures production readiness and validates milestone completion criteria
+
 ## Development Guidelines
 - When you generate a Windows only test, immediately git commit and git push.
