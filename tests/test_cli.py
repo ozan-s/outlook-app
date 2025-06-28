@@ -144,13 +144,12 @@ def test_integration_read_with_folder():
 
 def test_integration_find_with_multiple_filters():
     """Integration test: find command with multiple filters."""
-    with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'john@example.com', '--subject', 'Meeting', '--folder', 'Work']):
+    with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'manager', '--subject', 'meeting', '--folder', 'Inbox']):
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
             cli.main()
             output = mock_stdout.getvalue()
-            assert 'sender=john@example.com' in output
-            assert 'subject=Meeting' in output
-            assert 'folder=Work' in output
+            assert "Searching for emails with sender 'manager' and subject 'meeting'" in output
+            assert "in folder 'Inbox'" in output
 
 
 class TestReadCommandImplementation:
@@ -255,3 +254,123 @@ class TestReadCommandIntegration:
                 # Should show pagination (Drafts has 1 email in mock data)
                 assert 'Page 1 of 1' in output
                 assert 'showing 1-1 of 1 emails' in output
+
+
+class TestFindCommandIntegration:
+    """Integration tests for find command with EmailSearcher service."""
+    
+    def test_find_by_sender_only_displays_filtered_emails_with_pagination(self):
+        """Test find command with --sender filters emails and shows with pagination."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'manager']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show search criteria summary
+                assert "Searching for emails with sender 'manager'" in output
+                assert "in folder 'Inbox'" in output
+                
+                # Should show pagination info for results
+                assert 'Page 1 of' in output
+                assert 'showing' in output.lower()
+                
+                # Should show email details in same format as read
+                assert 'Subject:' in output
+                assert 'From:' in output
+                assert 'Date:' in output
+                
+                # Should show read/unread status
+                assert '[READ]' in output or '[UNREAD]' in output
+    
+    def test_find_by_subject_only_displays_filtered_emails_with_pagination(self):
+        """Test find command with --subject filters emails and shows with pagination."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--subject', 'project']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show search criteria summary
+                assert "Searching for emails with subject 'project'" in output
+                assert "in folder 'Inbox'" in output
+                
+                # Should show pagination info for results
+                assert 'Page 1 of' in output
+                assert 'showing' in output.lower()
+                
+                # Should show email details
+                assert 'Subject:' in output
+                assert 'From:' in output
+    
+    def test_find_with_combined_sender_and_subject_shows_and_filtered_results(self):
+        """Test find command with both --sender and --subject uses AND logic."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'pm', '--subject', 'update']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show both criteria in summary
+                assert "Searching for emails with sender 'pm' and subject 'update'" in output
+                assert "in folder 'Inbox'" in output
+                
+                # Should show pagination info
+                assert 'Page 1 of' in output
+                assert 'showing' in output.lower()
+    
+    def test_find_with_folder_scoping_searches_specific_folder(self):
+        """Test find command with --folder searches in specified folder."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'user', '--folder', 'Sent Items']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show specified folder in summary
+                assert "Searching for emails with sender 'user'" in output
+                assert "in folder 'Sent Items'" in output
+                
+                # Should show results from Sent Items folder
+                assert 'Page 1 of' in output
+                assert 'showing' in output.lower()
+    
+    def test_find_with_no_results_shows_helpful_message(self):
+        """Test find command with no matching emails shows clear message."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'nonexistent@example.com']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show search criteria
+                assert "Searching for emails with sender 'nonexistent@example.com'" in output
+                
+                # Should show no results message
+                assert 'No emails found matching your criteria' in output
+                
+                # Should NOT show pagination info when no results
+                assert 'Page' not in output
+    
+    def test_find_with_invalid_folder_shows_user_friendly_error(self):
+        """Test find command with invalid folder shows helpful error message."""
+        with patch('sys.argv', ['outlook-cli', 'find', '--sender', 'test', '--folder', 'NonExistentFolder']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show user-friendly error
+                assert "Error: Folder 'NonExistentFolder' not found" in output
+                
+                # Should NOT show search results
+                assert 'Subject:' not in output
+                assert 'Page' not in output
+    
+    def test_find_with_no_criteria_shows_helpful_usage_message(self):
+        """Test find command with no search criteria shows usage guidance."""
+        with patch('sys.argv', ['outlook-cli', 'find']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show helpful usage message
+                assert 'Error: Please specify --sender and/or --subject to search' in output
+                
+                # Should NOT show search results
+                assert 'Searching for emails' not in output
+                assert 'Subject:' not in output

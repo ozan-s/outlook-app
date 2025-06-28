@@ -55,3 +55,21 @@
   end_item = min(start_item + len(current_page) - 1, page_info["total_items"])
   print(f"Page {page_info['current_page']} of {page_info['total_pages']}, showing {start_item}-{end_item} of {page_info['total_items']} items")
   ```
+
+### CLI Display Code Reuse Pattern
+- **Problem**: Multiple CLI commands need identical result display formatting
+- **Solution**: Extract display logic into reusable helper functions
+- **Pattern**:
+  ```python
+  def _display_email_page(paginator, current_page):
+      """Display paginated emails with consistent formatting."""
+      # Pagination info + formatted item display
+      # Called by multiple commands: read, find, etc.
+  
+  def handle_command(args):
+      # Business logic...
+      paginator = Paginator(results, page_size=10)
+      current_page = paginator.get_current_page()
+      _display_email_page(paginator, current_page)  # Reused display
+  ```
+- **Benefits**: Consistent UX, reduced code duplication, single source of formatting truth

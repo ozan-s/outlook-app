@@ -2,8 +2,30 @@
 
 import argparse
 from outlook_cli.services.email_reader import EmailReader
+from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
+
+
+def _display_email_page(paginator, current_page):
+    """Display paginated emails with consistent formatting."""
+    page_info = paginator.get_page_info()
+    
+    # Display pagination info
+    start_item = (page_info["current_page"] - 1) * page_info["items_per_page"] + 1
+    end_item = min(start_item + len(current_page) - 1, page_info["total_items"])
+    print(f"Page {page_info['current_page']} of {page_info['total_pages']}, showing {start_item}-{end_item} of {page_info['total_items']} emails")
+    print()
+    
+    # Display emails
+    for i, email in enumerate(current_page, start=start_item):
+        status = "[UNREAD]" if not email.is_read else "[READ]"
+        print(f"{i}. {status} Subject: {email.subject}")
+        print(f"   From: {email.sender_name} <{email.sender_email}>")
+        print(f"   Date: {email.received_date.strftime('%Y-%m-%d %H:%M')}")
+        if email.has_attachments:
+            print("   📎 Has attachments")
+        print()
 
 
 def main():
@@ -69,23 +91,9 @@ def handle_read(args):
         # Paginate emails (10 per page)
         paginator = Paginator(emails, page_size=10)
         current_page = paginator.get_current_page()
-        page_info = paginator.get_page_info()
         
-        # Display pagination info
-        start_item = (page_info["current_page"] - 1) * page_info["items_per_page"] + 1
-        end_item = min(start_item + len(current_page) - 1, page_info["total_items"])
-        print(f"Page {page_info['current_page']} of {page_info['total_pages']}, showing {start_item}-{end_item} of {page_info['total_items']} emails")
-        print()
-        
-        # Display emails
-        for i, email in enumerate(current_page, start=start_item):
-            status = "[UNREAD]" if not email.is_read else "[READ]"
-            print(f"{i}. {status} Subject: {email.subject}")
-            print(f"   From: {email.sender_name} <{email.sender_email}>")
-            print(f"   Date: {email.received_date.strftime('%Y-%m-%d %H:%M')}")
-            if email.has_attachments:
-                print("   📎 Has attachments")
-            print()
+        # Display paginated emails
+        _display_email_page(paginator, current_page)
             
     except ValueError:
         # Handle folder not found errors
@@ -97,13 +105,48 @@ def handle_read(args):
 
 def handle_find(args):
     """Handle find command."""
-    filters = []
-    if args.sender:
-        filters.append(f"sender={args.sender}")
-    if args.subject:
-        filters.append(f"subject={args.subject}")
-    filters.append(f"folder={args.folder}")
-    print(f"Searching emails with filters: {', '.join(filters)}")
+    try:
+        # Validate at least one search criteria provided
+        if not args.sender and not args.subject:
+            print("Error: Please specify --sender and/or --subject to search")
+            return
+            
+        # Initialize EmailSearcher with adapter
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Perform search with provided criteria
+        results = searcher.search_emails(
+            sender=args.sender,
+            subject=args.subject, 
+            folder_path=args.folder
+        )
+        
+        # Display search summary
+        criteria = []
+        if args.sender:
+            criteria.append(f"sender '{args.sender}'")
+        if args.subject:
+            criteria.append(f"subject '{args.subject}'")
+        print(f"Searching for emails with {' and '.join(criteria)} in folder '{args.folder}':")
+        print()
+        
+        # Handle empty results
+        if not results:
+            print("No emails found matching your criteria.")
+            return
+            
+        # Paginate and display results
+        paginator = Paginator(results, page_size=10)
+        current_page = paginator.get_current_page()
+        
+        # Display paginated emails
+        _display_email_page(paginator, current_page)
+            
+    except ValueError:
+        print(f"Error: Folder '{args.folder}' not found")
+    except Exception as e:
+        print(f"Error searching emails: {str(e)}")
 
 
 def handle_move(args):
