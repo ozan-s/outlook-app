@@ -113,11 +113,19 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 **Validates**: Can display full email, handles different content types
 **Estimated Time**: 2 hours *(confirmed - patterns established)*
 
-### Milestone 013: Windows pywin32 Adapter Implementation
-**Scope**: Real OutlookAdapter using pywin32 COM interface
-**Integration Points**: pywin32, Outlook COM objects, error handling
-**Validates**: Adapter works with real Outlook on Windows
-**Estimated Time**: 4 hours
+### Milestone 013: Windows pywin32 Adapter Implementation  
+**Scope**: Real OutlookAdapter using pywin32 COM interface with Exchange DN resolution
+**Integration Points**: pywin32, Outlook COM objects, Exchange Distinguished Name resolution, Global Address List
+**Technical Complexity**: Exchange email address extraction, COM recipient processing, SMTP address resolution
+**Validates**: Adapter works with real Outlook+Exchange environment, extracts real sender SMTP addresses
+**Estimated Time**: 6 hours *(increased - Exchange DN resolution complexity discovered)*
+
+**Critical Implementation Details**:
+- Exchange Distinguished Name resolution: `/O=EXCHANGELABS/.../CN=user-id` → `user@domain.com`
+- Use `CreateRecipient()` and `Resolve()` methods for sender SMTP extraction
+- Recipient SMTP extraction via `AddressEntry.GetExchangeUser().PrimarySmtpAddress`
+- File-based development workflow proven effective for Windows-only testing
+- Array bounds safety required for Recipients collection processing
 
 ### Milestone 014: Error Handling + User Feedback
 **Scope**: Comprehensive error handling, user-friendly messages
@@ -281,4 +289,26 @@ You're on track when:
 - **No technical debt introduced**: Clean abstraction layers, full test coverage, consistent error handling maintained
 - **Ready for milestone 013**: Windows pywin32 adapter implementation - all CLI functionality proven with mock adapter
 
-**Next Step**: Begin Milestone 013 (Windows pywin32 adapter) or Milestone 016 (Integration testing + documentation)
+### 2024-06-28: Windows COM Interface Exploration (Milestone 013 Preparation)
+- **Exchange Integration Complexity Discovered**: Outlook uses Exchange Distinguished Names (DN) instead of SMTP addresses internally
+- **Email Address Resolution Pattern Identified**: 
+  - Recipients: `AddressEntry.GetExchangeUser().PrimarySmtpAddress` works perfectly
+  - Senders: Require `CreateRecipient(exchange_dn).Resolve()` → `GetExchangeUser().PrimarySmtpAddress`
+  - SendUsingAccount shows mailbox owner, not actual sender
+- **File-Based Development Workflow Proven**: Highly effective alternative to remote debugging for Windows-only development
+  - Generate test files on Mac → Copy to Windows → Run → Share results → Iterate
+  - Faster and more reliable than debugpy remote connections
+  - Enables full TDD workflow across platforms
+- **Technical Implementation Details Validated**:
+  - COM collections are 1-indexed (not 0-indexed)
+  - Recipients.Count can exceed actual accessible recipients (array bounds safety required)
+  - Exchange DN format: `/O=EXCHANGELABS/OU=EXCHANGE ADMINISTRATIVE GROUP/.../CN=RECIPIENTS/CN=user-identifier`
+  - Global Address List access enables DN-to-SMTP resolution
+- **Milestone 013 Scope Expanded and Time Increased**:
+  - Original estimate: 4 hours for basic COM interface
+  - Revised estimate: 6 hours for full Exchange DN resolution implementation
+  - Added critical implementation details and technical complexity documentation
+- **Development Environment Strategy**: File-based approach eliminates need for Windows development environment setup
+- **Next Session Ready**: Complete technical foundation established, working Exchange DN resolution methods proven
+
+**Next Step**: Continue Milestone 013 with file-based development approach using established Exchange DN resolution patterns

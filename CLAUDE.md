@@ -73,3 +73,89 @@
       _display_email_page(paginator, current_page)  # Reused display
   ```
 - **Benefits**: Consistent UX, reduced code duplication, single source of formatting truth
+
+## Windows COM Interface Integration Patterns
+
+### File-Based Cross-Platform Development Pattern
+- **Problem**: Developing Windows-only components (COM interfaces) from non-Windows development environment
+- **Solution**: Generate test files on primary platform → Execute on target platform → Share results
+- **Workflow**:
+  ```python
+  # On Mac (Claude development environment):
+  def generate_windows_test(test_name, test_code):
+      # Create complete test file with error handling
+      # Commit and push to repository
+  
+  # On Windows (target environment):
+  # Copy test file from repository
+  # uv run python windows_test_xxx.py
+  # Share output back to development environment
+  ```
+- **Benefits**: Faster than remote debugging, enables full TDD workflow, no environment setup complexity
+
+### Exchange Distinguished Name Resolution Pattern  
+- **Problem**: Outlook COM interface returns Exchange internal addresses instead of SMTP addresses
+- **Exchange DN Format**: `/O=EXCHANGELABS/OU=EXCHANGE ADMINISTRATIVE GROUP/.../CN=RECIPIENTS/CN=user-identifier`
+- **Solution**: Multi-step resolution process
+- **Implementation**:
+  ```python
+  def resolve_exchange_dn_to_smtp(outlook_app, exchange_dn):
+      # Method 1: CreateRecipient and Resolve
+      namespace = outlook_app.GetNamespace("MAPI")
+      recipient = namespace.CreateRecipient(exchange_dn)
+      if recipient and recipient.Resolve():
+          if recipient.AddressEntry and hasattr(recipient.AddressEntry, 'GetExchangeUser'):
+              exchange_user = recipient.AddressEntry.GetExchangeUser()
+              if exchange_user and hasattr(exchange_user, 'PrimarySmtpAddress'):
+                  return exchange_user.PrimarySmtpAddress
+      return None
+  ```
+
+### COM Collection Safety Pattern
+- **Problem**: COM collections have different indexing and bounds behavior than Python
+- **Critical Differences**:
+  - COM collections are 1-indexed (not 0-indexed)
+  - Collection.Count may exceed actually accessible items
+  - Array bounds exceptions common
+- **Solution**: Safe iteration with bounds checking
+- **Implementation**:
+  ```python
+  def safe_com_iteration(com_collection):
+      results = []
+      if hasattr(com_collection, 'Count') and com_collection.Count > 0:
+          for i in range(1, com_collection.Count + 1):  # 1-indexed
+              try:
+                  item = com_collection[i]
+                  # Process item safely
+                  results.append(process_item(item))
+              except (IndexError, Exception):
+                  # Skip inaccessible items gracefully
+                  continue
+      return results
+  ```
+
+### Exchange Email Address Extraction Pattern
+- **Problem**: Different methods needed for sender vs recipient SMTP address extraction
+- **Recipients**: Direct `AddressEntry.GetExchangeUser().PrimarySmtpAddress` works
+- **Senders**: Require Exchange DN resolution (CreateRecipient method)
+- **Anti-Pattern**: `SendUsingAccount` shows mailbox owner, not actual sender
+- **Implementation**:
+  ```python
+  def extract_sender_smtp(outlook_email):
+      # Get Exchange DN from SenderEmailAddress
+      sender_dn = outlook_email.SenderEmailAddress
+      if sender_dn and sender_dn.startswith('/O='):
+          return resolve_exchange_dn_to_smtp(outlook_app, sender_dn)
+      return None
+  
+  def extract_recipient_smtp(recipient):
+      # Direct method works for recipients
+      if recipient.AddressEntry and hasattr(recipient.AddressEntry, 'GetExchangeUser'):
+          exchange_user = recipient.AddressEntry.GetExchangeUser()
+          if exchange_user and hasattr(exchange_user, 'PrimarySmtpAddress'):
+              return exchange_user.PrimarySmtpAddress
+      return None
+  ```
+
+## Development Guidelines
+- When you generate a Windows only test, immediately git commit and git push.
