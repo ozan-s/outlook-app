@@ -35,6 +35,55 @@
   - Generic exceptions → "Error: [action description]: [message]"
   - Never expose raw service exceptions to CLI users
 
+### Enhanced Error Handling with Recovery Suggestions Pattern
+- **Problem**: Simple error messages don't guide users toward resolution
+- **Solution**: Centralized error handler with categorization and contextual suggestions
+- **Implementation**:
+  ```python
+  def _handle_enhanced_error(error: Exception, operation: str) -> None:
+      logger.error(f"Error in {operation}: {error}")
+      
+      if isinstance(error, OutlookError):
+          message = f"Error: {str(error)}"
+          if error.suggestion:
+              message += f" {error.suggestion}"
+          print(message)
+      elif isinstance(error, ValueError):
+          # Enhance existing ValueError patterns with suggestions
+          message = str(error)
+          if "not found" in message.lower() and "folder" in message.lower():
+              suggestion = get_error_suggestion("folder_not_found", {"message": message})
+              message += f" {suggestion}"
+          print(f"Error: {message}")
+      else:
+          print(f"Error {operation}: {str(error)}")
+  ```
+- **Benefits**: Consistent error UX, actionable guidance, backward compatibility maintained
+
+### Error Categorization for Response Strategy Pattern
+- **Problem**: Different types of errors require different user response strategies
+- **Solution**: Error categorization system enabling appropriate handling
+- **Categories**:
+  - `TRANSIENT`: Network/connection issues → Suggest retry
+  - `PERMANENT`: Invalid data/not found → Suggest correction  
+  - `USER_ERROR`: Input validation → Suggest specific fix
+  - `SYSTEM_ERROR`: Infrastructure issues → Suggest admin action
+- **Implementation**:
+  ```python
+  class OutlookError(ValueError):
+      def __init__(self, message, category=ErrorCategory.PERMANENT, suggestion=None):
+          super().__init__(message)
+          self.category = category
+          self.suggestion = suggestion
+  
+  # Usage enables targeted error responses
+  if error.category == ErrorCategory.TRANSIENT:
+      # Show retry button in UI, or auto-retry in CLI
+  elif error.category == ErrorCategory.USER_ERROR:
+      # Focus input field, highlight validation
+  ```
+- **Benefits**: Enables context-appropriate error handling, better UX, systematic error response
+
 ### CLI Testing Strategy
 - **Problem**: CLI commands need comprehensive testing without external dependencies
 - **Solution**: Three-layer test approach
