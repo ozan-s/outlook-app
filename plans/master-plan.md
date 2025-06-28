@@ -16,8 +16,8 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 ## Milestone Roadmap
 
 ### Phase 1: Foundation (Project Setup & Core Models)
-- [ ] Milestone 001: Project setup + testing infrastructure
-- [ ] Milestone 002: Email model + data structures
+- [x] Milestone 001: Project setup + testing infrastructure ✅ 2024-06-28
+- [x] Milestone 002: Email model + data structures ✅ 2024-06-28
 - [ ] Milestone 003: Outlook adapter interface + mocks
 
 ### Phase 2: Core Business Logic  
@@ -195,4 +195,13 @@ You're on track when:
 - Real Windows adapter integrates cleanly
 - Code ready for Phase 2 LLM/web extensions
 
-**Next Step**: Use `/plan` to detail Milestone 001
+## Adaptation Log
+
+### 2024-06-28: After Milestone 002 (Email Models)
+- **No scope changes needed**: Email/Folder models fit perfectly in 3 hours
+- **Pydantic excellent choice**: Validation and JSON serialization exceeded expectations
+- **Integration patterns established**: Models work together cleanly for Milestone 003
+- **Ready for adapter layer**: Type-safe foundation makes mock/real adapter implementation straightforward
+- **Rationale**: Model complexity was well-estimated, no dependencies missed
+
+**Next Step**: Use `/plan` to detail Milestone 003
