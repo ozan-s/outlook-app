@@ -21,8 +21,8 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 - [ ] Milestone 003: Outlook adapter interface + mocks
 
 ### Phase 2: Core Business Logic  
-- [ ] Milestone 004: Email reading service + tests
-- [ ] Milestone 005: Email search service + tests
+- [x] Milestone 004: Email reading service + tests ✅ 2024-06-28
+- [x] Milestone 005: Email search service + tests ✅ 2024-06-28  
 - [ ] Milestone 006: Email move service + tests
 - [ ] Milestone 007: Pagination logic + navigation
 
@@ -204,4 +204,13 @@ You're on track when:
 - **Ready for adapter layer**: Type-safe foundation makes mock/real adapter implementation straightforward
 - **Rationale**: Model complexity was well-estimated, no dependencies missed
 
-**Next Step**: Use `/plan` to detail Milestone 003
+### 2024-06-28: After Milestone 005 (Email Search Service)
+- **Service layer pattern established**: EmailReader + EmailSearcher services work seamlessly together
+- **Client-side filtering approach validated**: No need for adapter search methods, business logic in services
+- **Test patterns proven**: TDD with MockAdapter enables efficient development with rich test scenarios
+- **EmailSearcher reuses EmailReader**: Dependency injection pattern prevents code duplication
+- **Search criteria ready for CLI**: Method signatures align perfectly with planned `find --sender/--subject/--folder` command
+- **No scope changes needed**: All planned search functionality delivered in 3 hours
+- **Ready for milestone 006**: EmailMover service can follow identical patterns
+
+**Next Step**: Use `/plan` to detail Milestone 006 (EmailMover service)

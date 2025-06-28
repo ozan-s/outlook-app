@@ -1,18 +1,21 @@
 # Session Handover
 
 ## Current State
-- **Last Completed**: Milestone 002: Email Model + Data Structures ✅
-- **System State**: Email and Folder models fully implemented with pydantic validation, 26 tests passing, 98% coverage
-- **No Blockers**: Models ready for adapter integration, JSON serialization working
+- **Last Completed**: Milestone 005: Email Search Service + Tests ✅
+- **System State**: EmailReader + EmailSearcher services complete with 59/59 tests passing
+- **Service Layer**: Complete dependency injection pattern with MockAdapter integration
+- **No Blockers**: All search functionality working, ready for EmailMover service
 
 ## Next Milestone
-- **Number**: Milestone 003
-- **Description**: Outlook adapter interface + mocks
-- **Key Challenge**: Design clean abstraction for mock vs real Outlook integration
+- **Number**: Milestone 006
+- **Description**: Email move service + tests
+- **Key Challenge**: Email move validation and folder existence checking
 - **Estimated**: 3 hours
 
 ## Critical Context
-- Pydantic models provide excellent type safety foundation
-- JSON serialization already working for future API phases
-- Integration test patterns established - models work together cleanly
-- No technical debt introduced - clean foundation for adapter layer
+- **Service Pattern Established**: Follow EmailReader/EmailSearcher patterns exactly
+  - Constructor takes OutlookAdapter via dependency injection
+  - Use `adapter.move_email(email_id, target_folder)` method
+  - Return boolean success/failure, let adapter handle ValueError for invalid folders
+- **Test Strategy**: MockAdapter has move_email() method implemented with test scenarios
+- **Integration**: EmailMover will reuse EmailReader for email ID validation if needed
