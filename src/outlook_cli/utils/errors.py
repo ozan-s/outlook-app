@@ -47,7 +47,7 @@ class OutlookConnectionError(OutlookError):
 class OutlookTimeoutError(OutlookError):
     """Error for operation timeouts."""
     
-    def __init__(self, message: str, timeout_seconds: int = 30, **kwargs):
+    def __init__(self, message: str, timeout_seconds: float = 30, **kwargs):
         # Default to transient for timeout errors
         kwargs.setdefault('category', ErrorCategory.TRANSIENT)
         
