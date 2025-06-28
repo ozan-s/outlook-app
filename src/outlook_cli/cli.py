@@ -3,6 +3,7 @@
 import argparse
 from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.services.email_searcher import EmailSearcher
+from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 
@@ -151,7 +152,24 @@ def handle_find(args):
 
 def handle_move(args):
     """Handle move command."""
-    print(f"Moving email {args.email_id} to folder: {args.target_folder}")
+    try:
+        # Initialize EmailMover service with adapter
+        adapter = MockOutlookAdapter()
+        mover = EmailMover(adapter)
+        
+        # Execute move operation
+        result = mover.move_email_to_folder(args.email_id, args.target_folder)
+        
+        # Provide user feedback
+        if result:
+            print(f"Successfully moved email {args.email_id} to {args.target_folder}")
+            
+    except ValueError as e:
+        # Handle service-specific errors (invalid IDs/folders)
+        print(f"Error: {str(e)}")
+    except Exception as e:
+        # Handle unexpected errors
+        print(f"Error moving email: {str(e)}")
 
 
 def handle_open(args):
