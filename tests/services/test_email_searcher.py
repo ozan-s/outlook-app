@@ -1,7 +1,6 @@
 """Tests for EmailSearcher service."""
 
 import pytest
-from typing import List
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter

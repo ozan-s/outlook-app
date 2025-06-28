@@ -1,7 +1,6 @@
 """Tests for EmailReader service."""
 
 import pytest
-from typing import List, Dict
 from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter

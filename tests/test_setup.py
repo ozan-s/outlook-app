@@ -1,6 +1,5 @@
 """Test project setup and infrastructure."""
 
-import pytest
 from outlook_cli import __version__
 
 

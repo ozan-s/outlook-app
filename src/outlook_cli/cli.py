@@ -1,6 +1,9 @@
 """CLI entry point for Outlook CLI."""
 
 import argparse
+from outlook_cli.services.email_reader import EmailReader
+from outlook_cli.services.paginator import Paginator
+from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 
 
 def main():
@@ -50,7 +53,46 @@ def main():
 
 def handle_read(args):
     """Handle read command."""
-    print(f"Reading emails from folder: {args.folder}")
+    try:
+        # Initialize services with MockOutlookAdapter
+        adapter = MockOutlookAdapter()
+        reader = EmailReader(adapter)
+        
+        # Get emails from specified folder
+        emails = reader.get_emails_from_folder(args.folder)
+        
+        # Handle empty folder
+        if not emails:
+            print(f"No emails found in folder: {args.folder}")
+            return
+            
+        # Paginate emails (10 per page)
+        paginator = Paginator(emails, page_size=10)
+        current_page = paginator.get_current_page()
+        page_info = paginator.get_page_info()
+        
+        # Display pagination info
+        start_item = (page_info["current_page"] - 1) * page_info["items_per_page"] + 1
+        end_item = min(start_item + len(current_page) - 1, page_info["total_items"])
+        print(f"Page {page_info['current_page']} of {page_info['total_pages']}, showing {start_item}-{end_item} of {page_info['total_items']} emails")
+        print()
+        
+        # Display emails
+        for i, email in enumerate(current_page, start=start_item):
+            status = "[UNREAD]" if not email.is_read else "[READ]"
+            print(f"{i}. {status} Subject: {email.subject}")
+            print(f"   From: {email.sender_name} <{email.sender_email}>")
+            print(f"   Date: {email.received_date.strftime('%Y-%m-%d %H:%M')}")
+            if email.has_attachments:
+                print("   📎 Has attachments")
+            print()
+            
+    except ValueError:
+        # Handle folder not found errors
+        print(f"Error: Folder '{args.folder}' not found")
+    except Exception as e:
+        # Handle other errors
+        print(f"Error reading emails: {str(e)}")
 
 
 def handle_find(args):

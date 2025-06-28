@@ -82,8 +82,8 @@ def test_models_json_serialization_together():
     email_json = email.model_dump_json()
     
     # Parse JSON to verify it's valid
-    folder_dict = json.loads(folder_json)
-    email_dict = json.loads(email_json)
+    json.loads(folder_json)
+    json.loads(email_json)
     
     # Recreate from JSON
     folder_recreated = Folder.model_validate_json(folder_json)

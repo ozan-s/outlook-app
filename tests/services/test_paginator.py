@@ -1,6 +1,5 @@
 """Tests for Paginator service."""
 
-import pytest
 from typing import List
 from datetime import datetime, timezone, timedelta
 from outlook_cli.services.paginator import Paginator

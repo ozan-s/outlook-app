@@ -1,7 +1,6 @@
 """Tests for EmailMover service."""
 
 import pytest
-from typing import Dict
 from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
