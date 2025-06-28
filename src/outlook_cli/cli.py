@@ -8,6 +8,7 @@ from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
+from outlook_cli.config.adapter_factory import AdapterFactory
 from outlook_cli.utils.logging_config import setup_logging, get_logger
 from outlook_cli.utils.errors import (
     OutlookError, OutlookConnectionError, OutlookValidationError, 
@@ -20,6 +21,16 @@ init(autoreset=True)
 # Setup logging
 setup_logging()
 logger = get_logger(__name__)
+
+
+def _create_adapter(args) -> 'OutlookAdapter':
+    """Create adapter based on CLI arguments and configuration."""
+    try:
+        adapter_type = getattr(args, 'adapter', None)
+        return AdapterFactory.create_adapter(adapter_type)
+    except ValueError as e:
+        print(f"{Fore.RED}{str(e)}{Style.RESET_ALL}")
+        sys.exit(1)
 
 
 def _handle_enhanced_error(error: Exception, operation: str) -> None:
@@ -118,6 +129,13 @@ Examples:
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
+    # Global adapter configuration argument
+    parser.add_argument(
+        '--adapter', 
+        choices=['mock', 'real'], 
+        help='Outlook adapter type (default: mock, or OUTLOOK_ADAPTER env var)'
+    )
+    
     # Create subparsers for commands
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
     
@@ -160,8 +178,8 @@ def handle_read(args):
     """Handle read command."""
     logger.info(f"Starting read command for folder: {args.folder}")
     try:
-        # Initialize services with MockOutlookAdapter
-        adapter = MockOutlookAdapter()
+        # Initialize services with configured adapter
+        adapter = _create_adapter(args)
         reader = EmailReader(adapter)
         
         # Get emails from specified folder
@@ -194,8 +212,8 @@ def handle_find(args):
             print("Error: Please specify --sender and/or --subject to search")
             return
             
-        # Initialize EmailSearcher with adapter
-        adapter = MockOutlookAdapter()
+        # Initialize EmailSearcher with configured adapter
+        adapter = _create_adapter(args)
         searcher = EmailSearcher(adapter)
         
         # Perform search with provided criteria
@@ -235,8 +253,8 @@ def handle_move(args):
     """Handle move command."""
     logger.info(f"Starting move command: email_id={args.email_id}, target_folder={args.target_folder}")
     try:
-        # Initialize EmailMover service with adapter
-        adapter = MockOutlookAdapter()
+        # Initialize EmailMover service with configured adapter
+        adapter = _create_adapter(args)
         mover = EmailMover(adapter)
         
         # Execute move operation
@@ -255,8 +273,8 @@ def handle_open(args):
     """Handle open command."""
     logger.info(f"Starting open command for email_id: {args.email_id}")
     try:
-        # Initialize EmailReader service with adapter
-        adapter = MockOutlookAdapter()
+        # Initialize EmailReader service with configured adapter
+        adapter = _create_adapter(args)
         email_reader = EmailReader(adapter)
         
         # Get the specific email by ID

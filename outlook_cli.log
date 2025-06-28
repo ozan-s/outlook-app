@@ -499,3 +499,20 @@
 2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
 2025-06-28 22:33:16 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
 2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:38:10 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
