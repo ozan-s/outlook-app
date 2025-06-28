@@ -38,3 +38,17 @@ class EmailReader:
         """
         folders = self._adapter.get_folders()
         return {folder.path: self._adapter.get_emails(folder.path) for folder in folders}
+    
+    def get_email_by_id(self, email_id: str) -> Email:
+        """Get a specific email by its unique identifier.
+        
+        Args:
+            email_id: Unique identifier of the email to retrieve.
+            
+        Returns:
+            Email: The email with the specified ID.
+            
+        Raises:
+            ValueError: If email_id does not exist.
+        """
+        return self._adapter.get_email_by_id(email_id)

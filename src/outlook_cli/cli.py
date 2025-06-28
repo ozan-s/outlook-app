@@ -29,6 +29,28 @@ def _display_email_page(paginator, current_page):
         print()
 
 
+def _display_full_email(email):
+    """Display complete email content with professional formatting."""
+    status = "[UNREAD]" if not email.is_read else "[READ]"
+    print(f"Email ID: {email.id} {status}")
+    print(f"Subject: {email.subject}")
+    print(f"From: {email.sender_name} <{email.sender_email}>")
+    print(f"To: {', '.join(email.recipient_emails)}")
+    if email.cc_emails:
+        print(f"CC: {', '.join(email.cc_emails)}")
+    if email.bcc_emails:
+        print(f"BCC: {', '.join(email.bcc_emails)}")
+    print(f"Date: {email.received_date.strftime('%Y-%m-%d %H:%M')}")
+    print(f"Importance: {email.importance}")
+    if email.has_attachments:
+        print(f"📎 Attachments: {email.attachment_count}")
+    print(f"Folder: {email.folder_path}")
+    print("\n" + "="*50)
+    print("CONTENT:")
+    print("="*50)
+    print(email.body_text)
+
+
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
@@ -174,4 +196,20 @@ def handle_move(args):
 
 def handle_open(args):
     """Handle open command."""
-    print(f"Opening email: {args.email_id}")
+    try:
+        # Initialize EmailReader service with adapter
+        adapter = MockOutlookAdapter()
+        email_reader = EmailReader(adapter)
+        
+        # Get the specific email by ID
+        email = email_reader.get_email_by_id(args.email_id)
+        
+        # Display full email content
+        _display_full_email(email)
+        
+    except ValueError as e:
+        # Handle email not found errors
+        print(f"Error: {str(e)}")
+    except Exception as e:
+        # Handle other errors
+        print(f"Error opening email: {str(e)}")

@@ -170,3 +170,14 @@ class MockOutlookAdapter(OutlookAdapter):
         self._emails[target_folder].append(email_to_move)
         
         return True
+    
+    def get_email_by_id(self, email_id: str) -> Email:
+        """Get a specific email by its unique identifier."""
+        # Search across all folders for the email ID
+        for folder_path, emails in self._emails.items():
+            for email in emails:
+                if email.id == email_id:
+                    return email
+        
+        # Email not found
+        raise ValueError(f"Email '{email_id}' not found")

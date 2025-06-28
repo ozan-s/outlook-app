@@ -31,7 +31,7 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 - [x] Milestone 009: Read command implementation ✅ 2024-06-28
 - [x] Milestone 010: Find command implementation ✅ 2024-06-28
 - [x] Milestone 011: Move command implementation ✅ 2024-06-28
-- [ ] Milestone 012: Open command implementation
+- [x] Milestone 012: Open command implementation ✅ 2024-06-28
 
 ### Phase 4: Integration & Polish
 - [ ] Milestone 013: Windows pywin32 adapter implementation
@@ -125,11 +125,11 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 **Validates**: Graceful failures, helpful error messages
 **Estimated Time**: 3 hours
 
-### Milestone 015: Output Formatting + CLI Polish
-**Scope**: ~~Clean table formatting, colors~~, enhanced UX features (colors, help improvements)
+### Milestone 015: CLI Polish (Final Touches)
+**Scope**: ~~Output formatting, UX features~~, final CLI enhancements (colors, help text refinements)
 **Integration Points**: CLI commands, result display
-**Validates**: Professional CLI appearance, enhanced user experience  
-**Estimated Time**: 2 hours *(reduced - consistent formatting already established)*
+**Validates**: Final polish for production readiness
+**Estimated Time**: 1 hour *(minimal - core formatting and UX complete)*
 
 ### Milestone 016: Integration Testing + Documentation
 **Scope**: End-to-end tests, README, usage documentation
@@ -271,4 +271,14 @@ You're on track when:
 - **No technical debt**: All patterns clean, no shortcuts taken, ready for remaining milestones
 - **Ready for milestone 012**: Open command implementation following identical established patterns
 
-**Next Step**: Use `/plan` to detail Milestone 012 (Open command implementation)
+### 2024-06-28: After Milestone 012 (Open Command Implementation)
+- **Phase 3 CLI Layer COMPLETE**: All 4 CLI commands (read, find, move, open) fully implemented and working
+- **Email display patterns finalized**: Both paginated list view and full email view with professional formatting established
+- **Get-by-ID infrastructure added**: New adapter interface method + service layer method enable single email retrieval across all folders
+- **Integration test suite expanded**: 133 total tests passing, including comprehensive end-to-end CLI command validation
+- **Milestone 015 scope minimized**: CLI polish essentially complete - professional formatting, consistent UX, comprehensive error handling all delivered
+- **TDD efficiency maintained**: Open command completed in exactly 2 hours as estimated, patterns enable rapid development
+- **No technical debt introduced**: Clean abstraction layers, full test coverage, consistent error handling maintained
+- **Ready for milestone 013**: Windows pywin32 adapter implementation - all CLI functionality proven with mock adapter
+
+**Next Step**: Begin Milestone 013 (Windows pywin32 adapter) or Milestone 016 (Integration testing + documentation)

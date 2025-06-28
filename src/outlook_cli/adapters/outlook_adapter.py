@@ -70,3 +70,18 @@ class OutlookAdapter(ABC):
             ValueError: If email_id or target_folder does not exist.
         """
         pass
+    
+    @abstractmethod
+    def get_email_by_id(self, email_id: str) -> Email:
+        """Get a specific email by its unique identifier.
+        
+        Args:
+            email_id: Unique identifier of the email to retrieve.
+            
+        Returns:
+            Email: The email with the specified ID.
+            
+        Raises:
+            ValueError: If email_id does not exist.
+        """
+        pass
