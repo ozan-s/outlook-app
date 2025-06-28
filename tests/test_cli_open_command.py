@@ -17,6 +17,7 @@ class TestCliOpenCommand:
         # Mock args
         args = Mock()
         args.email_id = "inbox-001"
+        args.adapter = None  # Use default adapter
         
         # Capture stdout
         captured_output = io.StringIO()
@@ -41,6 +42,7 @@ class TestCliOpenCommand:
         # Mock args
         args = Mock()
         args.email_id = "nonexistent-123"
+        args.adapter = None  # Use default adapter
         
         # Capture stdout
         captured_output = io.StringIO()

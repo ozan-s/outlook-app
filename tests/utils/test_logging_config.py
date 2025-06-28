@@ -26,17 +26,17 @@ class TestLoggingConfig:
             # Get the root logger
             root_logger = logging.getLogger()
             
-            # Should have at least 2 handlers (console + file)
-            assert len(root_logger.handlers) >= 2
+            # Should have 1 handler (file only - console removed for CLI polish)
+            assert len(root_logger.handlers) == 1
             
             # Check that file handler was created
             file_handlers = [h for h in root_logger.handlers if hasattr(h, 'baseFilename')]
             assert len(file_handlers) == 1
             assert file_handlers[0].baseFilename == str(log_file)
             
-            # Check that console handler exists
+            # Console handler should NOT exist (removed for CLI polish)
             console_handlers = [h for h in root_logger.handlers if isinstance(h, logging.StreamHandler) and not hasattr(h, 'baseFilename')]
-            assert len(console_handlers) >= 1
+            assert len(console_handlers) == 0
 
     def test_setup_logging_creates_log_file(self):
         """Test that setup_logging creates the log file."""
