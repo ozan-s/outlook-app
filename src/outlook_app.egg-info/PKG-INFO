@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: outlook-app
+Version: 0.1.0
+Summary: Cross-platform Outlook CLI for email management
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pytest>=8.4.1
+Requires-Dist: pytest-cov>=6.2.1
+Requires-Dist: typing-extensions>=4.14.0
+Requires-Dist: pywin32>=306; sys_platform == "win32"
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: email-validator>=2.2.0

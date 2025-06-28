@@ -27,7 +27,7 @@ Building a Python CLI application to manage Microsoft Outlook Classic Desktop vi
 - [x] Milestone 007: Pagination logic + navigation ✅ 2024-06-28
 
 ### Phase 3: CLI Interface Layer
-- [ ] Milestone 008: CLI framework + command routing
+- [x] Milestone 008: CLI framework + command routing ✅ 2024-06-28
 - [ ] Milestone 009: Read command implementation
 - [ ] Milestone 010: Find command implementation
 - [ ] Milestone 011: Move command implementation
@@ -231,4 +231,14 @@ You're on track when:
 - **Architecture proven**: Service layer + adapter pattern + dependency injection enables clean separation and testability
 - **Ready for milestone 008**: CLI framework + command routing to build user interface layer
 
-**Next Step**: Use `/plan` to detail Milestone 008 (CLI framework + command routing)
+### 2024-06-28: After Milestone 008 (CLI Framework + Command Routing)
+- **CLI foundation COMPLETE**: argparse-based CLI with complete command routing for all 4 planned commands (read, find, move, open)
+- **Zero external dependencies**: Built with Python's stdlib argparse - no click/typer dependency needed, keeps project lightweight
+- **Command interface finalized**: CLI accepts exact argument patterns planned for milestones 009-012, interface contract established
+- **Integration scaffolding ready**: Placeholder handlers print structured output, ready for service layer integration in next milestones
+- **Console script working**: `uv run outlook-cli` works end-to-end with proper help system and argument validation
+- **TDD CLI patterns established**: 14 comprehensive tests covering CLI parsing, routing, help, and integration - pattern for testing CLI tools
+- **No scope changes needed**: Milestone 009-012 can proceed exactly as planned - CLI framework supports all planned functionality
+- **Ready for milestone 009**: Read command implementation using EmailReader + Paginator services
+
+**Next Step**: Use `/plan` to detail Milestone 009 (Read command implementation)

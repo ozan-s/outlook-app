@@ -1,0 +1,2 @@
+[console_scripts]
+outlook-cli = outlook_cli.cli:main
