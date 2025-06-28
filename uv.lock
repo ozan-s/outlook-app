@@ -124,6 +124,7 @@ name = "outlook-app"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "colorama" },
     { name = "email-validator" },
     { name = "pydantic" },
     { name = "pytest" },
@@ -134,6 +135,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "colorama", specifier = ">=0.4.6" },
     { name = "email-validator", specifier = ">=2.2.0" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "pytest", specifier = ">=8.4.1" },

@@ -37,11 +37,7 @@ def setup_logging(log_file: Optional[str] = None, level: int = logging.INFO) -> 
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     
-    # Console handler
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(level)
-    console_handler.setFormatter(formatter)
-    root_logger.addHandler(console_handler)
+    # Console handler removed - file logging only for clean CLI output
     
     # File handler
     file_handler = logging.FileHandler(log_file)

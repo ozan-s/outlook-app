@@ -2,6 +2,7 @@
 
 import argparse
 import sys
+from colorama import init, Fore, Style
 from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
@@ -12,6 +13,9 @@ from outlook_cli.utils.errors import (
     OutlookError, OutlookConnectionError, OutlookValidationError, 
     OutlookTimeoutError, get_error_suggestion
 )
+
+# Initialize colorama for cross-platform color support
+init(autoreset=True)
 
 # Setup logging
 setup_logging()
@@ -33,7 +37,7 @@ def _handle_enhanced_error(error: Exception, operation: str) -> None:
         message = f"Error: {str(error)}"
         if error.suggestion:
             message += f" {error.suggestion}"
-        print(message)
+        print(f"{Fore.RED}{message}{Style.RESET_ALL}")
         
         # Log additional context for debugging
         if error.context:
@@ -49,11 +53,11 @@ def _handle_enhanced_error(error: Exception, operation: str) -> None:
                 suggestion = get_error_suggestion("folder_not_found", {"message": message})
                 message += f" {suggestion}"
         
-        print(f"Error: {message}")
+        print(f"{Fore.RED}Error: {message}{Style.RESET_ALL}")
     
     else:
         # Generic error handling
-        print(f"Error {operation}: {str(error)}")
+        print(f"{Fore.RED}Error {operation}: {str(error)}{Style.RESET_ALL}")
 
 
 def _display_email_page(paginator, current_page):
@@ -69,7 +73,7 @@ def _display_email_page(paginator, current_page):
     # Display emails
     for i, email in enumerate(current_page, start=start_item):
         status = "[UNREAD]" if not email.is_read else "[READ]"
-        print(f"{i}. {status} Subject: {email.subject}")
+        print(f"{i}. [{email.id}] {status} Subject: {email.subject}")
         print(f"   From: {email.sender_name} <{email.sender_email}>")
         print(f"   Date: {email.received_date.strftime('%Y-%m-%d %H:%M')}")
         if email.has_attachments:
@@ -102,8 +106,16 @@ def _display_full_email(email):
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
-        description="Outlook CLI for email management",
-        prog="outlook-cli"
+        description="""Outlook CLI for email management
+
+Examples:
+  outlook-cli read Inbox              # Read emails from Inbox folder
+  outlook-cli find "meeting"          # Search for emails containing "meeting"
+  outlook-cli move inbox-001 "Sent Items"  # Move email to Sent Items folder
+  outlook-cli open inbox-001          # Open email for full content view
+        """,
+        prog="outlook-cli",
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
     # Create subparsers for commands
@@ -232,7 +244,7 @@ def handle_move(args):
         
         # Provide user feedback
         if result:
-            print(f"Successfully moved email {args.email_id} to {args.target_folder}")
+            print(f"{Fore.GREEN}Successfully moved email {args.email_id} to {args.target_folder}{Style.RESET_ALL}")
             
     except Exception as e:
         # Handle all errors with enhanced error handling

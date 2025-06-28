@@ -19,7 +19,7 @@ class TestCLIPolish:
         
         with patch('sys.stdout', captured_output), \
              patch('sys.stderr', captured_error), \
-             patch('sys.argv', ['outlook-cli', 'read', 'Inbox']):
+             patch('sys.argv', ['outlook-cli', 'read', '--folder', 'Inbox']):
             
             try:
                 main()
@@ -51,7 +51,7 @@ class TestCLIPolish:
         captured_output = io.StringIO()
         
         with patch('sys.stdout', captured_output), \
-             patch('sys.argv', ['outlook-cli', 'read', 'Inbox']):
+             patch('sys.argv', ['outlook-cli', 'read', '--folder', 'Inbox']):
             
             try:
                 main()
@@ -73,7 +73,7 @@ class TestCLIPolish:
         captured_output = io.StringIO()
         
         with patch('sys.stdout', captured_output), \
-             patch('sys.argv', ['outlook-cli', 'read', 'NonexistentFolder']):
+             patch('sys.argv', ['outlook-cli', 'read', '--folder', 'NonexistentFolder']):
             
             try:
                 main()
