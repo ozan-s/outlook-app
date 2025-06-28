@@ -11,12 +11,12 @@ Create EmailReader service to get emails from folders using the OutlookAdapter i
 - No services directory exists yet - clean slate for service layer
 
 ## Success Criteria
-- [ ] EmailReader service takes OutlookAdapter via dependency injection
-- [ ] Can get all emails from a specific folder
-- [ ] Can get emails from all folders
-- [ ] Proper error handling for invalid folder paths
-- [ ] Service is adapter-agnostic (works with mock or future real adapter)
-- [ ] Integration: Works with existing OutlookAdapter interface
+- [x] EmailReader service takes OutlookAdapter via dependency injection
+- [x] Can get all emails from a specific folder
+- [x] Can get emails from all folders
+- [x] Proper error handling for invalid folder paths
+- [x] Service is adapter-agnostic (works with mock or future real adapter)
+- [x] Integration: Works with existing OutlookAdapter interface
 
 ## Implementation Approach
 

@@ -129,8 +129,12 @@ class MockOutlookAdapter(OutlookAdapter):
     
     def get_emails(self, folder_path: str) -> List[Email]:
         """Get all emails from a specific folder."""
+        # First check if folder exists
+        if not any(folder.path == folder_path for folder in self._folders):
+            raise ValueError(f"Folder '{folder_path}' not found")
+        
+        # Return emails if folder exists (empty list if no emails in folder)
         if folder_path not in self._emails:
-            # Return empty list for folders with no test emails
             return []
         return self._emails[folder_path].copy()
     
