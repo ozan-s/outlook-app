@@ -1,11 +1,59 @@
 """CLI entry point for Outlook CLI."""
 
 import argparse
+import sys
 from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
+from outlook_cli.utils.logging_config import setup_logging, get_logger
+from outlook_cli.utils.errors import (
+    OutlookError, OutlookConnectionError, OutlookValidationError, 
+    OutlookTimeoutError, get_error_suggestion
+)
+
+# Setup logging
+setup_logging()
+logger = get_logger(__name__)
+
+
+def _handle_enhanced_error(error: Exception, operation: str) -> None:
+    """
+    Handle enhanced errors with proper logging and user-friendly messages.
+    
+    Args:
+        error: The exception that occurred
+        operation: Description of the operation that failed
+    """
+    logger.error(f"Error in {operation}: {error}")
+    
+    if isinstance(error, OutlookError):
+        # Enhanced error with suggestion
+        message = f"Error: {str(error)}"
+        if error.suggestion:
+            message += f" {error.suggestion}"
+        print(message)
+        
+        # Log additional context for debugging
+        if error.context:
+            logger.debug(f"Error context: {error.context}")
+    
+    elif isinstance(error, ValueError):
+        # Backward compatibility for existing ValueError patterns
+        message = str(error)
+        
+        # Try to enhance with suggestions based on message content
+        if "not found" in message.lower():
+            if "folder" in message.lower():
+                suggestion = get_error_suggestion("folder_not_found", {"message": message})
+                message += f" {suggestion}"
+        
+        print(f"Error: {message}")
+    
+    else:
+        # Generic error handling
+        print(f"Error {operation}: {str(error)}")
 
 
 def _display_email_page(paginator, current_page):
@@ -98,6 +146,7 @@ def main():
 
 def handle_read(args):
     """Handle read command."""
+    logger.info(f"Starting read command for folder: {args.folder}")
     try:
         # Initialize services with MockOutlookAdapter
         adapter = MockOutlookAdapter()
@@ -105,6 +154,7 @@ def handle_read(args):
         
         # Get emails from specified folder
         emails = reader.get_emails_from_folder(args.folder)
+        logger.info(f"Successfully retrieved {len(emails)} emails from {args.folder}")
         
         # Handle empty folder
         if not emails:
@@ -118,16 +168,14 @@ def handle_read(args):
         # Display paginated emails
         _display_email_page(paginator, current_page)
             
-    except ValueError:
-        # Handle folder not found errors
-        print(f"Error: Folder '{args.folder}' not found")
     except Exception as e:
-        # Handle other errors
-        print(f"Error reading emails: {str(e)}")
+        # Handle all errors with enhanced error handling
+        _handle_enhanced_error(e, "reading emails")
 
 
 def handle_find(args):
     """Handle find command."""
+    logger.info(f"Starting find command with sender={args.sender}, subject={args.subject}, folder={args.folder}")
     try:
         # Validate at least one search criteria provided
         if not args.sender and not args.subject:
@@ -166,14 +214,14 @@ def handle_find(args):
         # Display paginated emails
         _display_email_page(paginator, current_page)
             
-    except ValueError:
-        print(f"Error: Folder '{args.folder}' not found")
     except Exception as e:
-        print(f"Error searching emails: {str(e)}")
+        # Handle all errors with enhanced error handling
+        _handle_enhanced_error(e, "searching emails")
 
 
 def handle_move(args):
     """Handle move command."""
+    logger.info(f"Starting move command: email_id={args.email_id}, target_folder={args.target_folder}")
     try:
         # Initialize EmailMover service with adapter
         adapter = MockOutlookAdapter()
@@ -186,16 +234,14 @@ def handle_move(args):
         if result:
             print(f"Successfully moved email {args.email_id} to {args.target_folder}")
             
-    except ValueError as e:
-        # Handle service-specific errors (invalid IDs/folders)
-        print(f"Error: {str(e)}")
     except Exception as e:
-        # Handle unexpected errors
-        print(f"Error moving email: {str(e)}")
+        # Handle all errors with enhanced error handling
+        _handle_enhanced_error(e, "moving email")
 
 
 def handle_open(args):
     """Handle open command."""
+    logger.info(f"Starting open command for email_id: {args.email_id}")
     try:
         # Initialize EmailReader service with adapter
         adapter = MockOutlookAdapter()
@@ -207,9 +253,6 @@ def handle_open(args):
         # Display full email content
         _display_full_email(email)
         
-    except ValueError as e:
-        # Handle email not found errors
-        print(f"Error: {str(e)}")
     except Exception as e:
-        # Handle other errors
-        print(f"Error opening email: {str(e)}")
+        # Handle all errors with enhanced error handling
+        _handle_enhanced_error(e, "opening email")
