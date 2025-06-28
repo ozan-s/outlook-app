@@ -374,3 +374,98 @@ class TestFindCommandIntegration:
                 # Should NOT show search results
                 assert 'Searching for emails' not in output
                 assert 'Subject:' not in output
+
+
+class TestMoveCommandImplementation:
+    """Tests for move command implementation with EmailMover integration."""
+    
+    def test_move_valid_email_to_valid_folder_shows_success_message(self):
+        """Test move command with valid email ID and folder shows success."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'inbox-001', 'Drafts']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show success message
+                assert 'Successfully moved email inbox-001 to Drafts' in output
+                
+                # Should NOT show error messages
+                assert 'Error:' not in output
+    
+    def test_move_nonexistent_email_shows_user_friendly_error(self):
+        """Test move command with nonexistent email ID shows helpful error."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'nonexistent', 'Drafts']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show user-friendly error from service
+                assert "Error: Email 'nonexistent' not found" in output
+                
+                # Should NOT show success message
+                assert 'Successfully moved' not in output
+    
+    def test_move_to_nonexistent_folder_shows_user_friendly_error(self):
+        """Test move command with nonexistent folder shows helpful error."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'inbox-001', 'BadFolder']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show user-friendly error from service
+                assert "Error: Target folder 'BadFolder' not found" in output
+                
+                # Should NOT show success message
+                assert 'Successfully moved' not in output
+    
+    def test_move_with_folder_containing_spaces_works_correctly(self):
+        """Test move command handles folder names with spaces."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'inbox-001', 'Custom/Archive']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show success message with folder name
+                assert 'Successfully moved email inbox-001 to Custom/Archive' in output
+                
+                # Should NOT show error about folder name parsing
+                assert 'Error:' not in output
+
+
+class TestMoveCommandIntegration:
+    """Integration tests for move command with EmailMover service."""
+    
+    def test_end_to_end_move_email_between_real_folders(self):
+        """Integration test: Complete move flow with MockOutlookAdapter."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'inbox-002', 'Sent Items']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show successful move operation
+                assert 'Successfully moved email inbox-002 to Sent Items' in output
+                
+                # Should use EmailMover service correctly
+                assert 'Error:' not in output
+    
+    def test_end_to_end_move_to_custom_folder_works(self):
+        """Integration test: Move email to custom folder path."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'sent-001', 'Custom/Projects']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should handle custom folder path correctly
+                assert 'Successfully moved email sent-001 to Custom/Projects' in output
+                assert 'Error:' not in output
+    
+    def test_end_to_end_move_with_service_layer_error_handling(self):
+        """Integration test: Service layer errors convert to CLI-friendly messages."""
+        with patch('sys.argv', ['outlook-cli', 'move', 'invalid-id', 'Drafts']):
+            with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+                cli.main()
+                output = mock_stdout.getvalue()
+                
+                # Should show ValueError from EmailMover as user-friendly error
+                assert "Error: Email 'invalid-id' not found" in output
+                assert 'Successfully moved' not in output
