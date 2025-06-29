@@ -369,7 +369,7 @@ class TestFindCommandIntegration:
                 output = mock_stdout.getvalue()
                 
                 # Should show helpful usage message
-                assert 'Error: Please specify --sender and/or --subject to search' in output
+                assert 'Error: Please specify --keyword, --sender, and/or --subject to search' in output
                 
                 # Should NOT show search results
                 assert 'Searching for emails' not in output

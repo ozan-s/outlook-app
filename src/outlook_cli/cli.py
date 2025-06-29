@@ -33,6 +33,45 @@ def _create_adapter(args) -> 'OutlookAdapter':
         sys.exit(1)
 
 
+def _perform_keyword_search(searcher, keyword: str, folder: str) -> list:
+    """Perform keyword search using OR logic on sender and subject fields.
+    
+    Args:
+        searcher: EmailSearcher instance
+        keyword: Search keyword
+        folder: Folder to search in
+        
+    Returns:
+        List of Email objects with duplicates removed
+    """
+    # Search both sender and subject fields
+    sender_results = searcher.search_by_sender(keyword, folder)
+    subject_results = searcher.search_by_subject(keyword, folder)
+    
+    # Combine results and remove duplicates (prioritize subject matches first)
+    return _deduplicate_emails(subject_results + sender_results)
+
+
+def _deduplicate_emails(emails: list) -> list:
+    """Remove duplicate emails based on email ID, preserving order.
+    
+    Args:
+        emails: List of Email objects that may contain duplicates
+        
+    Returns:
+        List of Email objects with duplicates removed
+    """
+    seen_ids = set()
+    deduplicated = []
+    
+    for email in emails:
+        if email.id not in seen_ids:
+            deduplicated.append(email)
+            seen_ids.add(email.id)
+    
+    return deduplicated
+
+
 def _handle_enhanced_error(error: Exception, operation: str) -> None:
     """
     Handle enhanced errors with proper logging and user-friendly messages.
@@ -222,16 +261,7 @@ def handle_find(args):
         # Perform search with provided criteria
         if args.keyword:
             # For keyword search, use OR logic: search by sender OR subject
-            sender_results = searcher.search_by_sender(args.keyword, args.folder)
-            subject_results = searcher.search_by_subject(args.keyword, args.folder)
-            
-            # Combine results and remove duplicates (keep order from subject search first)
-            seen_ids = set()
-            results = []
-            for email in subject_results + sender_results:
-                if email.id not in seen_ids:
-                    results.append(email)
-                    seen_ids.add(email.id)
+            results = _perform_keyword_search(searcher, args.keyword, args.folder)
         else:
             # For specific sender/subject search, use AND logic
             results = searcher.search_emails(
