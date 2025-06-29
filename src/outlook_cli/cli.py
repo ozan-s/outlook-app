@@ -120,12 +120,14 @@ def main():
         description="""Outlook CLI for email management
 
 Examples:
-  outlook-cli read Inbox              # Read emails from Inbox folder
-  outlook-cli find "meeting"          # Search for emails containing "meeting"
-  outlook-cli move inbox-001 "Sent Items"  # Move email to Sent Items folder
-  outlook-cli open inbox-001          # Open email for full content view
+  ocli read --folder Inbox                    # Read emails from Inbox folder
+  ocli find --keyword "meeting"               # Search for "meeting" in subject and sender
+  ocli find --subject "project update"        # Search for emails with specific subject
+  ocli find --sender "john@company.com"       # Search for emails from specific sender
+  ocli move <email-id> "Sent Items"           # Move email to Sent Items folder
+  ocli open <email-id>                        # Open email for full content view
         """,
-        prog="outlook-cli",
+        prog="ocli",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
@@ -145,6 +147,7 @@ Examples:
     
     # Find command
     find_parser = subparsers.add_parser('find', help='Search emails with filters')
+    find_parser.add_argument('--keyword', help='Search keyword in subject and sender (alternative to --sender/--subject)')
     find_parser.add_argument('--sender', help='Filter by sender email address')
     find_parser.add_argument('--subject', help='Filter by subject text')
     find_parser.add_argument('--folder', default='Inbox', help='Folder to search in (default: Inbox)')
@@ -205,12 +208,16 @@ def handle_read(args):
 
 def handle_find(args):
     """Handle find command."""
-    logger.info(f"Starting find command with sender={args.sender}, subject={args.subject}, folder={args.folder}")
+    logger.info(f"Starting find command with keyword={args.keyword}, sender={args.sender}, subject={args.subject}, folder={args.folder}")
     try:
         # Validate at least one search criteria provided
-        if not args.sender and not args.subject:
-            print("Error: Please specify --sender and/or --subject to search")
+        if not args.keyword and not args.sender and not args.subject:
+            print("Error: Please specify --keyword, --sender, and/or --subject to search")
             return
+            
+        # If keyword provided, use it for both sender and subject search
+        search_sender = args.sender or (args.keyword if args.keyword else None)
+        search_subject = args.subject or (args.keyword if args.keyword else None)
             
         # Initialize EmailSearcher with configured adapter
         adapter = _create_adapter(args)
@@ -218,16 +225,18 @@ def handle_find(args):
         
         # Perform search with provided criteria
         results = searcher.search_emails(
-            sender=args.sender,
-            subject=args.subject, 
+            sender=search_sender,
+            subject=search_subject, 
             folder_path=args.folder
         )
         
         # Display search summary
         criteria = []
-        if args.sender:
+        if args.keyword:
+            criteria.append(f"keyword '{args.keyword}' in subject and sender")
+        if args.sender and not args.keyword:
             criteria.append(f"sender '{args.sender}'")
-        if args.subject:
+        if args.subject and not args.keyword:
             criteria.append(f"subject '{args.subject}'")
         print(f"Searching for emails with {' and '.join(criteria)} in folder '{args.folder}':")
         print()

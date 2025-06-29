@@ -127,7 +127,7 @@ def test_no_command_shows_help():
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
             cli.main()
             help_output = mock_stdout.getvalue()
-            assert 'usage: outlook-cli' in help_output
+            assert 'usage: ocli' in help_output
             assert '{read,find,move,open}' in help_output
 
 
