@@ -85,3 +85,13 @@
 - Use `PyWin32OutlookAdapter` for production Windows environment
 - Always handle COM exceptions gracefully
 - Test CLI commands with both adapters before deployment
+
+## Development Tools and Best Practices
+
+### UV Package Manager Commands
+- NEVER use pip or python commands directly. ALWAYS use uv equivalents:
+  - ❌ `pip install package` → ✅ `uv add package`
+  - ❌ `python script.py` → ✅ `uv run python script.py`
+  - ❌ `pip show package` → ✅ `uv list | grep package`
+  - ❌ `pytest` → ✅ `uv run pytest`
+  - ❌ `python -m pytest` → ✅ `uv run pytest`
