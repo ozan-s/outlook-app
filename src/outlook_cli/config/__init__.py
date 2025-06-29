@@ -1,0 +1,1 @@
+"""Configuration module for outlook_cli."""

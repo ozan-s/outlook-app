@@ -1,0 +1,955 @@
+2025-06-28 21:58:30 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 21:58:30 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 21:58:36 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:58:36 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:58:41 - outlook_cli.cli - INFO - Starting find command with sender=invalid, subject=None, folder=Inbox
+2025-06-28 21:59:03 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 21:59:03 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 21:59:03 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:03 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:03 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 21:59:03 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Inbox
+2025-06-28 21:59:03 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 21:59:31 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 21:59:31 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:58 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 21:59:58 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 21:59:59 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 21:59:59 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 21:59:59 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 21:59:59 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 21:59:59 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 21:59:59 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:00:31 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:00:31 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:00:31 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:01:02 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:01:02 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:01:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:01:02 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:05:12 - outlook_cli.cli - INFO - Starting read command for folder: TestFolder
+2025-06-28 22:05:12 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'TestFolder' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:05:13 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:05:13 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:05:13 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:07:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:07:18 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:07:24 - outlook_cli.cli - INFO - Starting find command with sender=manager@company.com, subject=None, folder=Inbox
+2025-06-28 22:07:28 - outlook_cli.cli - INFO - Starting open command for email_id: 1
+2025-06-28 22:07:28 - outlook_cli.cli - ERROR - Error in opening email: Email '1' not found
+2025-06-28 22:07:34 - outlook_cli.cli - INFO - Starting open command for email_id: email_001
+2025-06-28 22:07:34 - outlook_cli.cli - ERROR - Error in opening email: Email 'email_001' not found
+2025-06-28 22:07:48 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:07:54 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Custom/Archive
+2025-06-28 22:07:58 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:08:11 - outlook_cli.cli - INFO - Starting read command for folder: NonExistent
+2025-06-28 22:08:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistent' not found
+2025-06-28 22:08:34 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=Custom/Projects
+2025-06-28 22:08:40 - outlook_cli.cli - INFO - Starting read command for folder: Custom/Archive
+2025-06-28 22:08:40 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Custom/Archive
+2025-06-28 22:09:44 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:09:44 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:09:50 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:10:06 - outlook_cli.cli - INFO - Starting read command for folder: NonExistent
+2025-06-28 22:10:06 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistent' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:10:20 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:10:20 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:10:21 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:10:21 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:10:21 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:10:21 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:10:21 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:15:33 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:15:33 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:15:34 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:15:34 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:15:34 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:15:34 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:15:34 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:15:35 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:15:35 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:19:37 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:19:37 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:19:38 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:19:38 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:19:38 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:19:38 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:19:38 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:19:45 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:19:45 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:29:12 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:32:35 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:32:35 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:32:35 - outlook_cli.cli - ERROR - Error in reading emails: 'Email' object has no attribute 'email_id'
+2025-06-28 22:32:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:32:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:32:39 - outlook_cli.cli - ERROR - Error in reading emails: 'Email' object has no attribute 'email_id'
+2025-06-28 22:32:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:32:55 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:33:01 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:33:01 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:33:06 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:33:16 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:33:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:34:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:04 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:38:10 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:38:10 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:40:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:40:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:40:16 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:40:21 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Archive
+2025-06-28 22:40:21 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'Archive' not found
+2025-06-28 22:40:27 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:40:30 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:42:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:42:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:42:42 - test_logger - INFO - Test log message
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:42:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:42:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:44:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:42 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:44:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:44:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:44:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:53 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:53 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:44:53 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:44:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:44:57 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:44:57 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:44:57 - test_logger - INFO - Test log message
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:44:57 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:44:57 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:45:19 - test_logger - INFO - Test log message
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:45:19 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:45:19 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:45:20 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:45:20 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:45:20 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:45:20 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:45:20 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:45:20 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:46:20 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:46:20 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:46:20 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:46:42 - test_logger - INFO - Test log message
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:46:42 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:46:42 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:46:43 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:46:43 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:46:43 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:46:43 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:46:43 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-28 22:47:24 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:47:24 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:47:30 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:47:30 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:47:35 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:47:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:47:55 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:06 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:06 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:06 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:48:06 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:48:06 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=meeting, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=manager, subject=None, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=project, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=pm, subject=update, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=user, subject=None, folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=test, subject=None, folder=NonExistentFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=None, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting find command with sender=None, subject=meeting, folder=Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:48:11 - test_logger - INFO - Test log message
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-28 22:48:11 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-28 22:48:11 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-28 22:48:12 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-28 22:48:12 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-28 22:48:12 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-28 22:48:12 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-28 22:48:12 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-29 07:22:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:22:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:22:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:22:02 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 07:22:02 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 07:22:56 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:02 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:02 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:02 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:40 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:40 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 07:23:45 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 07:23:45 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 07:23:56 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
