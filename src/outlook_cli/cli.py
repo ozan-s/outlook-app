@@ -286,3 +286,7 @@ def handle_open(args):
     except Exception as e:
         # Handle all errors with enhanced error handling
         _handle_enhanced_error(e, "opening email")
+
+
+if __name__ == "__main__":
+    main()
