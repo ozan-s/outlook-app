@@ -215,20 +215,30 @@ def handle_find(args):
             print("Error: Please specify --keyword, --sender, and/or --subject to search")
             return
             
-        # If keyword provided, use it for both sender and subject search
-        search_sender = args.sender or (args.keyword if args.keyword else None)
-        search_subject = args.subject or (args.keyword if args.keyword else None)
-            
         # Initialize EmailSearcher with configured adapter
         adapter = _create_adapter(args)
         searcher = EmailSearcher(adapter)
         
         # Perform search with provided criteria
-        results = searcher.search_emails(
-            sender=search_sender,
-            subject=search_subject, 
-            folder_path=args.folder
-        )
+        if args.keyword:
+            # For keyword search, use OR logic: search by sender OR subject
+            sender_results = searcher.search_by_sender(args.keyword, args.folder)
+            subject_results = searcher.search_by_subject(args.keyword, args.folder)
+            
+            # Combine results and remove duplicates (keep order from subject search first)
+            seen_ids = set()
+            results = []
+            for email in subject_results + sender_results:
+                if email.message_id not in seen_ids:
+                    results.append(email)
+                    seen_ids.add(email.message_id)
+        else:
+            # For specific sender/subject search, use AND logic
+            results = searcher.search_emails(
+                sender=args.sender,
+                subject=args.subject, 
+                folder_path=args.folder
+            )
         
         # Display search summary
         criteria = []
