@@ -199,3 +199,357 @@ class TestEmailSearcherIntegration:
         # 6. Error handling works
         with pytest.raises(ValueError):
             searcher.search_by_sender("user@company.com", folder_path="DoesNotExist")
+
+
+class TestEmailSearcherFiltering:
+    """Test new filtering capabilities added in Milestone 006."""
+    
+    def test_filter_by_read_status_is_read_returns_only_read_emails(self):
+        """Test that filter_by_read_status with is_read=True returns only read emails."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox (mixed read/unread)
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_read_status(inbox_emails, is_read=True)
+        
+        # Assert
+        assert isinstance(results, list)
+        assert len(results) > 0  # Should have at least some read emails
+        assert all(email.is_read for email in results)
+        # Should not include unread emails
+        unread_emails = [email for email in inbox_emails if not email.is_read]
+        for unread_email in unread_emails:
+            assert unread_email not in results
+    
+    def test_filter_by_read_status_is_unread_returns_only_unread_emails(self):
+        """Test that filter_by_read_status with is_unread=True returns only unread emails."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox (mixed read/unread) 
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_read_status(inbox_emails, is_unread=True)
+        
+        # Assert
+        assert isinstance(results, list)
+        assert len(results) > 0  # Should have at least some unread emails
+        assert all(not email.is_read for email in results)
+        # Should not include read emails
+        read_emails = [email for email in inbox_emails if email.is_read]
+        for read_email in read_emails:
+            assert read_email not in results
+    
+    def test_filter_by_read_status_no_filter_returns_all_emails(self):
+        """Test that filter_by_read_status with no flags returns all emails unchanged."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_read_status(inbox_emails)
+        
+        # Assert
+        assert isinstance(results, list)
+        assert len(results) == len(inbox_emails)
+        assert results == inbox_emails
+    
+    def test_filter_by_attachments_has_attachment_returns_only_emails_with_attachments(self):
+        """Test that filter_by_attachments with has_attachment=True returns only emails with attachments."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox (mixed attachment status)
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_attachments(inbox_emails, has_attachment=True)
+        
+        # Assert - this will fail initially as method doesn't exist
+        assert isinstance(results, list)
+        assert len(results) > 0  # Should have at least some emails with attachments
+        assert all(email.has_attachments for email in results)
+        # Should not include emails without attachments
+        no_attachment_emails = [email for email in inbox_emails if not email.has_attachments]
+        for no_attachment_email in no_attachment_emails:
+            assert no_attachment_email not in results
+    
+    def test_filter_by_attachments_no_attachment_returns_only_emails_without_attachments(self):
+        """Test that filter_by_attachments with no_attachment=True returns only emails without attachments."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox (mixed attachment status)
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_attachments(inbox_emails, no_attachment=True)
+        
+        # Assert - this will fail initially as method doesn't exist
+        assert isinstance(results, list)
+        assert len(results) > 0  # Should have at least some emails without attachments
+        assert all(not email.has_attachments for email in results)
+        # Should not include emails with attachments
+        attachment_emails = [email for email in inbox_emails if email.has_attachments]
+        for attachment_email in attachment_emails:
+            assert attachment_email not in results
+    
+    def test_filter_by_attachments_no_filter_returns_all_emails(self):
+        """Test that filter_by_attachments with no flags returns all emails unchanged."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_attachments(inbox_emails)
+        
+        # Assert
+        assert isinstance(results, list)
+        assert len(results) == len(inbox_emails)
+        assert results == inbox_emails
+    
+    def test_filter_by_importance_high_returns_only_high_importance_emails(self):
+        """Test that filter_by_importance with importance='high' returns only high importance emails."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox (has high importance email)
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act
+        results = searcher.filter_by_importance(inbox_emails, importance="high")
+        
+        # Assert - this will fail initially as method doesn't exist
+        assert isinstance(results, list)
+        assert len(results) > 0  # Should have at least one high importance email
+        assert all(email.importance == "High" for email in results)
+        # Should not include non-high importance emails
+        non_high_emails = [email for email in inbox_emails if email.importance != "High"]
+        for non_high_email in non_high_emails:
+            assert non_high_email not in results
+    
+    def test_filter_by_exclusions_not_sender_excludes_matching_senders(self):
+        """Test that filter_by_exclusions with not_sender excludes emails from specified sender."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act - exclude emails from IT Support
+        results = searcher.filter_by_exclusions(inbox_emails, not_sender="it@company.com")
+        
+        # Assert - this will fail initially as method doesn't exist
+        assert isinstance(results, list)
+        assert len(results) < len(inbox_emails)  # Should exclude some emails
+        # Should not include emails from IT Support
+        for email in results:
+            assert "it@company.com" not in email.sender_email.lower()
+            assert "it support" not in email.sender_name.lower()
+    
+    def test_filter_by_exclusions_not_subject_excludes_matching_subjects(self):
+        """Test that filter_by_exclusions with not_subject excludes emails with matching subject."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get all emails from Inbox
+        inbox_emails = adapter.get_emails("Inbox")
+        
+        # Act - exclude emails with "meeting" in subject
+        results = searcher.filter_by_exclusions(inbox_emails, not_subject="meeting")
+        
+        # Assert - this will fail initially as method doesn't exist
+        assert isinstance(results, list)
+        assert len(results) < len(inbox_emails)  # Should exclude some emails
+        # Should not include emails with "meeting" in subject
+        for email in results:
+            assert "meeting" not in email.subject.lower()
+    
+    def test_search_emails_enhanced_with_all_new_filters(self):
+        """Test that enhanced search_emails method supports all new filter types."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Act - this will fail initially as enhanced method doesn't exist
+        results = searcher.search_emails(
+            sender=None,
+            subject=None,
+            folder_path=None,
+            since=None,
+            until=None,
+            is_read=True,
+            has_attachment=True,
+            importance="high"
+        )
+        
+        # Assert
+        assert isinstance(results, list)
+        # All returned emails should meet ALL criteria
+        for email in results:
+            assert email.is_read  # Must be read
+            assert email.has_attachments  # Must have attachments
+            assert email.importance == "High"  # Must be high importance
+    
+    def test_search_emails_with_filter_combinations(self):
+        """Test that search_emails works with various filter combinations."""
+        # Arrange
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Act - Filter for unread emails without attachments, excluding meetings
+        results = searcher.search_emails(
+            is_unread=True,
+            no_attachment=True,
+            not_subject="meeting"
+        )
+        
+        # Assert
+        assert isinstance(results, list)
+        for email in results:
+            assert not email.is_read  # Must be unread
+            assert not email.has_attachments  # Must not have attachments
+            assert "meeting" not in email.subject.lower()  # Must not have "meeting" in subject
+
+
+class TestEmailSearcherCLIIntegration:
+    """Test CLI integration for new filtering features."""
+    
+    def test_cli_integration_with_new_filters_mocked(self):
+        """Test that enhanced search_emails integrates with CLI argument patterns."""
+        # Arrange - Simulate CLI args structure
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Simulate CLI args for: ocli find --is-read --has-attachment --importance high
+        cli_args = type('Args', (), {
+            'is_read': True,
+            'is_unread': False, 
+            'has_attachment': True,
+            'no_attachment': False,
+            'importance': 'high',
+            'not_sender': None,
+            'not_subject': None,
+            'sender': None,
+            'subject': None,
+            'folder': None,
+            'since': None,
+            'until': None
+        })()
+        
+        # Act - Use enhanced search_emails as CLI would
+        results = searcher.search_emails(
+            sender=cli_args.sender,
+            subject=cli_args.subject,
+            folder_path=cli_args.folder,
+            since=cli_args.since,
+            until=cli_args.until,
+            is_read=cli_args.is_read,
+            is_unread=cli_args.is_unread,
+            has_attachment=cli_args.has_attachment,
+            no_attachment=cli_args.no_attachment,
+            importance=cli_args.importance,
+            not_sender=cli_args.not_sender,
+            not_subject=cli_args.not_subject
+        )
+        
+        # Assert - Should work like CLI integration
+        assert isinstance(results, list)
+        for email in results:
+            assert email.is_read  # CLI --is-read filter
+            assert email.has_attachments  # CLI --has-attachment filter  
+            assert email.importance == "High"  # CLI --importance high filter
+
+
+class TestEmailSearcherPerformance:
+    """Test performance of filtering operations with larger datasets."""
+    
+    def test_filtering_performance_with_large_dataset(self):
+        """Test that filtering operations complete quickly with 1000+ emails."""
+        import time
+        from datetime import timedelta
+        
+        # Arrange - Create a large dataset  
+        adapter = MockOutlookAdapter()
+        searcher = EmailSearcher(adapter)
+        
+        # Get base emails and replicate them to create larger dataset
+        base_emails = adapter.get_emails("Inbox")
+        
+        # Create 1000 synthetic emails with varied properties
+        large_email_set = []
+        for i in range(1000):
+            base_email = base_emails[i % len(base_emails)]
+            # Create variations
+            email_copy = type(base_email)(
+                id=f"synthetic-{i}",
+                subject=f"{base_email.subject} #{i}",
+                sender_email=base_email.sender_email,
+                sender_name=base_email.sender_name,
+                recipient_emails=base_email.recipient_emails,
+                received_date=base_email.received_date + timedelta(hours=i),
+                body_text=base_email.body_text,
+                folder_path=base_email.folder_path,
+                has_attachments=(i % 3 == 0),  # Every 3rd email has attachments
+                is_read=(i % 2 == 0),  # Every other email is read
+                importance=["High", "Normal", "Low"][i % 3],  # Cycle importance
+                attachment_count=2 if (i % 3 == 0) else 0
+            )
+            large_email_set.append(email_copy)
+        
+        # Act & Assert - Test each filter type for performance
+        start_time = time.time()
+        
+        # Test read status filtering
+        read_results = searcher.filter_by_read_status(large_email_set, is_read=True)
+        read_time = time.time() - start_time
+        
+        # Test attachment filtering
+        start_time = time.time()
+        attachment_results = searcher.filter_by_attachments(large_email_set, has_attachment=True)
+        attachment_time = time.time() - start_time
+        
+        # Test importance filtering
+        start_time = time.time()
+        importance_results = searcher.filter_by_importance(large_email_set, importance="high")
+        importance_time = time.time() - start_time
+        
+        # Test exclusion filtering
+        start_time = time.time()
+        exclusion_results = searcher.filter_by_exclusions(large_email_set, not_subject="999")
+        exclusion_time = time.time() - start_time
+        
+        # Assert performance requirements (< 1 second per operation)
+        assert read_time < 1.0, f"Read status filtering took {read_time:.3f}s, should be < 1.0s"
+        assert attachment_time < 1.0, f"Attachment filtering took {attachment_time:.3f}s, should be < 1.0s"
+        assert importance_time < 1.0, f"Importance filtering took {importance_time:.3f}s, should be < 1.0s"
+        assert exclusion_time < 1.0, f"Exclusion filtering took {exclusion_time:.3f}s, should be < 1.0s"
+        
+        # Assert functional correctness
+        assert len(read_results) == 500  # Half should be read
+        assert len(attachment_results) == 334  # Every 3rd (~333) has attachments
+        assert len(importance_results) == 334  # Every 3rd has high importance
+        assert len(exclusion_results) == 999  # All except one with "999" in subject
+        
+        print(f"Performance test passed:")
+        print(f"  Read status filtering: {read_time:.3f}s")
+        print(f"  Attachment filtering: {attachment_time:.3f}s") 
+        print(f"  Importance filtering: {importance_time:.3f}s")
+        print(f"  Exclusion filtering: {exclusion_time:.3f}s")

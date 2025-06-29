@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-06-29T14:15:58.201314",
+  "platform": "darwin",
+  "python_version": "3.11.11 (main, Jan 14 2025, 23:36:41) [Clang 19.1.6 ]",
+  "test_results": {
+    "connection_test": {
+      "status": "failed",
+      "error": "pywin32 not available: No module named 'win32com'",
+      "details": "Install pywin32 package"
+    },
+    "folder_test": {
+      "status": "not_run"
+    },
+    "error_handling_test": {
+      "status": "success",
+      "message": "Error handling works",
+      "error_tests": [
+        {
+          "test": "invalid_com_object",
+          "status": "expected_failure",
+          "error": "No module named 'win32com'"
+        },
+        {
+          "test": "outlook_not_running",
+          "status": "info",
+          "message": "Cannot test Outlook not running without stopping it"
+        }
+      ],
+      "details": "Error handling scenarios tested"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-06-29T14:20:37.548200",
+  "platform": "darwin",
+  "python_version": "3.11.11 (main, Jan 14 2025, 23:36:41) [Clang 19.1.6 ]",
+  "test_results": {
+    "folders_test": {
+      "command": "folders --tree",
+      "status": "success",
+      "returncode": 0,
+      "stdout": "Error listing folders: pywin32 not available - this adapter requires Windows",
+      "stderr": "",
+      "analysis": {
+        "lines_count": 1,
+        "has_tree_structure": false,
+        "has_folders": false,
+        "empty_output": false
+      },
+      "adapter": "real"
+    },
+    "read_test": {
+      "command": "read --folder Inbox",
+      "status": "success",
+      "returncode": 0,
+      "stdout": "Error reading emails: pywin32 not available - this adapter requires Windows",
+      "stderr": "",
+      "analysis": {
+        "has_email_headers": false,
+        "has_pagination": false,
+        "has_email_ids": false,
+        "email_count": 0,
+        "empty_output": false
+      },
+      "adapter": "real"
+    },
+    "find_test": {
+      "command": "find --keyword meeting",
+      "status": "success",
+      "returncode": 0,
+      "stdout": "Error searching emails: pywin32 not available - this adapter requires Windows",
+      "stderr": "",
+      "analysis": {
+        "shows_search_query": false,
+        "has_results_structure": true,
+        "has_email_content": false,
+        "no_results_found": false,
+        "empty_output": false
+      },
+      "adapter": "real"
+    },
+    "exchange_dn_test": {
+      "command": "Exchange DN resolution pattern test",
+      "status": "success",
+      "test_results": {
+        "pattern_recognition": true,
+        "resolution_workflow": true,
+        "integration_ready": true,
+        "issues": []
+      },
+      "pattern_steps": [
+        "CreateRecipient(exchange_dn)",
+        "recipient.Resolve()",
+        "recipient.AddressEntry",
+        "address_entry.GetExchangeUser()",
+        "exchange_user.PrimarySmtpAddress"
+      ],
+      "critical_for": "Corporate Outlook environments with Exchange server"
+    },
+    "compatibility_test": {
+      "command": "cross-adapter compatibility test",
+      "status": "success",
+      "results": {
+        "mock": {
+          "status": "success",
+          "returncode": 0,
+          "output_lines": 9,
+          "has_tree_chars": true,
+          "stderr": ""
+        },
+        "real": {
+          "status": "success",
+          "returncode": 0,
+          "output_lines": 2,
+          "has_tree_chars": false,
+          "stderr": ""
+        }
+      },
+      "analysis": {
+        "both_succeed": true,
+        "mock_works": true,
+        "real_works": true,
+        "similar_structure": false
+      }
+    }
+  }
+}

@@ -1426,3 +1426,48 @@
 2025-06-29 09:49:14 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
 2025-06-29 09:49:14 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
 2025-06-29 09:49:14 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-29 14:08:32 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:08:59 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 14:08:59 - __main__ - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 14:09:08 - __main__ - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 14:17:06 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:17:06 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:17:06 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 14:17:06 - __main__ - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:17:06 - __main__ - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 14:17:06 - __main__ - ERROR - Error in searching emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:17:06 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:17:07 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:17:07 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:19:51 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:19:51 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:19:51 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 14:19:51 - __main__ - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:19:51 - __main__ - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 14:19:51 - __main__ - ERROR - Error in searching emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:19:51 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:19:51 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:19:51 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:04 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:04 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:05 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 14:20:05 - __main__ - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:05 - __main__ - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 14:20:05 - __main__ - ERROR - Error in searching emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:05 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:05 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:05 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:37 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:37 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:37 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 14:20:37 - __main__ - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:38 - __main__ - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 14:20:38 - __main__ - ERROR - Error in searching emails: pywin32 not available - this adapter requires Windows
+2025-06-29 14:20:38 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:38 - __main__ - INFO - Starting folders command with tree=True
+2025-06-29 14:20:38 - __main__ - ERROR - Error in listing folders: pywin32 not available - this adapter requires Windows
+2025-06-29 15:35:56 - __main__ - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 15:36:07 - __main__ - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 15:36:15 - __main__ - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 15:36:23 - __main__ - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 15:38:08 - __main__ - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox

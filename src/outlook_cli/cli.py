@@ -287,8 +287,15 @@ def handle_find(args):
     logger.info(f"Starting find command with keyword={args.keyword}, sender={args.sender}, subject={args.subject}, folder={args.folder}")
     try:
         # Validate at least one search criteria provided
-        if not args.keyword and not args.sender and not args.subject:
-            print("Error: Please specify --keyword, --sender, and/or --subject to search")
+        has_search_criteria = (
+            args.keyword or args.sender or args.subject or 
+            args.since or args.until or args.is_read or args.is_unread or
+            args.has_attachment or args.no_attachment or args.importance or
+            args.not_sender or args.not_subject
+        )
+        
+        if not has_search_criteria:
+            print("Error: Please specify at least one search criteria (--keyword, --sender, --subject, date filters, or other filters)")
             return
             
         # Parse date arguments
@@ -307,31 +314,52 @@ def handle_find(args):
         adapter = _create_adapter(args)
         searcher = EmailSearcher(adapter)
         
-        # Perform search with provided criteria
+        # Perform search with provided criteria (including new filters)
         if args.keyword:
-            # For keyword search, use OR logic: search by sender OR subject, then apply date filters
+            # For keyword search, use OR logic: search by sender OR subject, then apply all filters
             sender_results = searcher.search_emails(
                 sender=args.keyword,
                 folder_path=args.folder,
                 since=since_date,
-                until=until_date
+                until=until_date,
+                is_read=args.is_read,
+                is_unread=args.is_unread,
+                has_attachment=args.has_attachment,
+                no_attachment=args.no_attachment,
+                importance=args.importance,
+                not_sender=args.not_sender,
+                not_subject=args.not_subject
             )
             subject_results = searcher.search_emails(
                 subject=args.keyword,
                 folder_path=args.folder,
                 since=since_date,
-                until=until_date
+                until=until_date,
+                is_read=args.is_read,
+                is_unread=args.is_unread,
+                has_attachment=args.has_attachment,
+                no_attachment=args.no_attachment,
+                importance=args.importance,
+                not_sender=args.not_sender,
+                not_subject=args.not_subject
             )
             # Combine results and remove duplicates
             results = _deduplicate_emails(subject_results + sender_results)
         else:
-            # For specific sender/subject search, use AND logic with date filters
+            # For specific sender/subject search, use AND logic with all filters
             results = searcher.search_emails(
                 sender=args.sender,
                 subject=args.subject, 
                 folder_path=args.folder,
                 since=since_date,
-                until=until_date
+                until=until_date,
+                is_read=args.is_read,
+                is_unread=args.is_unread,
+                has_attachment=args.has_attachment,
+                no_attachment=args.no_attachment,
+                importance=args.importance,
+                not_sender=args.not_sender,
+                not_subject=args.not_subject
             )
         
         # Display search summary

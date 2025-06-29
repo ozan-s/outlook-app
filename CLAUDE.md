@@ -56,6 +56,24 @@
   # No custom validation code needed
   ```
 
+### Progressive Filtering Pattern
+- **Problem**: Multiple filter criteria need to be applied efficiently with maintainable code
+- **Solution**: Apply filters in sequence using dedicated filter methods, allowing each to operate on the result of the previous
+- **Implementation**:
+  ```python
+  def search_with_filters(self, emails, **filters):
+      filtered_emails = emails
+      
+      # Apply each filter progressively
+      filtered_emails = self.filter_by_read_status(filtered_emails, filters.get('is_read'), filters.get('is_unread'))
+      filtered_emails = self.filter_by_attachments(filtered_emails, filters.get('has_attachment'), filters.get('no_attachment'))
+      filtered_emails = self.filter_by_importance(filtered_emails, filters.get('importance'))
+      filtered_emails = self.filter_by_exclusions(filtered_emails, filters.get('not_sender'), filters.get('not_subject'))
+      
+      return filtered_emails
+  ```
+- **Benefits**: Each filter method is testable in isolation, easy to add/remove filters, clear separation of concerns
+
 ## Windows COM Interface Patterns
 
 ### Exchange Distinguished Name Resolution Pattern  
