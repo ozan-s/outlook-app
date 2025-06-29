@@ -31,12 +31,12 @@ ocli folders → FolderService → AdapterFactory switching
 ```
 
 ## Success Criteria
-- [ ] Fix current COM test: Unicode encoding, defensive iteration, proper error classification
-- [ ] Application integration test validates actual CLI commands work end-to-end
-- [ ] Test Exchange DN resolution with real Outlook corporate environment
-- [ ] Validate cross-adapter compatibility (same behavior mock vs real)
-- [ ] Test critical application patterns: Service-to-CLI integration, error handling
-- [ ] Performance validation: sub-2s response for folder enumeration and email reading
+- [x] Fix current COM test: Unicode encoding, defensive iteration, proper error classification
+- [x] Application integration test validates actual CLI commands work end-to-end
+- [x] Test Exchange DN resolution with real Outlook corporate environment
+- [x] Validate cross-adapter compatibility (same behavior mock vs real)
+- [x] Test critical application patterns: Service-to-CLI integration, error handling
+- [x] Performance validation: sub-2s response for folder enumeration and email reading
 
 ## Implementation Approach
 

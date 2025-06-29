@@ -51,20 +51,20 @@ Starting Windows COM Interface Validation...
 ==================================================
 
 1. Testing Basic COM Connection...
-✓ COM Connection: SUCCESS
+[OK] COM Connection: SUCCESS
 
 2. Testing Folder Enumeration...
-✓ Folder Enumeration: SUCCESS (42 folders)
+[OK] Folder Enumeration: SUCCESS (42 folders)
 
 3. Testing Error Handling...
-✓ Error Handling: SUCCESS
+[OK] Error Handling: SUCCESS
 
 ==================================================
 Results saved to: outlook_com_validation_results.json
 Detailed logs saved to: outlook_com_test.log
 
 SUMMARY: 3/3 tests passed
-🎉 All tests passed! COM interface is working correctly.
+All tests passed! COM interface is working correctly.
 ```
 
 ### Step 3: Capture Results
@@ -208,9 +208,9 @@ Please provide:
 
 **Test Results:**
 SUMMARY: 3/3 tests passed
-✓ COM Connection: SUCCESS  
-✓ Folder Enumeration: SUCCESS (42 folders)
-✓ Error Handling: SUCCESS
+[OK] COM Connection: SUCCESS  
+[OK] Folder Enumeration: SUCCESS (42 folders)
+[OK] Error Handling: SUCCESS
 
 **Notes:**
 - No issues detected
