@@ -2,9 +2,7 @@
 
 import io
 import os
-import sys
 from unittest.mock import patch
-import pytest
 from outlook_cli.cli import main
 
 
@@ -225,7 +223,6 @@ class TestMilestoneIntegration:
         
         # Test 2: Logging to file (not console)
         import logging
-        from outlook_cli.utils.logging_config import setup_logging
         
         # Setup should create file handler, not console handler  
         logger = logging.getLogger('test_logger')

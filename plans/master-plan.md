@@ -21,7 +21,7 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 - [x] Milestone 003: Relative date parsing and validation ✅ 2025-06-29
 
 ### Phase 2: Service Layer (Data Access & Processing)
-- [ ] Milestone 004: Folder enumeration service and adapter methods
+- [x] Milestone 004: Folder enumeration service and adapter methods ✅ 2025-06-29
 - [ ] **Milestone 005: Windows Testing Checkpoint #1 - COM Interface Validation**
 - [ ] Milestone 006: Email filtering service with attachment/read status filters
 - [ ] Milestone 007: Sorting and pagination service enhancements
@@ -239,6 +239,13 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 - **Implementation**: Added comprehensive time units (m, h, d, w, M, y), natural language (today, tomorrow, weekdays), relative references
 - **Impact**: Date filtering now matches modern CLI tool expectations - no future milestones need date parsing work
 - **Rationale**: TDD implementation revealed user expectations for comprehensive date vocabulary; minimal effort for major UX improvement
+
+### 2025-06-29: After Milestone 004 (Folder Enumeration Service)
+- **No Scope Changes**: Milestone delivered exactly as planned
+- **Implementation**: FolderService class handles hierarchy organization, tree view displays perfect nested structure with Unicode characters
+- **Pattern Established**: Service-to-CLI Integration Pattern works well for folder display logic
+- **Impact**: Folder tree view already working - no additional milestones needed for folder functionality
+- **Rationale**: Clean separation of concerns between adapter (data), service (organization), and CLI (display) proved effective
 
 ## Adaptation Points
 

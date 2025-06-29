@@ -3,11 +3,10 @@ Timeout handling for long-running Outlook operations.
 """
 import os
 import time
-import signal
 import threading
 import functools
 from contextlib import contextmanager
-from typing import Optional, Any
+from typing import Optional
 
 from .errors import OutlookTimeoutError
 from .logging_config import get_logger
@@ -225,6 +224,6 @@ def timeout_operation(
         
         logger.info(f"Completed {operation}")
         
-    except Exception as e:
+    except Exception:
         # Re-raise any exceptions (including timeouts)
         raise

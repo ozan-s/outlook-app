@@ -1,8 +1,6 @@
 """
 Tests for connection health monitoring.
 """
-import time
-from unittest.mock import Mock, patch
 
 import pytest
 
@@ -268,7 +266,6 @@ class TestIntegrationWithExistingAdapters:
 
     def test_connection_monitor_works_with_mock_adapter(self):
         """Test connection monitoring works with MockOutlookAdapter pattern."""
-        from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
         
         def mock_checker():
             # Mock adapter is always "connected"

@@ -1,10 +1,7 @@
 """Test CLI date integration functionality."""
-import pytest
-import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from unittest.mock import patch, MagicMock
-from outlook_cli.cli import main, handle_find
-from outlook_cli.models.email import Email
+from outlook_cli.cli import handle_find
 
 
 class TestCLIDateIntegration:

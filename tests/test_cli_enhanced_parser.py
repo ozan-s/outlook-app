@@ -1,6 +1,5 @@
 """Test CLI enhanced argument parser functionality."""
 import pytest
-import argparse
 import sys
 from unittest.mock import patch
 from outlook_cli.cli import main

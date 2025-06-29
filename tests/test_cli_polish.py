@@ -1,11 +1,8 @@
 """Tests for CLI polish features (Milestone 015+016)."""
 
 import io
-import sys
-from unittest.mock import patch, MagicMock
-import pytest
+from unittest.mock import patch
 from outlook_cli.cli import main
-import logging
 
 
 class TestCLIPolish:

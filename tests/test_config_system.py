@@ -2,7 +2,6 @@
 
 import os
 import io
-import sys
 from unittest.mock import patch, MagicMock
 import pytest
 from outlook_cli.cli import main

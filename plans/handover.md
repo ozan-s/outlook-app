@@ -1,24 +1,26 @@
 # Session Handover
 
 ## Current State
-- **Last Completed**: Milestone 003: Relative Date Parsing and Validation ✅
-- **System State**: Comprehensive date parsing (30+ formats) fully integrated with CLI and search
-- **No Blockers**: All existing functionality preserved, tests passing
+- **Last Completed**: Milestone 004: Folder enumeration service and adapter methods ✅
+- **System State**: 
+  - FolderService class implemented with hierarchy organization
+  - CLI `folders` command works with both tree and flat views
+  - All tests passing (5 new tests added)
+- **No Blockers**: All functionality working correctly
 
 ## Next Milestone
-- **Number**: Milestone 004
-- **Description**: Folder enumeration service and adapter methods
-- **Key Challenge**: COM interface integration for recursive folder discovery
-- **Estimated**: 4 hours
+- **Number**: Milestone 005
+- **Description**: Windows Testing Checkpoint #1 - COM Interface Validation
+- **Key Challenge**: Generate comprehensive test script for Windows machine to validate COM interface
+- **Estimated**: 2 hours
 
 ## Critical Context
-- Date vocabulary expanded far beyond original scope (4 → 30+ formats)
-- CLI help text updated to showcase new date formats
-- Date Parser Design Pattern captured in CLAUDE.md for future reference
-- All tests passing (19 date parser + 10 integration + existing tests)
+The folder enumeration system is now complete and follows the established Service-to-CLI Integration Pattern. The FolderService handles the complex logic of organizing flat folder lists into hierarchical structures, while the CLI simply calls the service methods for display formatting.
 
-## Recent Discoveries
-- TDD revealed users expect comprehensive date vocabulary matching modern CLI tools
-- Month arithmetic requires proper calendar handling, not 30-day approximations
-- Case-sensitive parsing needed for minutes (m) vs months (M) distinction
-- Service-to-CLI integration pattern worked perfectly for date filtering
+Key patterns established:
+- Service layer organizes data (hierarchy, levels)
+- Service provides formatted output strings
+- CLI integrates service via single method calls
+- Integration tests validate with real adapter data
+
+Next session should focus on Windows testing checkpoint to validate the COM interface works correctly with real Outlook before proceeding to email filtering services.

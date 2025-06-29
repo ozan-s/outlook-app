@@ -2,12 +2,9 @@
 Tests for centralized logging configuration.
 """
 import logging
-import os
 import tempfile
 from pathlib import Path
-from unittest.mock import patch
 
-import pytest
 
 from outlook_cli.utils.logging_config import setup_logging, get_logger
 

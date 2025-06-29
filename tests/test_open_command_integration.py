@@ -1,8 +1,6 @@
 """Integration tests for open command end-to-end flow."""
 
-import pytest
 import subprocess
-import sys
 from pathlib import Path
 
 

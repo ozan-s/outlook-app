@@ -3,7 +3,6 @@
 import pytest
 from unittest.mock import patch, Mock
 import io
-import sys
 from outlook_cli.cli import handle_open
 from outlook_cli.models import Email
 from datetime import datetime, timezone

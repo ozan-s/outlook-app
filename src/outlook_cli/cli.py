@@ -6,6 +6,7 @@ from colorama import init, Fore, Style
 from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
+from outlook_cli.services.folder_service import FolderService
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.config.adapter_factory import AdapterFactory
 from outlook_cli.utils.logging_config import setup_logging, get_logger
@@ -406,20 +407,20 @@ def handle_folders(args):
     try:
         # Initialize adapter to get folders
         adapter = _create_adapter(args)
-        
-        # Get all available folders
         folders = adapter.get_folders()
+        
+        # Initialize folder service for formatting
+        folder_service = FolderService()
         
         # Display folders based on tree flag
         if args.tree:
             print("Folders (tree view):")
-            # TODO: Implement tree view in future milestone
-            for folder in folders:
-                print(f"├── {folder.name}")
+            tree_output = folder_service.format_tree_view(folders)
+            print(tree_output)
         else:
             print("Available folders:")
-            for folder in folders:
-                print(f"  {folder.name}")
+            flat_output = folder_service.format_flat_view(folders)
+            print(flat_output)
                 
     except Exception as e:
         # Handle all errors with enhanced error handling

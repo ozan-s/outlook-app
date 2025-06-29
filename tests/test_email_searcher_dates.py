@@ -1,5 +1,4 @@
 """Test EmailSearcher date filtering functionality."""
-import pytest
 from datetime import datetime, timezone, timedelta
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter

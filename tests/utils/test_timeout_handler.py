@@ -2,8 +2,7 @@
 Tests for timeout handling for long operations.
 """
 import time
-import threading
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 
 import pytest
 

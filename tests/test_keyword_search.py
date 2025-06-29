@@ -1,9 +1,7 @@
 """Tests for keyword search functionality (TDD approach)."""
 
 import io
-import sys
 from unittest.mock import patch, MagicMock
-import pytest
 from datetime import datetime
 from outlook_cli.cli import main
 from outlook_cli.models.email import Email

@@ -1,6 +1,5 @@
 """Test for OutlookAdapter interface completeness."""
 
-import pytest
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 from outlook_cli.models import Email
 
