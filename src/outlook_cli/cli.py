@@ -7,13 +7,13 @@ from outlook_cli.services.email_reader import EmailReader
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.paginator import Paginator
-from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
 from outlook_cli.config.adapter_factory import AdapterFactory
 from outlook_cli.utils.logging_config import setup_logging, get_logger
 from outlook_cli.utils.errors import (
-    OutlookError, OutlookConnectionError, OutlookValidationError, 
-    OutlookTimeoutError, get_error_suggestion
+    OutlookError, get_error_suggestion
 )
+from outlook_cli.utils.date_parser import parse_relative_date, validate_date_range
+from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 
 # Initialize colorama for cross-platform color support
 init(autoreset=True)
@@ -23,7 +23,7 @@ setup_logging()
 logger = get_logger(__name__)
 
 
-def _create_adapter(args) -> 'OutlookAdapter':
+def _create_adapter(args) -> OutlookAdapter:
     """Create adapter based on CLI arguments and configuration."""
     try:
         adapter_type = getattr(args, 'adapter', None)
@@ -190,7 +190,7 @@ Examples:
     find_parser.add_argument('--sender', help='Filter by sender email address')
     find_parser.add_argument('--subject', help='Filter by subject text')
     find_parser.add_argument('--folder', default='Inbox', help='Folder to search in (default: Inbox)')
-    find_parser.add_argument('--since', help='Start date (YYYY-MM-DD, relative: 7d, 2w, yesterday)')
+    find_parser.add_argument('--since', help='Start date (formats: 2025-06-01, 7d, 2w, 1M, 1y, 2h, 30m, yesterday, today, tomorrow, monday, last-friday, last-week, this-month)')
     find_parser.add_argument('--until', help='End date (same formats as --since)')
     
     # Read status filters (mutually exclusive)
@@ -290,20 +290,47 @@ def handle_find(args):
             print("Error: Please specify --keyword, --sender, and/or --subject to search")
             return
             
+        # Parse date arguments
+        since_date = None
+        until_date = None
+        
+        if args.since:
+            since_date = parse_relative_date(args.since)
+        if args.until:
+            until_date = parse_relative_date(args.until)
+            
+        # Validate date range
+        validate_date_range(since_date, until_date)
+        
         # Initialize EmailSearcher with configured adapter
         adapter = _create_adapter(args)
         searcher = EmailSearcher(adapter)
         
         # Perform search with provided criteria
         if args.keyword:
-            # For keyword search, use OR logic: search by sender OR subject
-            results = _perform_keyword_search(searcher, args.keyword, args.folder)
+            # For keyword search, use OR logic: search by sender OR subject, then apply date filters
+            sender_results = searcher.search_emails(
+                sender=args.keyword,
+                folder_path=args.folder,
+                since=since_date,
+                until=until_date
+            )
+            subject_results = searcher.search_emails(
+                subject=args.keyword,
+                folder_path=args.folder,
+                since=since_date,
+                until=until_date
+            )
+            # Combine results and remove duplicates
+            results = _deduplicate_emails(subject_results + sender_results)
         else:
-            # For specific sender/subject search, use AND logic
+            # For specific sender/subject search, use AND logic with date filters
             results = searcher.search_emails(
                 sender=args.sender,
                 subject=args.subject, 
-                folder_path=args.folder
+                folder_path=args.folder,
+                since=since_date,
+                until=until_date
             )
         
         # Display search summary

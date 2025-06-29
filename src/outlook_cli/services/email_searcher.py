@@ -1,6 +1,7 @@
 """EmailSearcher service for filtering emails by various criteria."""
 
 from typing import List, Optional
+from datetime import datetime
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 from outlook_cli.models.email import Email
 from outlook_cli.services.email_reader import EmailReader
@@ -72,13 +73,15 @@ class EmailSearcher:
             if subject_lower in email.subject.lower()
         ]
     
-    def search_emails(self, sender: Optional[str] = None, subject: Optional[str] = None, folder_path: Optional[str] = None) -> List[Email]:
+    def search_emails(self, sender: Optional[str] = None, subject: Optional[str] = None, folder_path: Optional[str] = None, since: Optional['datetime'] = None, until: Optional['datetime'] = None) -> List[Email]:
         """Search emails by multiple criteria with AND logic.
         
         Args:
             sender: Optional sender email address or display name (case-insensitive).
             subject: Optional subject keywords (case-insensitive, partial match).
             folder_path: Optional folder to search in. If None, searches all folders.
+            since: Optional start date (inclusive) - emails received on or after this date.
+            until: Optional end date (inclusive) - emails received on or before this date.
             
         Returns:
             List[Email]: Emails matching ALL specified criteria.
@@ -108,6 +111,18 @@ class EmailSearcher:
             filtered_emails = [
                 email for email in filtered_emails
                 if subject_lower in email.subject.lower()
+            ]
+        
+        if since:
+            filtered_emails = [
+                email for email in filtered_emails
+                if email.received_date >= since
+            ]
+        
+        if until:
+            filtered_emails = [
+                email for email in filtered_emails
+                if email.received_date <= until
             ]
         
         return filtered_emails

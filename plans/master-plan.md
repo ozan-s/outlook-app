@@ -18,7 +18,7 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 ### Phase 1: Foundation (CLI Parser & Infrastructure)
 - [x] Milestone 001: Enhanced CLI argument parser with new filter flags ✅ 2025-06-29
 - [ ] ~Milestone 002: Flag conflict detection and warning system~ (Completed in 001)
-- [ ] Milestone 003: Relative date parsing and validation
+- [x] Milestone 003: Relative date parsing and validation ✅ 2025-06-29
 
 ### Phase 2: Service Layer (Data Access & Processing)
 - [ ] Milestone 004: Folder enumeration service and adapter methods
@@ -58,11 +58,12 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 **Estimated Time**: 2 hours
 **Conflicts**: `--is-read` vs `--is-unread`, `--has-attachment` vs `--no-attachment`, `--limit` vs `--all`
 
-### Milestone 003: Relative Date Parsing and Validation
-**Scope**: Parse relative dates (7d, 2w, 1m, yesterday) into absolute datetime objects
-**Integration Points**: Date filter validation, service layer date handling  
-**Validates**: All relative formats convert correctly, integrate with existing date logic
-**Estimated Time**: 3 hours
+### Milestone 003: Relative Date Parsing and Validation ✅ COMPLETE
+**Scope**: Comprehensive date vocabulary (30+ formats) including time units, natural language, weekdays
+**Integration Points**: CLI argument processing, EmailSearcher service, date validation
+**Validates**: All date formats work end-to-end, error handling, full integration with search
+**Actual Time**: 4 hours (expanded scope)
+**Delivered**: Minutes/hours/days/weeks/months/years (7d, 2h, 1M), natural language (today, yesterday, tomorrow), weekdays (monday, last-friday), relative references (last-week, this-month)
 
 ### Milestone 004: Folder Enumeration Service and Adapter Methods
 **Scope**: Add methods to OutlookAdapter for recursive folder discovery
@@ -232,6 +233,12 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 - **Removed 008**: `folders` command basic functionality completed in Milestone 001
 - **Removed 012**: Tree view for folders implemented alongside basic command in Milestone 001
 - **Rationale**: TDD implementation revealed argparse handles flag conflicts elegantly, and folders command was simpler than expected
+
+### 2025-06-29: After Milestone 003 (Relative Date Parsing)
+- **Scope Expansion**: Date vocabulary expanded far beyond plan (4 → 30+ formats)
+- **Implementation**: Added comprehensive time units (m, h, d, w, M, y), natural language (today, tomorrow, weekdays), relative references
+- **Impact**: Date filtering now matches modern CLI tool expectations - no future milestones need date parsing work
+- **Rationale**: TDD implementation revealed user expectations for comprehensive date vocabulary; minimal effort for major UX improvement
 
 ## Adaptation Points
 

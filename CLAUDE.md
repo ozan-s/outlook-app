@@ -74,6 +74,12 @@
 - **Senders**: Require Exchange DN resolution via `CreateRecipient` method
 - **Anti-Pattern**: `SendUsingAccount` shows mailbox owner, not actual sender
 
+### Date Parser Design Pattern
+- **Case Sensitivity Strategy**: Parse case-insensitive for most formats, preserve original string for case-sensitive patterns (e.g., `1M` months vs `1m` minutes)
+- **Order-Dependent Parsing**: Check more specific patterns before generic ones (months `1M` before minutes `1m`, case-sensitive before case-insensitive)
+- **Month Arithmetic**: Use proper calendar arithmetic with boundary handling rather than approximations (30-day months fail at month boundaries)
+- **Timezone Consistency**: Always return UTC timezone-aware datetime objects regardless of input format
+
 ## Development Guidelines
 - Use `MockOutlookAdapter` for development and testing
 - Use `PyWin32OutlookAdapter` for production Windows environment
