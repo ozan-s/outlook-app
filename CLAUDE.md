@@ -80,6 +80,22 @@
 - **Month Arithmetic**: Use proper calendar arithmetic with boundary handling rather than approximations (30-day months fail at month boundaries)
 - **Timezone Consistency**: Always return UTC timezone-aware datetime objects regardless of input format
 
+### Windows Subprocess Unicode Pattern
+- **Problem**: Windows subprocess fails with UnicodeDecodeError when CLI output contains corporate email data with special characters
+- **Solution**: Always use `encoding='utf-8'` and `errors='replace'` in subprocess.run calls
+- **Implementation**:
+  ```python
+  result = subprocess.run(
+      command,
+      capture_output=True,
+      text=True,
+      timeout=60,
+      encoding='utf-8',
+      errors='replace'  # Replace invalid characters instead of crashing
+  )
+  ```
+- **Corporate Environment**: Essential for Windows environments with Exchange data containing Unicode characters
+
 ## Development Guidelines
 - Use `MockOutlookAdapter` for development and testing
 - Use `PyWin32OutlookAdapter` for production Windows environment
