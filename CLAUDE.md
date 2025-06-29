@@ -42,6 +42,20 @@
               raise ValueError(f"Invalid adapter type: '{adapter_type}'")
   ```
 
+### CLI Argument Parser Pattern with Mutually Exclusive Groups
+- **Problem**: Some CLI flags conflict (e.g., --is-read vs --is-unread, --limit vs --all)
+- **Solution**: Use argparse mutually exclusive groups instead of custom validation
+- **Implementation**:
+  ```python
+  # Create mutually exclusive group
+  read_status_group = parser.add_mutually_exclusive_group()
+  read_status_group.add_argument('--is-read', action='store_true')
+  read_status_group.add_argument('--is-unread', action='store_true')
+  
+  # argparse automatically handles conflicts with clear error messages
+  # No custom validation code needed
+  ```
+
 ## Windows COM Interface Patterns
 
 ### Exchange Distinguished Name Resolution Pattern  

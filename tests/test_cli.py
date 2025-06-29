@@ -128,7 +128,7 @@ def test_no_command_shows_help():
             cli.main()
             help_output = mock_stdout.getvalue()
             assert 'usage: ocli' in help_output
-            assert '{read,find,move,open}' in help_output
+            assert '{read,find,move,open,folders}' in help_output
 
 
 def test_integration_read_with_folder():

@@ -190,6 +190,36 @@ Examples:
     find_parser.add_argument('--sender', help='Filter by sender email address')
     find_parser.add_argument('--subject', help='Filter by subject text')
     find_parser.add_argument('--folder', default='Inbox', help='Folder to search in (default: Inbox)')
+    find_parser.add_argument('--since', help='Start date (YYYY-MM-DD, relative: 7d, 2w, yesterday)')
+    find_parser.add_argument('--until', help='End date (same formats as --since)')
+    
+    # Read status filters (mutually exclusive)
+    read_status_group = find_parser.add_mutually_exclusive_group()
+    read_status_group.add_argument('--is-read', action='store_true', help='Show only read emails')
+    read_status_group.add_argument('--is-unread', action='store_true', help='Show only unread emails')
+    
+    # Attachment filters (has/no are mutually exclusive)
+    attachment_group = find_parser.add_mutually_exclusive_group()
+    attachment_group.add_argument('--has-attachment', action='store_true', help='Show only emails with attachments')
+    attachment_group.add_argument('--no-attachment', action='store_true', help='Show only emails without attachments')
+    find_parser.add_argument('--attachment-type', help='Filter by file extension (pdf, doc, jpg, etc.)')
+    
+    # Content filters
+    find_parser.add_argument('--importance', choices=['high', 'normal', 'low'], help='Filter by importance (high, normal, low)')
+    find_parser.add_argument('--folders', nargs='+', help='Search multiple folders (replaces single --folder)')
+    find_parser.add_argument('--not-sender', help='Exclude emails from specific sender')
+    find_parser.add_argument('--not-subject', help='Exclude emails with subject keywords')
+    
+    # Result control (mutually exclusive)
+    result_control_group = find_parser.add_mutually_exclusive_group()
+    result_control_group.add_argument('--limit', help='Number of results per page (default: 10)')
+    result_control_group.add_argument('--all', action='store_true', help='Return all results, no paging')
+    
+    # Sorting options
+    find_parser.add_argument('--sort-by', choices=['received_date', 'subject', 'sender', 'importance'], 
+                            help='Field to sort by (received_date, subject, sender, importance)')
+    find_parser.add_argument('--sort-order', choices=['desc', 'asc'], default='desc',
+                            help='Sort direction (desc [default], asc)')
     
     # Move command
     move_parser = subparsers.add_parser('move', help='Move email to target folder')
@@ -199,6 +229,10 @@ Examples:
     # Open command
     open_parser = subparsers.add_parser('open', help='Open email for full content view')
     open_parser.add_argument('email_id', help='ID of the email to open')
+    
+    # Folders command
+    folders_parser = subparsers.add_parser('folders', help='List all available folders')
+    folders_parser.add_argument('--tree', action='store_true', help='Display folders in tree format (default: flat)')
     
     # Parse arguments
     args = parser.parse_args()
@@ -212,6 +246,8 @@ Examples:
         handle_move(args)
     elif args.command == 'open':
         handle_open(args)
+    elif args.command == 'folders':
+        handle_folders(args)
     else:
         parser.print_help()
 
@@ -335,6 +371,32 @@ def handle_open(args):
     except Exception as e:
         # Handle all errors with enhanced error handling
         _handle_enhanced_error(e, "opening email")
+
+
+def handle_folders(args):
+    """Handle folders command."""
+    logger.info(f"Starting folders command with tree={args.tree}")
+    try:
+        # Initialize adapter to get folders
+        adapter = _create_adapter(args)
+        
+        # Get all available folders
+        folders = adapter.get_folders()
+        
+        # Display folders based on tree flag
+        if args.tree:
+            print("Folders (tree view):")
+            # TODO: Implement tree view in future milestone
+            for folder in folders:
+                print(f"├── {folder.name}")
+        else:
+            print("Available folders:")
+            for folder in folders:
+                print(f"  {folder.name}")
+                
+    except Exception as e:
+        # Handle all errors with enhanced error handling
+        _handle_enhanced_error(e, "listing folders")
 
 
 if __name__ == "__main__":
