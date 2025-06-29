@@ -101,7 +101,9 @@ def test_folders_command(logger: logging.Logger) -> Dict[str, Any]:
             text=True,
             timeout=10,
             env=env,
-            cwd=Path(__file__).parent.parent
+            cwd=Path(__file__).parent.parent,
+            encoding='utf-8',
+            errors='replace'
         )
         
         success = result.returncode == 0
@@ -157,7 +159,9 @@ def test_read_command(logger: logging.Logger) -> Dict[str, Any]:
             text=True,
             timeout=15,
             env=env,
-            cwd=Path(__file__).parent.parent
+            cwd=Path(__file__).parent.parent,
+            encoding='utf-8',
+            errors='replace'
         )
         
         success = result.returncode == 0
@@ -215,7 +219,9 @@ def test_find_command(logger: logging.Logger) -> Dict[str, Any]:
             text=True,
             timeout=20,
             env=env,
-            cwd=Path(__file__).parent.parent
+            cwd=Path(__file__).parent.parent,
+            encoding='utf-8',
+            errors='replace'  # Replace invalid characters instead of crashing
         )
         
         success = result.returncode == 0
@@ -381,7 +387,9 @@ def test_cross_adapter_compatibility(logger: logging.Logger) -> Dict[str, Any]:
                 text=True,
                 timeout=10,
                 env=env,
-                cwd=Path(__file__).parent.parent
+                cwd=Path(__file__).parent.parent,
+                encoding='utf-8',
+                errors='replace'
             )
             
             results[adapter_type] = {
