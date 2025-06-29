@@ -229,9 +229,9 @@ def handle_find(args):
             seen_ids = set()
             results = []
             for email in subject_results + sender_results:
-                if email.message_id not in seen_ids:
+                if email.id not in seen_ids:
                     results.append(email)
-                    seen_ids.add(email.message_id)
+                    seen_ids.add(email.id)
         else:
             # For specific sender/subject search, use AND logic
             results = searcher.search_emails(
