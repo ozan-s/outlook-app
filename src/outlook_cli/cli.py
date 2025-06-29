@@ -8,6 +8,7 @@ from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.folder_service import FolderService
 from outlook_cli.services.paginator import Paginator
+from outlook_cli.services.email_sorting_service import EmailSortingService
 from outlook_cli.config.adapter_factory import AdapterFactory
 from outlook_cli.utils.logging_config import setup_logging, get_logger
 from outlook_cli.utils.errors import (
@@ -184,6 +185,10 @@ Examples:
     # Read command
     read_parser = subparsers.add_parser('read', help='Read emails from folder')
     read_parser.add_argument('--folder', default='Inbox', help='Folder to read emails from (default: Inbox)')
+    read_parser.add_argument('--sort-by', choices=['received_date', 'subject', 'sender', 'importance'], 
+                            help='Field to sort by (received_date, subject, sender, importance)')
+    read_parser.add_argument('--sort-order', choices=['desc', 'asc'], default='desc',
+                            help='Sort order: desc (default) or asc')
     
     # Find command
     find_parser = subparsers.add_parser('find', help='Search emails with filters')
@@ -269,6 +274,11 @@ def handle_read(args):
         if not emails:
             print(f"No emails found in folder: {args.folder}")
             return
+        
+        # Apply sorting if specified
+        if args.sort_by:
+            sorting_service = EmailSortingService()
+            emails = sorting_service.sort_emails(emails, args.sort_by, args.sort_order)
             
         # Paginate emails (10 per page)
         paginator = Paginator(emails, page_size=10)
@@ -377,6 +387,11 @@ def handle_find(args):
         if not results:
             print("No emails found matching your criteria.")
             return
+        
+        # Apply sorting if specified
+        if args.sort_by:
+            sorting_service = EmailSortingService()
+            results = sorting_service.sort_emails(results, args.sort_by, args.sort_order)
             
         # Paginate and display results
         paginator = Paginator(results, page_size=10)
