@@ -36,6 +36,39 @@ class TestConfigurationSystem:
         
         assert True  # Placeholder - will be enhanced when config system exists
     
+    def test_windows_platform_defaults_to_real_adapter(self):
+        """Test that Windows platform defaults to 'real' adapter when no config specified."""
+        from outlook_cli.config.adapter_factory import AdapterFactory
+        
+        # Mock the actual adapter creation to avoid Windows dependency
+        mock_real_adapter = MagicMock()
+        mock_real_adapter.__class__.__name__ = 'PyWin32OutlookAdapter'
+        
+        # Mock Windows platform and the PyWin32OutlookAdapter
+        with patch('sys.platform', 'win32'), \
+             patch.dict(os.environ, {}, clear=True), \
+             patch('outlook_cli.config.adapter_factory.PyWin32OutlookAdapter', return_value=mock_real_adapter):
+            
+            # Test without any adapter configuration
+            adapter = AdapterFactory.create_adapter(None)
+            
+            # Should create PyWin32OutlookAdapter on Windows by default
+            assert adapter.__class__.__name__ == 'PyWin32OutlookAdapter'
+    
+    def test_non_windows_platform_defaults_to_mock_adapter(self):
+        """Test that non-Windows platforms default to 'mock' adapter when no config specified."""
+        from outlook_cli.config.adapter_factory import AdapterFactory
+        
+        # Mock non-Windows platform (e.g., Mac/Linux)
+        with patch('sys.platform', 'darwin'), \
+             patch.dict(os.environ, {}, clear=True):  # Clear environment variables
+            
+            # Test without any adapter configuration
+            adapter = AdapterFactory.create_adapter(None)
+            
+            # Should create MockOutlookAdapter on non-Windows by default
+            assert adapter.__class__.__name__ == 'MockOutlookAdapter'
+    
     def test_cli_argument_overrides_environment_variable(self):
         """Test that --adapter CLI argument overrides environment variable."""
         mock_real_adapter = MagicMock()

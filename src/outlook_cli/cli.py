@@ -133,7 +133,7 @@ Examples:
     parser.add_argument(
         '--adapter', 
         choices=['mock', 'real'], 
-        help='Outlook adapter type (default: mock, or OUTLOOK_ADAPTER env var)'
+        help='Outlook adapter type (default: real on Windows, mock elsewhere, or OUTLOOK_ADAPTER env var)'
     )
     
     # Create subparsers for commands

@@ -1,6 +1,7 @@
 """Adapter factory for creating the appropriate Outlook adapter."""
 
 import os
+import sys
 from typing import Optional
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 from outlook_cli.adapters.mock_adapter import MockOutlookAdapter
@@ -17,7 +18,7 @@ class AdapterFactory:
         
         Args:
             adapter_type: Type of adapter to create ('mock' or 'real'). 
-                         If None, checks environment variable and defaults to 'mock'.
+                         If None, checks environment variable and defaults to 'real' on Windows, 'mock' elsewhere.
         
         Returns:
             Configured OutlookAdapter instance
@@ -27,7 +28,9 @@ class AdapterFactory:
         """
         # Determine adapter type from parameters, environment, or default
         if adapter_type is None:
-            adapter_type = os.environ.get('OUTLOOK_ADAPTER', 'mock')
+            # Default to 'real' on Windows, 'mock' elsewhere for safe development
+            default_adapter = 'real' if sys.platform == 'win32' else 'mock'
+            adapter_type = os.environ.get('OUTLOOK_ADAPTER', default_adapter)
         
         adapter_type = adapter_type.lower()
         
