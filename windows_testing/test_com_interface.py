@@ -123,6 +123,7 @@ def test_folder_enumeration(outlook, namespace, logger: logging.Logger) -> Dict[
     try:
         # Test get_folders equivalent functionality
         folders_found = []
+        errors_encountered = []
         
         # Get all accounts/stores
         folders_collection = namespace.Folders
@@ -133,15 +134,22 @@ def test_folder_enumeration(outlook, namespace, logger: logging.Logger) -> Dict[
                 account_folder = folders_collection[i]
                 
                 # Test recursive folder discovery
-                recursive_folders = _get_folders_recursive(account_folder, "", logger)
+                recursive_folders, folder_errors = _get_folders_recursive(account_folder, "", logger)
                 folders_found.extend(recursive_folders)
+                errors_encountered.extend(folder_errors)
                 
             except Exception as e:
-                logger.warning(f"Skipping inaccessible folder at index {i}: {e}")
+                error_msg = f"Skipping inaccessible folder at index {i}: {e}"
+                logger.warning(error_msg)
+                errors_encountered.append(error_msg)
                 continue
         
         total_folders = len(folders_found)
+        total_errors = len(errors_encountered)
+        
         logger.info(f"Successfully enumerated {total_folders} folders")
+        if total_errors > 0:
+            logger.warning(f"Encountered {total_errors} errors during enumeration")
         
         # Analyze folder structure
         folder_analysis = {
@@ -165,11 +173,27 @@ def test_folder_enumeration(outlook, namespace, logger: logging.Logger) -> Dict[
             if depth > folder_analysis["max_depth"]:
                 folder_analysis["max_depth"] = depth
         
+        # Determine if test passed or failed based on error ratio
+        error_ratio = total_errors / max(total_folders + total_errors, 1)
+        
+        if error_ratio > 0.3:  # More than 30% errors indicates a problem
+            return {
+                "status": "failed",
+                "folder_count": total_folders,
+                "error_count": total_errors,
+                "error_ratio": error_ratio,
+                "errors": errors_encountered[:10],  # Sample errors
+                "analysis": folder_analysis,
+                "details": f"Too many enumeration errors: {total_errors} errors for {total_folders} folders"
+            }
+        
         return {
             "status": "success",
             "folder_count": total_folders,
+            "error_count": total_errors,
+            "error_ratio": error_ratio,
             "analysis": folder_analysis,
-            "details": "Folder enumeration completed successfully"
+            "details": f"Folder enumeration completed with {total_errors} minor errors"
         }
         
     except Exception as e:
@@ -181,9 +205,14 @@ def test_folder_enumeration(outlook, namespace, logger: logging.Logger) -> Dict[
         }
 
 
-def _get_folders_recursive(com_folder, parent_path: str, logger: logging.Logger) -> List[Dict[str, Any]]:
-    """Recursively build folder list from COM folder object."""
+def _get_folders_recursive(com_folder, parent_path: str, logger: logging.Logger) -> tuple[List[Dict[str, Any]], List[str]]:
+    """Recursively build folder list from COM folder object.
+    
+    Returns:
+        Tuple of (folders, errors) encountered during enumeration.
+    """
     folders = []
+    errors = []
     
     try:
         # Build folder path
@@ -213,15 +242,21 @@ def _get_folders_recursive(com_folder, parent_path: str, logger: logging.Logger)
             for i in range(1, subfolders.Count + 1):
                 try:
                     subfolder = subfolders[i]
-                    folders.extend(_get_folders_recursive(subfolder, folder_path, logger))
+                    sub_folders, sub_errors = _get_folders_recursive(subfolder, folder_path, logger)
+                    folders.extend(sub_folders)
+                    errors.extend(sub_errors)
                 except Exception as e:
-                    logger.warning(f"Skipping inaccessible subfolder at index {i}: {e}")
+                    error_msg = f"Skipping inaccessible subfolder at index {i}: {e}"
+                    logger.warning(error_msg)
+                    errors.append(error_msg)
                     continue
         
     except Exception as e:
-        logger.error(f"Error processing folder {parent_path}: {e}")
+        error_msg = f"Error processing folder {parent_path}: {e}"
+        logger.error(error_msg)
+        errors.append(error_msg)
     
-    return folders
+    return folders, errors
 
 
 def test_error_handling(logger: logging.Logger) -> Dict[str, Any]:
@@ -249,7 +284,7 @@ def test_error_handling(logger: logging.Logger) -> Dict[str, Any]:
             "status": "expected_failure",
             "error": str(e)
         })
-        logger.info("✓ Invalid COM object properly failed")
+        logger.info("Invalid COM object properly failed")
     
     # Test 2: Outlook not running scenario simulation
     # Note: This is hard to test without stopping Outlook
@@ -290,7 +325,7 @@ def main():
     results["test_results"]["connection_test"] = connection_result
     
     if connection_result["status"] == "success":
-        print("✓ COM Connection: SUCCESS")
+        print("SUCCESS: COM Connection")
         
         # If connection successful, continue with advanced tests
         try:
@@ -304,18 +339,22 @@ def main():
             results["test_results"]["folder_test"] = folder_result
             
             if folder_result["status"] == "success":
-                print(f"✓ Folder Enumeration: SUCCESS ({folder_result['folder_count']} folders)")
+                error_count = folder_result.get('error_count', 0)
+                if error_count > 0:
+                    print(f"SUCCESS: Folder Enumeration ({folder_result['folder_count']} folders, {error_count} minor errors)")
+                else:
+                    print(f"SUCCESS: Folder Enumeration ({folder_result['folder_count']} folders)")
             else:
-                print(f"✗ Folder Enumeration: FAILED - {folder_result.get('error', 'Unknown error')}")
+                print(f"FAILED: Folder Enumeration - {folder_result.get('error', 'Unknown error')}")
             
         except Exception as e:
             results["test_results"]["folder_test"] = {
                 "status": "failed",
                 "error": f"Could not set up for folder test: {e}"
             }
-            print(f"✗ Folder Test Setup: FAILED - {e}")
+            print(f"FAILED: Folder Test Setup - {e}")
     else:
-        print(f"✗ COM Connection: FAILED - {connection_result.get('error', 'Unknown error')}")
+        print(f"FAILED: COM Connection - {connection_result.get('error', 'Unknown error')}")
         results["test_results"]["folder_test"] = {"status": "not_run"}
     
     # Test 3: Error Handling
@@ -324,9 +363,9 @@ def main():
     results["test_results"]["error_handling_test"] = error_result
     
     if error_result["status"] == "success":
-        print("✓ Error Handling: SUCCESS")
+        print("SUCCESS: Error Handling")
     else:
-        print(f"✗ Error Handling: FAILED - {error_result.get('error', 'Unknown error')}")
+        print(f"FAILED: Error Handling - {error_result.get('error', 'Unknown error')}")
     
     # Save results to JSON file
     output_file = "outlook_com_validation_results.json"
@@ -344,11 +383,12 @@ def main():
     print(f"\nSUMMARY: {passed_tests}/{total_tests} tests passed")
     
     if passed_tests == total_tests:
-        print("🎉 All tests passed! COM interface is working correctly.")
+        print("All tests passed! COM interface is working correctly.")
         logger.info("All COM validation tests passed")
     else:
-        print("⚠️  Some tests failed. Check logs for details.")
+        print("Some tests failed. Check logs for details.")
         logger.warning("Some COM validation tests failed")
+        sys.exit(1)  # Exit with error code when tests fail
 
 
 if __name__ == '__main__':

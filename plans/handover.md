@@ -2,22 +2,24 @@
 
 ## Current State
 - **Last Completed**: Milestone 005: Windows Testing Checkpoint #1 - COM Interface Validation ✅
-- **System State**: COM validation infrastructure complete, comprehensive test script ready for Windows validation
-- **No Blockers**: Foundation ready for filtering features once Windows testing confirms COM interface stability
+- **Critical Discovery**: Current test validates raw COM interface but not actual application functionality
+- **System State**: Comprehensive milestone 005B planned to address testing gap
+- **Blockers**: Must validate application works end-to-end before building advanced features
 
 ## Next Milestone
-- **Number**: Milestone 006
-- **Description**: Email filtering service with attachment/read status filters
-- **Key Challenge**: Integrating new filter types while maintaining performance
+- **Number**: Milestone 005B
+- **Description**: Application-Level Windows Testing Checkpoint
+- **Key Challenge**: Fix current test issues and validate actual CLI commands work on Windows
 - **Estimated**: 4 hours
 
 ## Critical Context
-- **Windows Validation Pending**: Before starting Milestone 006, the Windows COM validation script should be run to confirm the PyWin32 interface works with real Outlook
-- **Testing Infrastructure**: Reusable pattern established in `src/outlook_cli/testing/` for future Windows checkpoints
-- **Foundation Solid**: Folder enumeration, date parsing, and CLI argument handling are complete and tested
+- **Testing Gap Identified**: Current `test_com_interface.py` only tests raw COM, not our application
+- **Technical Issues Found**: Unicode encoding errors, flawed validation logic, missing application pattern testing
+- **Solution Required**: Two-phase approach - fix current test + create application integration test
+- **Foundation at Risk**: Without proper application validation, advanced features may be built on unstable foundation
 
 ## Windows Testing Status
-- **Script Location**: `windows_testing/test_com_interface.py`
-- **Instructions**: Complete user guide in `windows_testing/README.md`
-- **Expected Workflow**: User runs script on Windows → reports results → address any issues → proceed with filtering features
-- **Fallback**: If COM issues found, they must be resolved before building advanced features on unstable foundation
+- **Phase 1**: Fix `windows_testing/test_com_interface.py` - Unicode issues, defensive iteration, proper validation
+- **Phase 2**: Create comprehensive application test that validates CLI commands: `ocli folders`, `ocli read`, `ocli find`
+- **Critical Patterns**: Must test Exchange DN resolution, cross-adapter compatibility, service-to-CLI integration
+- **Success Criteria**: All CLI commands work end-to-end with real Outlook data

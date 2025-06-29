@@ -23,6 +23,7 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 ### Phase 2: Service Layer (Data Access & Processing)
 - [x] Milestone 004: Folder enumeration service and adapter methods ✅ 2025-06-29
 - [x] **Milestone 005: Windows Testing Checkpoint #1 - COM Interface Validation** ✅ 2025-06-29
+- [ ] **Milestone 005B: Application-Level Windows Testing Checkpoint** (Critical gap identified)
 - [ ] Milestone 006: Email filtering service with attachment/read status filters
 - [ ] Milestone 007: Sorting and pagination service enhancements
 
@@ -88,6 +89,33 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 2. User runs on Windows machine with real Outlook
 3. User pastes results back to Mac
 4. Debug any COM interface issues before proceeding
+
+### Milestone 005B: Application-Level Windows Testing Checkpoint
+**Scope**: Fix current test issues and create comprehensive application-level validation that tests actual CLI commands end-to-end
+**Integration Points**: CLI commands, service layer, PyWin32Adapter, cross-adapter compatibility
+**Validates**: Actual user experience works on Windows, not just raw COM interface
+**Estimated Time**: 4 hours
+
+**Phase 1 - Fix Current Test Issues**:
+- Windows console UTF-8 encoding setup 
+- Replace Unicode checkmarks in ALL output (print AND logger calls)
+- Defensive COM iteration (don't rely on Count property)
+- Proper error classification (expected vs problematic)
+- Appropriate success/failure validation logic
+- Clean, user-friendly output
+
+**Phase 2 - Application Integration Tests**:
+- Test actual CLI commands: `ocli folders --tree`, `ocli read --folder Inbox`, `ocli find --keyword "test"`
+- Exchange DN resolution validation in corporate environment
+- Cross-adapter compatibility testing (MockAdapter vs PyWin32Adapter)
+- Critical application pattern validation (Service-to-CLI integration, error handling)
+- Performance benchmarking (<2s for folder enumeration)
+
+**Manual Process**:
+1. Generate comprehensive application-level test script
+2. User runs both fixed COM test and application test on Windows
+3. User captures results for both basic COM and application functionality
+4. Debug any issues in both infrastructure and application layers
 
 ### Milestone 006: Email Filtering Service with Attachment/Read Status Filters  
 **Scope**: Extend filtering logic in EmailService for new filter types
@@ -253,6 +281,13 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 - **Testing Infrastructure**: Created reusable testing module pattern for future Windows checkpoints
 - **Foundation Validated**: Ready to proceed with filtering features once Windows COM interface confirmed stable
 - **Rationale**: TDD approach ensured comprehensive validation script that thoroughly tests COM interface before building advanced features on top
+
+### 2025-06-29: Critical Gap Identified in Testing Approach
+- **Added Milestone 005B**: Application-Level Windows Testing Checkpoint
+- **Critical Discovery**: Current test validates raw COM interface but not our actual application
+- **Technical Issues Found**: Unicode encoding errors, flawed validation logic, missing application pattern testing
+- **Impact**: Must validate actual CLI commands work end-to-end before building advanced features
+- **Rationale**: Testing COM connectivity ≠ testing application functionality; need comprehensive validation of actual user experience
 
 ## Adaptation Points
 
