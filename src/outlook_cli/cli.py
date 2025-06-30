@@ -510,9 +510,15 @@ def handle_folders(args):
     """Handle folders command."""
     logger.info(f"Starting folders command with tree={args.tree}")
     try:
-        # Initialize adapter to get folders
+        # Initialize adapter to get folders with timeout protection
         adapter = _create_adapter(args)
-        folders = adapter.get_folders()
+        
+        # Use timeout handler proven to work in Windows corporate environments
+        # Based on Milestone 005C testing with 60-second timeouts
+        from outlook_cli.utils.timeout_handler import timeout_operation
+        
+        with timeout_operation(60.0, "folder enumeration") as tracker:
+            folders = adapter.get_folders()
         
         # Initialize folder service for formatting
         folder_service = FolderService()

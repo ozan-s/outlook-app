@@ -59,32 +59,53 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             # Get all accounts/stores
             folders_collection = self._namespace.Folders
             
-            # COM collections are 1-indexed
-            for i in range(1, folders_collection.Count + 1):
-                try:
-                    account_folder = folders_collection[i]
-                    # Add account folders recursively
-                    folders.extend(self._get_folders_recursive(account_folder, ""))
-                except (IndexError, com_error) as e:
-                    self._logger.warning(f"Skipping inaccessible folder at index {i}: {e}")
-                    continue
+            # Use defensive iteration pattern proven to work in Windows corporate environments
+            # Based on successful Milestone 005C testing with 48 folders
+            index = 1
+            consecutive_failures = 0
+            max_consecutive_failures = 3
             
+            while consecutive_failures < max_consecutive_failures:
+                try:
+                    account_folder = folders_collection[index]
+                    # Add account folders recursively with depth limiting
+                    folders.extend(self._get_folders_recursive(account_folder, "", depth=0))
+                    consecutive_failures = 0  # Reset on success
+                    index += 1
+                    
+                except (IndexError, com_error) as e:
+                    self._logger.warning(f"Skipping inaccessible folder at index {index}: {e}")
+                    consecutive_failures += 1
+                    index += 1
+                    
+                    # Safety check: don't iterate beyond reasonable bounds
+                    if index > folders_collection.Count + max_consecutive_failures:
+                        break
+            
+            self._logger.info(f"Successfully enumerated {len(folders)} folders")
             return folders
             
         except com_error as e:
             raise ValueError(f"Failed to retrieve folders: {e}")
     
-    def _get_folders_recursive(self, com_folder, parent_path: str) -> List[Folder]:
+    def _get_folders_recursive(self, com_folder, parent_path: str, depth: int = 0, max_depth: int = 10) -> List[Folder]:
         """Recursively build folder list from COM folder object.
         
         Args:
             com_folder: COM folder object
             parent_path: Path of parent folder
+            depth: Current recursion depth
+            max_depth: Maximum recursion depth to prevent infinite loops
             
         Returns:
             List[Folder]: Folders found in this folder and subfolders
         """
         folders = []
+        
+        # Prevent infinite recursion in complex folder hierarchies
+        if depth > max_depth:
+            self._logger.warning(f"Maximum recursion depth {max_depth} reached for folder {parent_path}")
+            return folders
         
         try:
             # Build folder path
@@ -109,16 +130,29 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             )
             folders.append(folder)
             
-            # Process subfolders
+            # Process subfolders using defensive iteration pattern
             if hasattr(com_folder, 'Folders'):
                 subfolders = com_folder.Folders
-                for i in range(1, subfolders.Count + 1):
-                    try:
-                        subfolder = subfolders[i]
-                        folders.extend(self._get_folders_recursive(subfolder, folder_path))
-                    except (IndexError, com_error) as e:
-                        self._logger.warning(f"Skipping inaccessible subfolder at index {i}: {e}")
-                        continue
+                if subfolders.Count > 0:
+                    index = 1
+                    consecutive_failures = 0
+                    max_consecutive_failures = 3
+                    
+                    while consecutive_failures < max_consecutive_failures:
+                        try:
+                            subfolder = subfolders[index]
+                            folders.extend(self._get_folders_recursive(subfolder, folder_path, depth + 1, max_depth))
+                            consecutive_failures = 0  # Reset on success
+                            index += 1
+                            
+                        except (IndexError, com_error) as e:
+                            self._logger.warning(f"Skipping inaccessible subfolder at index {index}: {e}")
+                            consecutive_failures += 1
+                            index += 1
+                            
+                            # Safety check: don't iterate beyond reasonable bounds
+                            if index > subfolders.Count + max_consecutive_failures:
+                                break
             
         except com_error as e:
             self._logger.error(f"Error processing folder {parent_path}: {e}")
