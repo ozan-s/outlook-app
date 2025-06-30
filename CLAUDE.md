@@ -78,6 +78,26 @@
   # No custom validation code needed
   ```
 
+### CLI Streaming vs Pagination Pattern
+- **Problem**: Large result sets need streaming output while maintaining backward compatibility with pagination
+- **Solution**: Use flag-based conditional logic to switch between display modes in CLI handlers
+- **Implementation**:
+  ```python
+  # In CLI command handler
+  if args.all:
+      # Streaming mode for large result sets
+      streaming_display = StreamingResultDisplay()
+      if len(results) > 1000:
+          streaming_display.show_large_result_warning(len(results))
+      streaming_display.stream_results(results, chunk_size=50)
+  else:
+      # Pagination mode (backward compatibility)
+      paginator = Paginator(results, page_size=10)
+      current_page = paginator.get_current_page()
+      _display_email_page(paginator, current_page)
+  ```
+- **Benefits**: Zero breaking changes, memory-safe for large datasets, clear user experience differentiation
+
 ### Progressive Filtering Pattern
 - **Problem**: Multiple filter criteria need to be applied efficiently with maintainable code
 - **Solution**: Apply filters in sequence using dedicated filter methods, allowing each to operate on the result of the previous
