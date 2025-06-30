@@ -35,6 +35,41 @@ audit_logger = AuditLogger()
 resource_monitor = ResourceMonitor()
 
 
+def _validate_argument_security(args):
+    """Validate CLI arguments for security issues like buffer overflow attacks.
+    
+    Args:
+        args: Parsed command line arguments
+        
+    Raises:
+        SystemExit: If arguments exceed security limits
+    """
+    # Maximum allowed length for string arguments (reasonable for email content)
+    MAX_ARG_LENGTH = 1000
+    
+    # List of string arguments that need length validation
+    string_args = [
+        'sender', 'subject', 'keyword', 'not_sender', 'not_subject',
+        'folder', 'message_id', 'destination'
+    ]
+    
+    for arg_name in string_args:
+        arg_value = getattr(args, arg_name, None)
+        if arg_value and isinstance(arg_value, str) and len(arg_value) > MAX_ARG_LENGTH:
+            print(f"{Fore.RED}Error: Argument '--{arg_name.replace('_', '-')}' exceeds maximum length of {MAX_ARG_LENGTH} characters.{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}Provided length: {len(arg_value)} characters{Style.RESET_ALL}")
+            sys.exit(1)
+    
+    # Validate folder lists (for --folders argument)
+    folders_list = getattr(args, 'folders', None)
+    if folders_list:
+        for folder in folders_list:
+            if isinstance(folder, str) and len(folder) > MAX_ARG_LENGTH:
+                print(f"{Fore.RED}Error: Folder name exceeds maximum length of {MAX_ARG_LENGTH} characters.{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}Folder length: {len(folder)} characters{Style.RESET_ALL}")
+                sys.exit(1)
+
+
 def _create_adapter(args) -> OutlookAdapter:
     """Create adapter based on CLI arguments and configuration."""
     try:
@@ -272,6 +307,9 @@ Examples:
     
     # Parse arguments
     args = parser.parse_args()
+    
+    # Validate input arguments for security
+    _validate_argument_security(args)
     
     # Route to command handlers
     if args.command == 'read':

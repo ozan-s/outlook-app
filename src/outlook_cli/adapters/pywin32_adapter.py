@@ -462,9 +462,20 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             email_id = getattr(com_email, 'EntryID', '')
             subject = getattr(com_email, 'Subject', '')
             
-            # Extract sender information with Exchange DN resolution
-            sender_email = self._extract_sender_smtp(com_email)
-            sender_name = getattr(com_email, 'SenderName', '')
+            # Extract sender information with Exchange DN resolution and COM protection
+            try:
+                sender_email = self._extract_sender_smtp(com_email)
+                if not sender_email:
+                    sender_email = "unknown@unknown.com"
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to extract sender email for email {email_id}: {e}")
+                sender_email = "unknown@unknown.com"
+                
+            try:
+                sender_name = getattr(com_email, 'SenderName', '')
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to get sender name for email {email_id}: {e}")
+                sender_name = ''
             
             # Extract recipient information
             recipient_emails = self._extract_recipient_emails(com_email)
@@ -476,18 +487,38 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             body_text = getattr(com_email, 'Body', '')
             body_html = getattr(com_email, 'HTMLBody', None)
             
-            # Extract attachment information
-            has_attachments = getattr(com_email, 'Attachments', None) is not None
-            attachment_count = 0
-            if has_attachments:
+            # Extract attachment information with COM protection
+            try:
                 attachments = getattr(com_email, 'Attachments', None)
-                if attachments:
-                    attachment_count = attachments.Count
+                has_attachments = attachments is not None
+                attachment_count = 0
+                if has_attachments and attachments:
+                    try:
+                        attachment_count = attachments.Count
+                    except (com_error, Exception) as e:
+                        self._logger.debug(f"Failed to get attachment count for email {email_id}: {e}")
+                        attachment_count = 0
+                        has_attachments = False
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to access Attachments property for email {email_id}: {e}")
+                has_attachments = False
+                attachment_count = 0
             
-            # Extract other properties
-            is_read = getattr(com_email, 'UnRead', True) == False
+            # Extract other properties with COM protection
+            try:
+                unread_value = getattr(com_email, 'UnRead', True)
+                is_read = unread_value == False
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to get UnRead property for email {email_id}: {e}")
+                is_read = False  # Default to unread if property inaccessible
+            
             importance_map = {0: "Low", 1: "Normal", 2: "High"}
-            importance = importance_map.get(getattr(com_email, 'Importance', 1), "Normal")
+            try:
+                importance_value = getattr(com_email, 'Importance', 1)
+                importance = importance_map.get(importance_value, "Normal")
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to get Importance property for email {email_id}: {e}")
+                importance = "Normal"
             
             # Validate required fields
             if not email_id or not sender_email or not recipient_emails:
@@ -526,19 +557,32 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             SMTP email address string
         """
         try:
-            # Try direct SMTP address first
-            sender_email = getattr(com_email, 'SenderEmailAddress', '')
+            # Try direct SMTP address first with COM protection
+            try:
+                sender_email = getattr(com_email, 'SenderEmailAddress', '')
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to get SenderEmailAddress property: {e}")
+                sender_email = ''
+                
             if sender_email and '@' in sender_email:
                 return sender_email
             
-            # Handle Exchange DN resolution
+            # Handle Exchange DN resolution with additional protection
             if sender_email and sender_email.startswith('/O='):
-                resolved_smtp = self._resolve_exchange_dn_to_smtp(sender_email)
-                if resolved_smtp:
-                    return resolved_smtp
+                try:
+                    resolved_smtp = self._resolve_exchange_dn_to_smtp(sender_email)
+                    if resolved_smtp:
+                        return resolved_smtp
+                except (com_error, Exception) as e:
+                    self._logger.debug(f"Exchange DN resolution failed with COM error: {e}")
             
-            # Fallback to sender name if available
-            sender_name = getattr(com_email, 'SenderName', '')
+            # Fallback to sender name if available with COM protection
+            try:
+                sender_name = getattr(com_email, 'SenderName', '')
+            except (com_error, Exception) as e:
+                self._logger.debug(f"Failed to get SenderName property: {e}")
+                sender_name = ''
+                
             if sender_name and '@' in sender_name:
                 return sender_name
             

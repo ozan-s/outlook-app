@@ -122,7 +122,7 @@ class UnicodeValidator:
             ('Ã³', 'ó'),
             ('Ãº', 'ú'),
             ('Ã±', 'ñ'),
-            ('â€™', '''),  # Smart quote corruption
+            ('â€™', "'"),  # Smart quote corruption
             ('â€œ', '"'),
             ('â€', '"'),
         ]
