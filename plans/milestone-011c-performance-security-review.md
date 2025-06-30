@@ -94,7 +94,7 @@ Establish performance baselines, validate no regressions, and implement security
 - All monitoring configurable via environment variables
 
 ### Git Commit
-- Hash: [to be added]
+- Hash: c2dcf44
 - Message: "feat: complete milestone-011c-performance-security-review"
 
 ### Handover Notes
