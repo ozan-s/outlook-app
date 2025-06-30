@@ -1,0 +1,86 @@
+{
+  "timestamp": "2025-06-29T15:01:21.759817",
+  "platform": "win32",
+  "python_version": "3.11.11 (main, Feb 12 2025, 14:49:02) [MSC v.1942 64 bit (AMD64)]",
+  "test_results": {
+    "folders_test": {
+      "command": "folders --tree",
+      "status": "success",
+      "returncode": 0,
+      "stdout": "Folders (tree view):\n\u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Ozan.Sakarya@nlng.com\n\u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Online Archive - Ozan.Sakarya@nlng.com\n\u00e2\u201d\u201d\u00e2\u201d\u20ac\u00e2\u201d\u20ac Ozan.Sakarya@nlng.com/\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Inbox\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 01. Construction\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Safety\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Staff\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Info\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 02. CTR Reports\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Schedule\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac etc\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 00. Follow-up\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac RFIs\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 03. Test Programme\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 04. Completions\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Travel\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac 05. Contracts\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac Outbox\n   ...",
+      "stderr": "",
+      "analysis": {
+        "lines_count": 51,
+        "has_tree_structure": false,
+        "has_folders": true,
+        "empty_output": false
+      },
+      "adapter": "real"
+    },
+    "read_test": {
+      "command": "read --folder Inbox",
+      "status": "success",
+      "returncode": 0,
+      "stdout": "Page 1 of 7, showing 1-10 of 63 emails\n\n1. [0000000084B21D19BB97814FA9DC8C65975EC3B8070004823C737E37C144A0B05A0DC823391500000000010C0000F1E82ADEDBFFFD47928047003FE2ABAE000041738DAB0000] [READ] Subject: Frieslaar Handover: June25\n   From: Frieslaar,Nick (NPC) NLNGBNY <Nick.Frieslaar@nlng.com>\n   Date...",
+      "stderr": "",
+      "analysis": {
+        "has_email_headers": true,
+        "has_pagination": true,
+        "has_email_ids": true,
+        "email_count": 10,
+        "empty_output": false
+      },
+      "adapter": "real"
+    },
+    "find_test": {
+      "command": "find --keyword meeting",
+      "status": "failed",
+      "error": "Command timed out - possible search issue",
+      "adapter": "real"
+    },
+    "exchange_dn_test": {
+      "command": "Exchange DN resolution pattern test",
+      "status": "success",
+      "test_results": {
+        "pattern_recognition": true,
+        "resolution_workflow": true,
+        "integration_ready": true,
+        "issues": []
+      },
+      "pattern_steps": [
+        "CreateRecipient(exchange_dn)",
+        "recipient.Resolve()",
+        "recipient.AddressEntry",
+        "address_entry.GetExchangeUser()",
+        "exchange_user.PrimarySmtpAddress"
+      ],
+      "critical_for": "Corporate Outlook environments with Exchange server"
+    },
+    "compatibility_test": {
+      "command": "cross-adapter compatibility test",
+      "status": "success",
+      "results": {
+        "mock": {
+          "status": "success",
+          "returncode": 0,
+          "output_lines": 9,
+          "has_tree_chars": false,
+          "stderr": ""
+        },
+        "real": {
+          "status": "success",
+          "returncode": 0,
+          "output_lines": 52,
+          "has_tree_chars": false,
+          "stderr": ""
+        }
+      },
+      "analysis": {
+        "both_succeed": true,
+        "mock_works": true,
+        "real_works": true,
+        "similar_structure": true
+      }
+    }
+  }
+}

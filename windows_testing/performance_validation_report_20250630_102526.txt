@@ -1,0 +1,48 @@
+================================================================================
+PERFORMANCE VALIDATION REPORT
+================================================================================
+Timestamp: 2025-06-30 10:25:26
+Total Tests: 18
+Successful: 11
+Failed: 7
+Success Rate: 61.1%
+Overall Validation: ❌ FAILED
+
+PERFORMANCE SUMMARY:
+Overall Test Duration: 21.97s
+Average Execution Time: 0.98s
+Maximum Execution Time: 1.49s
+Average Memory Increase: 0.0MB
+Maximum Memory Increase: 0.0MB
+Baseline Compliance: ✅ YES
+
+PERFORMANCE RATING DISTRIBUTION:
+  EXCELLENT: 11 tests
+
+DETAILED TEST RESULTS:
+  Basic Read (10 results)             | ❌ FAILED        | Unknown error
+  Basic Find (20 results)             | ✅ EXCELLENT     | 0.30s | 0.0MB | 0 results
+  Folder Enumeration                  | ✅ EXCELLENT     | 1.49s | 0.0MB | 0 results
+  Date Filter - 7 days                | ❌ FAILED        | Unknown error
+  Date Filter - 1 month               | ✅ EXCELLENT     | 1.01s | 0.0MB | 0 results
+  Date Range Filter                   | ✅ EXCELLENT     | 1.02s | 0.0MB | 0 results
+  Unread Filter                       | ❌ FAILED        | Unknown error
+  Read + Date Filter                  | ✅ EXCELLENT     | 1.08s | 0.0MB | 0 results
+  Attachment Filter                   | ❌ FAILED        | Unknown error
+  No Attachment Filter                | ✅ EXCELLENT     | 1.00s | 0.0MB | 0 results
+  Importance Filter                   | ✅ EXCELLENT     | 1.04s | 0.0MB | 2 results
+  Sender Filter                       | ❌ FAILED        | Unknown error
+  Complex Filter Combo 1              | ✅ EXCELLENT     | 1.11s | 0.0MB | 0 results
+  Complex Filter Combo 2              | ✅ EXCELLENT     | 1.31s | 0.0MB | 0 results
+  Sort by Date                        | ✅ EXCELLENT     | 0.33s | 0.0MB | 0 results
+  Sort by Sender                      | ❌ FAILED        | Unknown error
+  Large Results - 1 Month All         | ✅ EXCELLENT     | 1.07s | 0.0MB | 0 results
+  Large Results - 500 items           | ❌ FAILED        | Unknown error
+
+PERFORMANCE BASELINES:
+  basic_filter_max_time: 5.0
+  complex_filter_max_time: 10.0
+  max_memory_increase_mb: 500
+  large_result_max_time: 15.0
+
+================================================================================

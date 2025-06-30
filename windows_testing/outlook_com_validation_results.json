@@ -1,0 +1,93 @@
+{
+  "timestamp": "2025-06-29T14:56:07.748546",
+  "platform": "win32",
+  "python_version": "3.11.11 (main, Feb 12 2025, 14:49:02) [MSC v.1942 64 bit (AMD64)]",
+  "test_results": {
+    "connection_test": {
+      "status": "success",
+      "message": "Connected to Outlook",
+      "folder_count": 3,
+      "details": "All basic COM operations successful"
+    },
+    "folder_test": {
+      "status": "success",
+      "folder_count": 48,
+      "error_count": 27,
+      "analysis": {
+        "total_folders": 48,
+        "folders_with_emails": 8,
+        "max_depth": 2,
+        "sample_folders": [
+          {
+            "path": "Ozan.Sakarya@nlng.com",
+            "email_count": 0,
+            "depth": 0
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox",
+            "email_count": 64,
+            "depth": 1
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/01. Construction",
+            "email_count": 270,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/Safety",
+            "email_count": 100,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/Staff",
+            "email_count": 33,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/Info",
+            "email_count": 37,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/02. CTR Reports",
+            "email_count": 53,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/Schedule",
+            "email_count": 7,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/etc",
+            "email_count": 355,
+            "depth": 2
+          },
+          {
+            "path": "Ozan.Sakarya@nlng.com/Inbox/00. Follow-up",
+            "email_count": 0,
+            "depth": 2
+          }
+        ]
+      },
+      "details": "Found 48 folders with 27 minor access issues"
+    },
+    "error_handling_test": {
+      "status": "success",
+      "message": "Error handling works",
+      "error_tests": [
+        {
+          "test": "invalid_com_object",
+          "status": "expected_failure",
+          "error": "(-2147221005, 'Invalid class string', None, None)"
+        },
+        {
+          "test": "outlook_not_running",
+          "status": "info",
+          "message": "Cannot test Outlook not running without stopping it"
+        }
+      ],
+      "details": "Error handling scenarios tested"
+    }
+  }
+}

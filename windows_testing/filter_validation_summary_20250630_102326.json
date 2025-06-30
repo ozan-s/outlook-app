@@ -1,0 +1,201 @@
+{
+  "date_filters": {
+    "total_formats": 5,
+    "successful_formats": 5,
+    "validation_passed": true,
+    "results": [
+      {
+        "date_format": "1d",
+        "success": true,
+        "execution_time": 1.1229519844055176
+      },
+      {
+        "date_format": "1w",
+        "success": true,
+        "execution_time": 1.1428279876708984
+      },
+      {
+        "date_format": "1M",
+        "success": true,
+        "execution_time": 1.4776334762573242
+      },
+      {
+        "date_format": "yesterday",
+        "success": true,
+        "execution_time": 1.2604100704193115
+      },
+      {
+        "date_format": "last-week",
+        "success": true,
+        "execution_time": 1.0825817584991455
+      }
+    ]
+  },
+  "read_status_filters": {
+    "total_tests": 2,
+    "successful_tests": 0,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "read_filter",
+        "success": false,
+        "execution_time": 0.29054880142211914
+      },
+      {
+        "test_name": "unread_filter",
+        "success": false,
+        "execution_time": 0.3329329490661621
+      }
+    ]
+  },
+  "attachment_filters": {
+    "total_tests": 2,
+    "successful_tests": 0,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "has_attachment",
+        "success": false,
+        "execution_time": 0.3328876495361328
+      },
+      {
+        "test_name": "no_attachment",
+        "success": false,
+        "execution_time": 0.32451415061950684
+      }
+    ]
+  },
+  "content_filters": {
+    "total_tests": 3,
+    "successful_tests": 2,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "importance_filter",
+        "success": true,
+        "execution_time": 1.453744888305664
+      },
+      {
+        "test_name": "sender_filter",
+        "success": false,
+        "execution_time": 0.2975428104400635
+      },
+      {
+        "test_name": "subject_filter",
+        "success": true,
+        "execution_time": 1.4178595542907715
+      }
+    ]
+  },
+  "exclusion_filters": {
+    "total_tests": 2,
+    "successful_tests": 1,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "not_sender",
+        "success": false,
+        "execution_time": 0.29091906547546387
+      },
+      {
+        "test_name": "not_subject",
+        "success": true,
+        "execution_time": 1.4167654514312744
+      }
+    ]
+  },
+  "sorting_filters": {
+    "total_tests": 3,
+    "successful_tests": 1,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "sort_by_date",
+        "success": false,
+        "execution_time": 0.30027008056640625
+      },
+      {
+        "test_name": "sort_by_sender",
+        "success": true,
+        "execution_time": 0.2886190414428711
+      },
+      {
+        "test_name": "sort_order_asc",
+        "success": false,
+        "execution_time": 0.29731321334838867
+      }
+    ]
+  },
+  "performance_tests": {
+    "total_tests": 2,
+    "successful_tests": 1,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "Performance - Date Filter",
+        "success": false,
+        "execution_time": 0.30541467666625977,
+        "performance_rating": "EXCELLENT"
+      },
+      {
+        "test_name": "Performance - Attachment Filter",
+        "success": true,
+        "execution_time": 1.3829636573791504,
+        "performance_rating": "EXCELLENT"
+      }
+    ]
+  },
+  "security_tests": {
+    "total_tests": 3,
+    "safe_tests": 2,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "Command Injection",
+        "safe": true,
+        "execution_time": 0.3059673309326172
+      },
+      {
+        "test_name": "SQL Injection",
+        "safe": true,
+        "execution_time": 0.3189427852630615
+      },
+      {
+        "test_name": "Path Traversal",
+        "safe": false,
+        "execution_time": 0.32990288734436035
+      }
+    ]
+  },
+  "unicode_tests": {
+    "total_tests": 3,
+    "successful_tests": 2,
+    "validation_passed": false,
+    "results": [
+      {
+        "test_name": "Spanish Characters",
+        "success": true,
+        "unicode_safe": true,
+        "execution_time": 1.4437968730926514
+      },
+      {
+        "test_name": "French Characters",
+        "success": false,
+        "unicode_safe": true,
+        "execution_time": 0.2950007915496826
+      },
+      {
+        "test_name": "German Umlauts",
+        "success": true,
+        "unicode_safe": true,
+        "execution_time": 1.398505449295044
+      }
+    ]
+  },
+  "overall_summary": {
+    "success_rate_percent": 11.11111111111111,
+    "successful_categories": 1,
+    "total_categories": 9,
+    "validation_passed": false
+  }
+}

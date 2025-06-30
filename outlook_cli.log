@@ -3453,3 +3453,40 @@
 2025-06-30 10:21:29 - outlook_cli.cli - INFO - Starting folders command with tree=False
 2025-06-30 10:21:29 - outlook_cli.utils.timeout_handler - INFO - Starting folder enumeration with 60.0s timeout
 2025-06-30 10:21:29 - outlook_cli.utils.timeout_handler - INFO - Completed folder enumeration
+2025-06-30 10:22:19 - outlook_cli.cli - INFO - Starting folders command with tree=False
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - INFO - Successfully connected to Outlook via COM
+2025-06-30 10:22:19 - outlook_cli.utils.timeout_handler - INFO - Starting folder enumeration with 60.0s timeout
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 14: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 15: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 16: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Inbox, stopping enumeration
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 7: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 8: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 9: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Contacts, stopping enumeration
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 2: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 3: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 4: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Calendar, stopping enumeration
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 3: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 4: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 5: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Yammer Root, stopping enumeration
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 1: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 2: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 3: list index out of range
+2025-06-30 10:22:19 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Conversation History, stopping enumeration
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 3: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 4: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 5: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com/Sync Issues, stopping enumeration
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 21: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 22: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible subfolder at index 23: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) in Ozan.Sakarya@nlng.com, stopping enumeration
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible folder at index 3: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible folder at index 4: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Skipping inaccessible folder at index 5: list index out of range
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - WARNING - Too many consecutive failures (3) at top level, stopping enumeration
+2025-06-30 10:22:20 - outlook_cli.adapters.pywin32_adapter - INFO - Successfully enumerated 45 folders
+2025-06-30 10:22:20 - outlook_cli.utils.timeout_handler - INFO - Completed folder enumeration
