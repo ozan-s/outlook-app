@@ -151,6 +151,10 @@ def _handle_enhanced_error(error: Exception, operation: str) -> None:
                 message += f" {suggestion}"
         
         print(f"{Fore.RED}Error: {message}{Style.RESET_ALL}")
+        
+        # For security-related ValueErrors, exit with error code
+        if "suspicious characters" in message.lower():
+            sys.exit(1)
     
     else:
         # Generic error handling
