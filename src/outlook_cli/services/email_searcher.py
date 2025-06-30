@@ -1,10 +1,12 @@
 """EmailSearcher service for filtering emails by various criteria."""
 
+import os
 from typing import List, Optional
 from datetime import datetime
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 from outlook_cli.models.email import Email
 from outlook_cli.services.email_reader import EmailReader
+from outlook_cli.services.progressive_filter_optimizer import ProgressiveFilterOptimizer
 
 
 class EmailSearcher:
@@ -18,6 +20,7 @@ class EmailSearcher:
         """
         self._adapter = adapter
         self._email_reader = EmailReader(adapter)
+        self._progressive_optimizer = ProgressiveFilterOptimizer()
     
     def search_by_sender(self, sender: str, folder_path: Optional[str] = None) -> List[Email]:
         """Search emails by sender email address or display name.
@@ -222,3 +225,11 @@ class EmailSearcher:
             ]
         
         return filtered_emails
+    
+    def _use_progressive_filtering(self) -> bool:
+        """Check if progressive filtering is enabled.
+        
+        Returns:
+            True if progressive filtering should be used, False otherwise
+        """
+        return os.environ.get('OUTLOOK_CLI_PROGRESSIVE_FILTERING', 'false').lower() == 'true'

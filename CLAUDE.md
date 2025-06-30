@@ -140,6 +140,82 @@
 - Always handle COM exceptions gracefully
 - Test CLI commands with both adapters before deployment
 
+## Performance and Monitoring Patterns
+
+### Enterprise CLI Monitoring Pattern
+- **Pattern**: Three-component monitoring infrastructure for enterprise applications
+- **Implementation**:
+  ```python
+  # Module-level singletons for consistent monitoring
+  performance_monitor = PerformanceMonitor()
+  audit_logger = AuditLogger()
+  resource_monitor = ResourceMonitor()
+  
+  def handle_command(args):
+      performance_monitor.start_monitoring("command_name")
+      try:
+          resource_monitor.check_memory_usage()
+          # ... command logic ...
+          metrics = performance_monitor.stop_monitoring("command_name")
+          
+          audit_logger.log_filter_operation(
+              operation="command",
+              filters=params,
+              user=os.environ.get('USER', 'unknown'),
+              result_count=len(results)
+          )
+      except ResourceExceededError as e:
+          print(f"Error: {str(e)}")
+  ```
+
+### Progressive Filtering Optimization Pattern
+- **Problem**: Complex filter operations need performance optimization with minimal code changes
+- **Solution**: Apply most selective filters first using estimated selectivity scoring
+- **Implementation**:
+  ```python
+  class ProgressiveFilterOptimizer:
+      def apply_filters_progressively(self, emails, filters):
+          # Calculate selectivity: sender(0.05) > importance(0.1) > folder(0.8)
+          selectivities = self.calculate_filter_selectivity(filters)
+          ordered = self.order_filters_by_selectivity(selectivities)
+          
+          filtered_emails = emails
+          for selectivity in ordered:
+              filtered_emails = self._apply_single_filter(filtered_emails, ...)
+              if not filtered_emails:  # Early termination
+                  break
+          return filtered_emails
+  ```
+
+### Environment-Configurable Resource Limits Pattern
+- **Pattern**: Resource protection with environment variable configuration
+- **Implementation**:
+  ```python
+  class ResourceLimits:
+      def __init__(self):
+          self.max_memory_mb = float(os.environ.get('APP_MAX_MEMORY_MB', '1024'))
+          self.max_processing_time = float(os.environ.get('APP_MAX_PROCESSING_TIME', '300'))
+          self.max_result_count = int(os.environ.get('APP_MAX_RESULT_COUNT', '50000'))
+  
+  # Usage: Configurable via environment without code changes
+  # OUTLOOK_CLI_MAX_MEMORY_MB=2048 OUTLOOK_CLI_MAX_PROCESSING_TIME=120 ocli read --folder Inbox
+  ```
+
+### Performance Baseline and Regression Detection Pattern
+- **Pattern**: Automated performance regression detection with tolerance thresholds
+- **Implementation**:
+  ```python
+  baseline = PerformanceBaseline(threshold_factor=1.2)  # 20% tolerance
+  
+  # Record baseline during development/testing
+  baseline.record_baseline("operation", duration=1.0, memory=100.0)
+  
+  # Check for regression in production/CI
+  is_regression = baseline.check_regression("operation", 
+                                          current_duration=1.3,  # OK: 30% increase < 20% threshold
+                                          current_memory=130.0)
+  ```
+
 ## Development Tools and Best Practices
 
 ### UV Package Manager Commands

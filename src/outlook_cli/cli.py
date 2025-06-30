@@ -1,6 +1,7 @@
 """CLI entry point for Outlook CLI."""
 
 import argparse
+import os
 import sys
 from colorama import init, Fore, Style
 from outlook_cli.services.email_reader import EmailReader
@@ -16,6 +17,9 @@ from outlook_cli.utils.logging_config import setup_logging, get_logger
 from outlook_cli.utils.errors import (
     OutlookError, get_error_suggestion
 )
+from outlook_cli.utils.performance_monitor import PerformanceMonitor
+from outlook_cli.utils.audit_logger import AuditLogger
+from outlook_cli.utils.resource_monitor import ResourceMonitor, ResourceExceededError
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 
 # Initialize colorama for cross-platform color support
@@ -24,6 +28,11 @@ init(autoreset=True)
 # Setup logging
 setup_logging()
 logger = get_logger(__name__)
+
+# Setup monitoring infrastructure
+performance_monitor = PerformanceMonitor()
+audit_logger = AuditLogger()
+resource_monitor = ResourceMonitor()
 
 
 def _create_adapter(args) -> OutlookAdapter:
@@ -282,7 +291,14 @@ Examples:
 def handle_read(args):
     """Handle read command with filtering support."""
     logger.info(f"Starting read command for folder: {args.folder}")
+    
+    # Start performance monitoring
+    performance_monitor.start_monitoring("read_command")
+    
     try:
+        # Check resource limits before processing
+        resource_monitor.check_memory_usage()
+        
         # Use FilterParsingService to parse date arguments
         filter_service = FilterParsingService()
         since_date, until_date = filter_service.parse_date_filters(args)
@@ -295,6 +311,25 @@ def handle_read(args):
         command_service = CommandProcessingService(adapter_factory)
         result = command_service.process_email_command(args, search_params, "reading emails")
         
+        # Stop performance monitoring and log results
+        metrics = performance_monitor.stop_monitoring("read_command")
+        
+        # Log audit entry for the operation
+        audit_logger.log_filter_operation(
+            operation="read",
+            filters=search_params,
+            user=os.environ.get('USER', 'unknown'),
+            result_count=len(result['emails'])
+        )
+        
+        # Log performance metrics
+        audit_logger.log_performance_metrics(
+            operation="read",
+            duration_seconds=metrics.duration_seconds,
+            memory_used_mb=metrics.memory_used_mb,
+            result_count=len(result['emails'])
+        )
+        
         logger.info(f"Successfully retrieved {len(result['emails'])} emails from {args.folder}")
         
         # Handle empty results
@@ -305,6 +340,9 @@ def handle_read(args):
         # Display paginated emails
         _display_email_page(result['paginator'], result['current_page'])
             
+    except ResourceExceededError as e:
+        print(f"{Fore.RED}Error: {str(e)}{Style.RESET_ALL}")
+        logger.error(f"Resource limit exceeded in read command: {str(e)}")
     except Exception as e:
         # Handle all errors with enhanced error handling
         _handle_enhanced_error(e, "reading emails")
@@ -313,7 +351,13 @@ def handle_read(args):
 def handle_find(args):
     """Handle find command."""
     logger.info(f"Starting find command with keyword={args.keyword}, sender={args.sender}, subject={args.subject}, folder={args.folder}")
+    
+    # Start performance monitoring
+    performance_monitor.start_monitoring("find_command")
+    
     try:
+        # Check resource limits before processing
+        resource_monitor.check_memory_usage()
         # Validate at least one search criteria provided
         has_search_criteria = (
             args.keyword or args.sender or args.subject or 
@@ -380,6 +424,34 @@ def handle_find(args):
             sorting_service = EmailSortingService()
             results = sorting_service.sort_emails(results, args.sort_by, args.sort_order)
             
+        # Stop performance monitoring and log results
+        metrics = performance_monitor.stop_monitoring("find_command")
+        
+        # Log audit entry for the operation
+        filters = {
+            'keyword': args.keyword,
+            'sender': args.sender if not args.keyword else None,
+            'subject': args.subject if not args.keyword else None,
+            'folder': args.folder
+        }
+        # Add any other active filters from base_search_params
+        filters.update(base_search_params)
+        
+        audit_logger.log_filter_operation(
+            operation="find",
+            filters=filters,
+            user=os.environ.get('USER', 'unknown'),
+            result_count=len(results)
+        )
+        
+        # Log performance metrics
+        audit_logger.log_performance_metrics(
+            operation="find",
+            duration_seconds=metrics.duration_seconds,
+            memory_used_mb=metrics.memory_used_mb,
+            result_count=len(results)
+        )
+        
         # Paginate and display results
         paginator = Paginator(results, page_size=10)
         current_page = paginator.get_current_page()
@@ -387,6 +459,9 @@ def handle_find(args):
         # Display paginated emails
         _display_email_page(paginator, current_page)
             
+    except ResourceExceededError as e:
+        print(f"{Fore.RED}Error: {str(e)}{Style.RESET_ALL}")
+        logger.error(f"Resource limit exceeded in find command: {str(e)}")
     except Exception as e:
         # Handle all errors with enhanced error handling
         _handle_enhanced_error(e, "searching emails")
