@@ -134,6 +134,21 @@
   ```
 - **Corporate Environment**: Essential for Windows environments with Exchange data containing Unicode characters
 
+### Defensive COM Property Access Pattern
+- **Problem**: Corporate Windows environments have COM property access issues causing filtering failures
+- **Solution**: Wrap all COM property access in try/catch blocks with reasonable defaults
+- **Implementation**:
+  ```python
+  # Instead of direct property access
+  try:
+      unread_value = getattr(com_email, 'UnRead', True)
+      is_read = unread_value == False
+  except (com_error, Exception) as e:
+      logger.debug(f"Failed to get UnRead property: {e}")
+      is_read = False  # Safe default
+  ```
+- **Corporate Environment**: Essential for Windows corporate Exchange environments with restricted COM access
+
 ## Development Guidelines
 - Use `MockOutlookAdapter` for development and testing
 - Use `PyWin32OutlookAdapter` for production Windows environment
@@ -215,6 +230,26 @@
                                           current_duration=1.3,  # OK: 30% increase < 20% threshold
                                           current_memory=130.0)
   ```
+
+### CLI Security Validation Pattern  
+- **Problem**: CLI arguments need validation to prevent buffer overflow and path traversal attacks
+- **Solution**: Validate input length and detect malicious patterns before processing
+- **Implementation**:
+  ```python
+  def _validate_argument_security(args):
+      MAX_ARG_LENGTH = 1000
+      
+      for arg_name in string_args:
+          arg_value = getattr(args, arg_name, None)
+          if arg_value and len(arg_value) > MAX_ARG_LENGTH:
+              print(f"Error: Argument exceeds maximum length")
+              sys.exit(1)
+      
+      # Security validation in date parser
+      if any(pattern in date_str for pattern in ['..', '/', '\\', 'etc']):
+          raise ValueError(f"Error: Invalid date format - contains suspicious characters")
+  ```
+- **Security**: Essential for preventing buffer overflow and path traversal attacks in CLI applications
 
 ## Development Tools and Best Practices
 
