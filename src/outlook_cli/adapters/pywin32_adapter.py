@@ -131,6 +131,11 @@ class PyWin32OutlookAdapter(OutlookAdapter):
                 
             folder_path = f"{parent_path}/{folder_name}" if parent_path else folder_name
             
+            # Skip problematic public folders that cause hanging in corporate environments
+            if "Public Folders" in folder_path or "All Public Folders" in folder_path:
+                self._logger.debug(f"Skipping public folder: {folder_path}")
+                return folders
+            
             # Get folder statistics with timeout protection for COM property access
             try:
                 # Protect against hanging COM property access
