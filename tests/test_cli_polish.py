@@ -120,10 +120,10 @@ class TestCLIPolish:
             
             # Should contain practical examples for all 4 commands
             expected_examples = [
-                'outlook-cli read Inbox',
-                'outlook-cli find "meeting"',
-                'outlook-cli move inbox-001 "Sent Items"',
-                'outlook-cli open inbox-001'
+                'ocli read --folder Inbox',
+                'ocli find --keyword "meeting"',
+                'ocli move <email-id> "Sent Items"',
+                'ocli open <email-id>'
             ]
             
             for example in expected_examples:

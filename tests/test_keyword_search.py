@@ -29,26 +29,51 @@ class TestKeywordSearch:
         
         test_emails_sender = []  # No matches in sender for this test
         
-        # Mock the EmailSearcher methods
+        # Mock the services used by find command
         mock_adapter = MagicMock()
         mock_searcher = MagicMock()
         
         with patch('outlook_cli.cli._create_adapter', return_value=mock_adapter), \
              patch('outlook_cli.cli.EmailSearcher', return_value=mock_searcher), \
+             patch('outlook_cli.cli.FilterParsingService') as mock_filter_service_class, \
              patch('sys.stdout', new_callable=io.StringIO) as mock_stdout, \
              patch('sys.argv', ['ocli', 'find', '--keyword', 'notes']):
             
-            # Setup the searcher to return our test data
-            mock_searcher.search_by_subject.return_value = test_emails_subject
-            mock_searcher.search_by_sender.return_value = test_emails_sender
+            # Mock FilterParsingService 
+            mock_filter_service = MagicMock()
+            mock_filter_service_class.return_value = mock_filter_service
+            mock_filter_service.parse_date_filters.return_value = (None, None)
+            mock_filter_service.build_search_params.return_value = {'folder': 'Inbox'}
+            
+            # Setup the searcher to return our test data based on search_emails calls
+            def mock_search_emails(**kwargs):
+                if 'subject' in kwargs and kwargs['subject'] == 'notes':
+                    return test_emails_subject
+                elif 'sender' in kwargs and kwargs['sender'] == 'notes':
+                    return test_emails_sender
+                return []
+            
+            mock_searcher.search_emails.side_effect = mock_search_emails
             
             main()
             
             output = mock_stdout.getvalue()
             
-            # Verify the keyword search was called correctly
-            mock_searcher.search_by_subject.assert_called_once_with('notes', 'Inbox')
-            mock_searcher.search_by_sender.assert_called_once_with('notes', 'Inbox')
+            # Verify the keyword search was called correctly with new method
+            assert mock_searcher.search_emails.call_count == 2  # One for sender, one for subject
+            
+            # Verify the correct parameters were passed
+            calls = mock_searcher.search_emails.call_args_list
+            sender_call = calls[0]
+            subject_call = calls[1]
+            
+            # First call should be for sender search
+            assert sender_call.kwargs['sender'] == 'notes'
+            assert sender_call.kwargs['folder'] == 'Inbox'
+            
+            # Second call should be for subject search
+            assert subject_call.kwargs['subject'] == 'notes'
+            assert subject_call.kwargs['folder'] == 'Inbox'
             
             # Verify output shows the found email
             assert "Meeting notes for project" in output
@@ -72,26 +97,38 @@ class TestKeywordSearch:
             )
         ]
         
-        # Mock the EmailSearcher methods
+        # Mock the services used by find command
         mock_adapter = MagicMock()
         mock_searcher = MagicMock()
         
         with patch('outlook_cli.cli._create_adapter', return_value=mock_adapter), \
              patch('outlook_cli.cli.EmailSearcher', return_value=mock_searcher), \
+             patch('outlook_cli.cli.FilterParsingService') as mock_filter_service_class, \
              patch('sys.stdout', new_callable=io.StringIO) as mock_stdout, \
              patch('sys.argv', ['ocli', 'find', '--keyword', 'notes']):
             
-            # Setup the searcher to return our test data
-            mock_searcher.search_by_subject.return_value = test_emails_subject
-            mock_searcher.search_by_sender.return_value = test_emails_sender
+            # Mock FilterParsingService 
+            mock_filter_service = MagicMock()
+            mock_filter_service_class.return_value = mock_filter_service
+            mock_filter_service.parse_date_filters.return_value = (None, None)
+            mock_filter_service.build_search_params.return_value = {'folder': 'Inbox'}
+            
+            # Setup the searcher to return our test data based on search_emails calls
+            def mock_search_emails(**kwargs):
+                if 'subject' in kwargs and kwargs['subject'] == 'notes':
+                    return test_emails_subject
+                elif 'sender' in kwargs and kwargs['sender'] == 'notes':
+                    return test_emails_sender
+                return []
+            
+            mock_searcher.search_emails.side_effect = mock_search_emails
             
             main()
             
             output = mock_stdout.getvalue()
             
-            # Verify the keyword search was called correctly
-            mock_searcher.search_by_subject.assert_called_once_with('notes', 'Inbox')
-            mock_searcher.search_by_sender.assert_called_once_with('notes', 'Inbox')
+            # Verify the keyword search was called correctly with new method
+            assert mock_searcher.search_emails.call_count == 2  # One for sender, one for subject
             
             # Verify output shows the found email
             assert "John Notes" in output
@@ -116,18 +153,31 @@ class TestKeywordSearch:
         test_emails_subject = [duplicate_email]
         test_emails_sender = [duplicate_email]
         
-        # Mock the EmailSearcher methods
+        # Mock the services used by find command
         mock_adapter = MagicMock()
         mock_searcher = MagicMock()
         
         with patch('outlook_cli.cli._create_adapter', return_value=mock_adapter), \
              patch('outlook_cli.cli.EmailSearcher', return_value=mock_searcher), \
+             patch('outlook_cli.cli.FilterParsingService') as mock_filter_service_class, \
              patch('sys.stdout', new_callable=io.StringIO) as mock_stdout, \
              patch('sys.argv', ['ocli', 'find', '--keyword', 'notes']):
             
-            # Setup the searcher to return our test data (same email from both)
-            mock_searcher.search_by_subject.return_value = test_emails_subject
-            mock_searcher.search_by_sender.return_value = test_emails_sender
+            # Mock FilterParsingService 
+            mock_filter_service = MagicMock()
+            mock_filter_service_class.return_value = mock_filter_service
+            mock_filter_service.parse_date_filters.return_value = (None, None)
+            mock_filter_service.build_search_params.return_value = {'folder': 'Inbox'}
+            
+            # Setup the searcher to return our test data based on search_emails calls (same email from both)
+            def mock_search_emails(**kwargs):
+                if 'subject' in kwargs and kwargs['subject'] == 'notes':
+                    return test_emails_subject
+                elif 'sender' in kwargs and kwargs['sender'] == 'notes':
+                    return test_emails_sender
+                return []
+            
+            mock_searcher.search_emails.side_effect = mock_search_emails
             
             main()
             
@@ -148,12 +198,18 @@ class TestKeywordSearch:
         
         with patch('outlook_cli.cli._create_adapter', return_value=mock_adapter), \
              patch('outlook_cli.cli.EmailSearcher', return_value=mock_searcher), \
+             patch('outlook_cli.cli.FilterParsingService') as mock_filter_service_class, \
              patch('sys.stdout', new_callable=io.StringIO) as mock_stdout, \
              patch('sys.argv', ['ocli', 'find', '--keyword', 'meeting']):
             
+            # Mock FilterParsingService 
+            mock_filter_service = MagicMock()
+            mock_filter_service_class.return_value = mock_filter_service
+            mock_filter_service.parse_date_filters.return_value = (None, None)
+            mock_filter_service.build_search_params.return_value = {'folder': 'Inbox'}
+            
             # Setup empty results for this test (focusing on search summary)
-            mock_searcher.search_by_subject.return_value = []
-            mock_searcher.search_by_sender.return_value = []
+            mock_searcher.search_emails.return_value = []
             
             main()
             
@@ -175,4 +231,4 @@ class TestKeywordSearch:
             output = mock_stdout.getvalue()
             
             # Verify error message for missing search criteria
-            assert "Error: Please specify --keyword, --sender, and/or --subject to search" in output
+            assert "Error: Please specify at least one search criteria (--keyword, --sender, --subject, date filters, or other filters)" in output

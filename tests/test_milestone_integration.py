@@ -173,10 +173,10 @@ class TestMilestoneIntegration:
         
         help_output = captured_output.getvalue()
         examples = [
-            'outlook-cli read Inbox',
-            'outlook-cli find "meeting"',
-            'outlook-cli move inbox-001',
-            'outlook-cli open inbox-001'
+            'ocli read --folder Inbox',
+            'ocli find --keyword "meeting"',
+            'ocli move <email-id> "Sent Items"',
+            'ocli open <email-id>'
         ]
         for example in examples:
             assert example in help_output
@@ -323,7 +323,7 @@ class TestMilestoneIntegration:
             '# Outlook CLI',
             'Installation',
             'Configuration', 
-            'Usage Examples',
+            'Examples',
             'Troubleshooting',
             'Architecture'
         ]

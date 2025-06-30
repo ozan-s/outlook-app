@@ -106,7 +106,7 @@ class CommandProcessingService:
 - Next milestone 011B prioritized for integration test updates
 
 ### Git Commit
-- Hash: [to be generated]
+- Hash: d875f4e
 - Message: "feat: complete milestone-011a-refactor-shared-filtering"
 
 ### Handover Notes
