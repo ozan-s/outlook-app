@@ -9,12 +9,13 @@ from outlook_cli.services.email_mover import EmailMover
 from outlook_cli.services.folder_service import FolderService
 from outlook_cli.services.paginator import Paginator
 from outlook_cli.services.email_sorting_service import EmailSortingService
+from outlook_cli.services.filter_parsing_service import FilterParsingService
+from outlook_cli.services.command_processing_service import CommandProcessingService
 from outlook_cli.config.adapter_factory import AdapterFactory
 from outlook_cli.utils.logging_config import setup_logging, get_logger
 from outlook_cli.utils.errors import (
     OutlookError, get_error_suggestion
 )
-from outlook_cli.utils.date_parser import parse_relative_date, validate_date_range
 from outlook_cli.adapters.outlook_adapter import OutlookAdapter
 
 # Initialize colorama for cross-platform color support
@@ -185,6 +186,26 @@ Examples:
     # Read command
     read_parser = subparsers.add_parser('read', help='Read emails from folder')
     read_parser.add_argument('--folder', default='Inbox', help='Folder to read emails from (default: Inbox)')
+    read_parser.add_argument('--since', help='Start date (formats: 2025-06-01, 7d, 2w, 1M, 1y, 2h, 30m, yesterday, today, tomorrow, monday, last-friday, last-week, this-month)')
+    read_parser.add_argument('--until', help='End date (same formats as --since)')
+    
+    # Read status filters (mutually exclusive)
+    read_status_group = read_parser.add_mutually_exclusive_group()
+    read_status_group.add_argument('--is-read', action='store_true', help='Show only read emails')
+    read_status_group.add_argument('--is-unread', action='store_true', help='Show only unread emails')
+    
+    # Attachment filters (has/no are mutually exclusive)
+    read_attachment_group = read_parser.add_mutually_exclusive_group()
+    read_attachment_group.add_argument('--has-attachment', action='store_true', help='Show only emails with attachments')
+    read_attachment_group.add_argument('--no-attachment', action='store_true', help='Show only emails without attachments')
+    read_parser.add_argument('--attachment-type', help='Filter by file extension (pdf, doc, jpg, etc.)')
+    
+    # Content filters
+    read_parser.add_argument('--importance', choices=['high', 'normal', 'low'], help='Filter by importance (high, normal, low)')
+    read_parser.add_argument('--not-sender', help='Exclude emails from specific sender')
+    read_parser.add_argument('--not-subject', help='Exclude emails with subject keywords')
+    
+    # Sorting options
     read_parser.add_argument('--sort-by', choices=['received_date', 'subject', 'sender', 'importance'], 
                             help='Field to sort by (received_date, subject, sender, importance)')
     read_parser.add_argument('--sort-order', choices=['desc', 'asc'], default='desc',
@@ -259,33 +280,30 @@ Examples:
 
 
 def handle_read(args):
-    """Handle read command."""
+    """Handle read command with filtering support."""
     logger.info(f"Starting read command for folder: {args.folder}")
     try:
-        # Initialize services with configured adapter
-        adapter = _create_adapter(args)
-        reader = EmailReader(adapter)
+        # Use FilterParsingService to parse date arguments
+        filter_service = FilterParsingService()
+        since_date, until_date = filter_service.parse_date_filters(args)
         
-        # Get emails from specified folder
-        emails = reader.get_emails_from_folder(args.folder)
-        logger.info(f"Successfully retrieved {len(emails)} emails from {args.folder}")
+        # Build search parameters using FilterParsingService
+        search_params = filter_service.build_search_params(args, since_date, until_date)
         
-        # Handle empty folder
-        if not emails:
+        # Use CommandProcessingService for common processing pattern
+        adapter_factory = AdapterFactory()
+        command_service = CommandProcessingService(adapter_factory)
+        result = command_service.process_email_command(args, search_params, "reading emails")
+        
+        logger.info(f"Successfully retrieved {len(result['emails'])} emails from {args.folder}")
+        
+        # Handle empty results
+        if not result['emails']:
             print(f"No emails found in folder: {args.folder}")
             return
         
-        # Apply sorting if specified
-        if args.sort_by:
-            sorting_service = EmailSortingService()
-            emails = sorting_service.sort_emails(emails, args.sort_by, args.sort_order)
-            
-        # Paginate emails (10 per page)
-        paginator = Paginator(emails, page_size=10)
-        current_page = paginator.get_current_page()
-        
         # Display paginated emails
-        _display_email_page(paginator, current_page)
+        _display_email_page(result['paginator'], result['current_page'])
             
     except Exception as e:
         # Handle all errors with enhanced error handling
@@ -308,17 +326,12 @@ def handle_find(args):
             print("Error: Please specify at least one search criteria (--keyword, --sender, --subject, date filters, or other filters)")
             return
             
-        # Parse date arguments
-        since_date = None
-        until_date = None
+        # Use FilterParsingService to parse date arguments
+        filter_service = FilterParsingService()
+        since_date, until_date = filter_service.parse_date_filters(args)
         
-        if args.since:
-            since_date = parse_relative_date(args.since)
-        if args.until:
-            until_date = parse_relative_date(args.until)
-            
-        # Validate date range
-        validate_date_range(since_date, until_date)
+        # Build base search parameters using FilterParsingService
+        base_search_params = filter_service.build_search_params(args, since_date, until_date)
         
         # Initialize EmailSearcher with configured adapter
         adapter = _create_adapter(args)
@@ -327,50 +340,24 @@ def handle_find(args):
         # Perform search with provided criteria (including new filters)
         if args.keyword:
             # For keyword search, use OR logic: search by sender OR subject, then apply all filters
-            sender_results = searcher.search_emails(
-                sender=args.keyword,
-                folder_path=args.folder,
-                since=since_date,
-                until=until_date,
-                is_read=args.is_read,
-                is_unread=args.is_unread,
-                has_attachment=args.has_attachment,
-                no_attachment=args.no_attachment,
-                importance=args.importance,
-                not_sender=args.not_sender,
-                not_subject=args.not_subject
-            )
-            subject_results = searcher.search_emails(
-                subject=args.keyword,
-                folder_path=args.folder,
-                since=since_date,
-                until=until_date,
-                is_read=args.is_read,
-                is_unread=args.is_unread,
-                has_attachment=args.has_attachment,
-                no_attachment=args.no_attachment,
-                importance=args.importance,
-                not_sender=args.not_sender,
-                not_subject=args.not_subject
-            )
+            sender_params = base_search_params.copy()
+            sender_params['sender'] = args.keyword
+            sender_results = searcher.search_emails(**sender_params)
+            
+            subject_params = base_search_params.copy()
+            subject_params['subject'] = args.keyword
+            subject_results = searcher.search_emails(**subject_params)
+            
             # Combine results and remove duplicates
             results = _deduplicate_emails(subject_results + sender_results)
         else:
             # For specific sender/subject search, use AND logic with all filters
-            results = searcher.search_emails(
-                sender=args.sender,
-                subject=args.subject, 
-                folder_path=args.folder,
-                since=since_date,
-                until=until_date,
-                is_read=args.is_read,
-                is_unread=args.is_unread,
-                has_attachment=args.has_attachment,
-                no_attachment=args.no_attachment,
-                importance=args.importance,
-                not_sender=args.not_sender,
-                not_subject=args.not_subject
-            )
+            specific_params = base_search_params.copy()
+            if args.sender:
+                specific_params['sender'] = args.sender
+            if args.subject:
+                specific_params['subject'] = args.subject
+            results = searcher.search_emails(**specific_params)
         
         # Display search summary
         criteria = []
@@ -383,7 +370,7 @@ def handle_find(args):
         print(f"Searching for emails with {' and '.join(criteria)} in folder '{args.folder}':")
         print()
         
-        # Handle empty results
+        # Handle empty results and apply common processing (sorting, pagination)
         if not results:
             print("No emails found matching your criteria.")
             return

@@ -74,6 +74,26 @@
   ```
 - **Benefits**: Each filter method is testable in isolation, easy to add/remove filters, clear separation of concerns
 
+### Service Extraction Pattern for Code Deduplication
+- **Problem**: Identical logic blocks duplicated across CLI handlers (date parsing, parameter building, common processing)
+- **Solution**: Extract shared logic into dedicated service classes with single responsibilities
+- **Implementation**:
+  ```python
+  # Extract parameter parsing
+  class FilterParsingService:
+      def parse_date_filters(self, args) -> Tuple[datetime, datetime]:
+          # Centralized date parsing logic
+      
+      def build_search_params(self, args, since_date, until_date) -> Dict:
+          # Centralized parameter building
+  
+  # Extract common processing patterns  
+  class CommandProcessingService:
+      def process_email_command(self, args, search_params, operation_name):
+          # Common pattern: search -> sort -> paginate -> return
+  ```
+- **Benefits**: Eliminates duplication, improves testability, maintains single responsibility principle, reduces maintenance burden
+
 ## Windows COM Interface Patterns
 
 ### Exchange Distinguished Name Resolution Pattern  

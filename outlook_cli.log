@@ -1482,3 +1482,826 @@
 2025-06-29 19:16:46 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
 2025-06-29 19:17:00 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
 2025-06-29 19:17:00 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:31:32 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:31:32 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:31:32 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:32:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:32:02 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-29 19:32:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:32:43 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:32:43 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 19:32:43 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:33:19 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:33:19 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:33:19 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 19:34:02 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 19:34:17 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 19:34:17 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 19:34:35 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 19:34:52 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:52 - __main__ - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:34:59 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:34:59 - __main__ - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:35:04 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:04 - __main__ - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:35:09 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:09 - __main__ - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 19:35:13 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 19:35:13 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 19:35:18 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:18 - __main__ - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 19:35:23 - __main__ - INFO - Starting read command for folder: Inbox
+2025-06-29 19:35:23 - __main__ - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-29 20:04:12 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:12 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:12 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=meeting, folder=Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-29 20:04:21 - test_logger - INFO - Test log message
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:21 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:22 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test@example.com, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date format: invalid_date
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date range: 'since' date must be before or equal to 'until' date
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in searching emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=meeting, folder=Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-29 20:04:37 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-29 20:04:37 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-29 20:04:37 - test_logger - INFO - Test log message
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-29 20:04:38 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-29 20:04:38 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:38 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:39 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:39 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:04:39 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:04:39 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:04:39 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:04:39 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test@example.com, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date format: invalid_date
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date range: 'since' date must be before or equal to 'until' date
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-29 20:05:39 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-29 20:05:39 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - ERROR - Error in searching emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=meeting, folder=Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-29 20:05:40 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-29 20:05:40 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-29 20:05:40 - test_logger - INFO - Test log message
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-29 20:05:40 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-29 20:05:40 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Inbox
+2025-06-29 20:05:41 - outlook_cli.cli - ERROR - Error in reading emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:05:41 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test@example.com, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date format: invalid_date
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date range: 'since' date must be before or equal to 'until' date
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-29 20:13:53 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-29 20:13:53 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in searching emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - test_logger - INFO - Test log message
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in reading emails: 'Namespace' object has no attribute 'lower'
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-29 20:13:54 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-29 20:13:54 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:55 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:55 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:55 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:55 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-29 20:13:55 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:13:55 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-29 20:13:55 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-29 20:14:07 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-29 20:14:07 - outlook_cli.cli - ERROR - Error in reading emails: 'Args' object has no attribute 'lower'
+2025-06-30 05:43:57 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:43:57 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:08 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:08 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test@example.com, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date format: invalid_date
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date range: 'since' date must be before or equal to 'until' date
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in searching emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=meeting, folder=Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-30 05:44:14 - test_logger - INFO - Test log message
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-30 05:44:14 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-30 05:44:14 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-30 05:44:15 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:15 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:44:16 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-30 05:44:16 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-30 05:45:42 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=alice, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=meeting, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: NonExistentFolder
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonExistentFolder' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: EmptyFolder
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'EmptyFolder' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 2 emails from Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Drafts
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Drafts
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=manager, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=project, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=pm, subject=update, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=user, subject=None, folder=Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=nonexistent@example.com, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test, subject=None, folder=NonExistentFolder
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in searching emails: Folder 'NonExistentFolder' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Drafts
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=nonexistent, target_folder=Drafts
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in moving email: Email 'nonexistent' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=BadFolder
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in moving email: Target folder 'BadFolder' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Custom/Archive
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=sent-001, target_folder=Custom/Projects
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=invalid-id, target_folder=Drafts
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in moving email: Email 'invalid-id' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=test@example.com, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date format: invalid_date
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in searching emails: Invalid date range: 'since' date must be before or equal to 'until' date
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-123
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-123' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-30 05:46:16 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-30 05:46:16 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=test, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in searching emails: '<' not supported between instances of 'MagicMock' and 'MagicMock'
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in reading emails: pywin32 not available - this adapter requires Windows
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 0 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=notes, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=meeting, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=None, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting find command with keyword=None, sender=None, subject=meeting, folder=Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-002, target_folder=Sent Items
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-003
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: NonexistentFolder
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'NonexistentFolder' not found
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-30 05:46:17 - test_logger - INFO - Test log message
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting read command for folder: InvalidFolder
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in reading emails: Folder 'InvalidFolder' not found
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting move command: email_id=inbox-001, target_folder=Sent Items
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-001
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting open command for email_id: sent-001
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting open command for email_id: draft-001
+2025-06-30 05:46:17 - outlook_cli.cli - INFO - Starting open command for email_id: nonexistent-999
+2025-06-30 05:46:17 - outlook_cli.cli - ERROR - Error in opening email: Email 'nonexistent-999' not found
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting open command for email_id: inbox-002
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Successfully retrieved 3 emails from Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Starting read command for folder: Inbox
+2025-06-30 05:46:18 - outlook_cli.cli - INFO - Successfully retrieved 1 emails from Inbox
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - ERROR - Connection check failed with exception: Connection failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 2 retries)
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - ERROR - All 2 reconnection attempts failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 1 retries)
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - ERROR - All 1 reconnection attempts failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection check failed - connection is unhealthy
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Attempting reconnection (max 3 retries)
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - INFO - Reconnection successful
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
+2025-06-30 05:46:18 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
