@@ -255,6 +255,9 @@ Examples:
     read_parser.add_argument('--sort-order', choices=['desc', 'asc'], default='desc',
                             help='Sort order: desc (default) or asc')
     
+    # Result control
+    read_parser.add_argument('--limit', type=int, help='Number of emails to display (default: 10)')
+    
     # Find command
     find_parser = subparsers.add_parser('find', help='Search emails with filters')
     find_parser.add_argument('--keyword', help='Search keyword in subject and sender (alternative to --sender/--subject)')
@@ -347,7 +350,8 @@ def handle_read(args):
         # Use CommandProcessingService for common processing pattern
         adapter_factory = AdapterFactory()
         command_service = CommandProcessingService(adapter_factory)
-        result = command_service.process_email_command(args, search_params, "reading emails")
+        page_size = getattr(args, 'limit', None)
+        result = command_service.process_email_command(args, search_params, "reading emails", page_size)
         
         # Stop performance monitoring and log results
         metrics = performance_monitor.stop_monitoring("read_command")

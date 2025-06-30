@@ -1,6 +1,6 @@
 """Service for common email command processing patterns."""
 
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from outlook_cli.services.email_searcher import EmailSearcher
 from outlook_cli.services.email_sorting_service import EmailSortingService
 from outlook_cli.services.paginator import Paginator
@@ -17,13 +17,14 @@ class CommandProcessingService:
         """
         self.adapter_factory = adapter_factory
     
-    def process_email_command(self, args, search_params: Dict[str, Any], operation_name: str) -> Dict[str, Any]:
+    def process_email_command(self, args, search_params: Dict[str, Any], operation_name: str, page_size: Optional[int] = None) -> Dict[str, Any]:
         """Common pattern: search -> sort -> paginate -> return results.
         
         Args:
             args: CLI arguments object with sort_by, sort_order attributes
             search_params: Parameters to pass to EmailSearcher.search_emails()
             operation_name: Name of operation for logging/error purposes
+            page_size: Optional custom page size for pagination (default: 10)
             
         Returns:
             Dictionary containing:
@@ -55,8 +56,9 @@ class CommandProcessingService:
             sorting_service = EmailSortingService()
             emails = sorting_service.sort_emails(emails, args.sort_by, args.sort_order)
         
-        # Paginate emails (10 per page)
-        paginator = Paginator(emails, page_size=10)
+        # Paginate emails (use custom page size or default 10 per page)
+        effective_page_size = page_size if page_size is not None else 10
+        paginator = Paginator(emails, page_size=effective_page_size)
         current_page = paginator.get_current_page()
         
         return {
