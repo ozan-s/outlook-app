@@ -59,6 +59,10 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             # Get all accounts/stores
             folders_collection = self._namespace.Folders
             
+            # Set start time for timeout protection
+            import time
+            self._folder_start_time = time.time()
+            
             # Use defensive iteration pattern proven to work in Windows corporate environments
             # Based on successful Milestone 005C testing with 48 folders
             index = 1
@@ -88,7 +92,7 @@ class PyWin32OutlookAdapter(OutlookAdapter):
         except com_error as e:
             raise ValueError(f"Failed to retrieve folders: {e}")
     
-    def _get_folders_recursive(self, com_folder, parent_path: str, depth: int = 0, max_depth: int = 10) -> List[Folder]:
+    def _get_folders_recursive(self, com_folder, parent_path: str, depth: int = 0, max_depth: int = 5) -> List[Folder]:
         """Recursively build folder list from COM folder object.
         
         Args:
@@ -107,17 +111,42 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             self._logger.warning(f"Maximum recursion depth {max_depth} reached for folder {parent_path}")
             return folders
         
+        # Aggressive timeout protection - check if we should abort early
+        # This helps prevent hanging in problematic folder structures
+        import time
+        if hasattr(self, '_folder_start_time'):
+            elapsed = time.time() - self._folder_start_time
+            if elapsed > 45.0:  # Give up after 45 seconds to allow outer timeout to handle
+                self._logger.warning(f"Folder enumeration taking too long ({elapsed:.1f}s), stopping early")
+                return folders
+        
         try:
-            # Build folder path
-            folder_name = com_folder.Name
+            # Build folder path with COM property protection
+            try:
+                folder_name = com_folder.Name
+            except (com_error, Exception) as e:
+                self._logger.warning(f"Failed to get folder name at depth {depth}: {e}")
+                folder_name = f"Unknown_Folder_{depth}"
+                
             folder_path = f"{parent_path}/{folder_name}" if parent_path else folder_name
             
-            # Get folder statistics
+            # Get folder statistics with timeout protection for COM property access
             try:
-                email_count = com_folder.Items.Count
-                unread_count = com_folder.UnReadItemCount
-            except (AttributeError, com_error):
-                # Some folders may not have these properties
+                # Protect against hanging COM property access
+                try:
+                    email_count = com_folder.Items.Count
+                except (AttributeError, com_error, Exception) as e:
+                    self._logger.debug(f"Failed to get email count for {folder_path}: {e}")
+                    email_count = 0
+                
+                try:
+                    unread_count = com_folder.UnReadItemCount
+                except (AttributeError, com_error, Exception) as e:
+                    self._logger.debug(f"Failed to get unread count for {folder_path}: {e}")
+                    unread_count = 0
+                    
+            except (AttributeError, com_error, Exception):
+                # Some folders may not have these properties or may be inaccessible
                 email_count = 0
                 unread_count = 0
             
@@ -130,29 +159,41 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             )
             folders.append(folder)
             
-            # Process subfolders using defensive iteration pattern
+            # Process subfolders using defensive iteration pattern with COM property timeout protection
             if hasattr(com_folder, 'Folders'):
-                subfolders = com_folder.Folders
-                if subfolders.Count > 0:
-                    index = 1
-                    consecutive_failures = 0
-                    max_consecutive_failures = 3
+                try:
+                    subfolders = com_folder.Folders
                     
-                    while consecutive_failures < max_consecutive_failures:
-                        try:
-                            subfolder = subfolders[index]
-                            folders.extend(self._get_folders_recursive(subfolder, folder_path, depth + 1, max_depth))
-                            consecutive_failures = 0  # Reset on success
-                            index += 1
-                            
-                        except (IndexError, com_error) as e:
-                            self._logger.warning(f"Skipping inaccessible subfolder at index {index}: {e}")
-                            consecutive_failures += 1
-                            index += 1
-                            
-                            # Safety check: don't iterate beyond reasonable bounds
-                            if index > subfolders.Count + max_consecutive_failures:
-                                break
+                    # Protect against hanging COM property access
+                    try:
+                        subfolder_count = subfolders.Count
+                    except (com_error, Exception) as e:
+                        self._logger.warning(f"Failed to get subfolder count for {folder_path}: {e}")
+                        subfolder_count = 0
+                    
+                    if subfolder_count > 0:
+                        index = 1
+                        consecutive_failures = 0
+                        max_consecutive_failures = 3
+                        
+                        while consecutive_failures < max_consecutive_failures:
+                            try:
+                                subfolder = subfolders[index]
+                                folders.extend(self._get_folders_recursive(subfolder, folder_path, depth + 1, max_depth))
+                                consecutive_failures = 0  # Reset on success
+                                index += 1
+                                
+                            except (IndexError, com_error) as e:
+                                self._logger.warning(f"Skipping inaccessible subfolder at index {index}: {e}")
+                                consecutive_failures += 1
+                                index += 1
+                                
+                                # Safety check: don't iterate beyond reasonable bounds
+                                if index > subfolder_count + max_consecutive_failures:
+                                    break
+                                    
+                except (com_error, Exception) as e:
+                    self._logger.warning(f"Failed to access subfolders for {folder_path}: {e}")
             
         except com_error as e:
             self._logger.error(f"Error processing folder {parent_path}: {e}")
