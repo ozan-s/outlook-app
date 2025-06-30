@@ -1,0 +1,53 @@
+================================================================================
+DATE PARSING VALIDATION REPORT
+================================================================================
+Timestamp: 2025-06-30 07:54:04
+Total Formats Tested: 36
+Successful: 36
+Failed: 0
+Success Rate: 100.0%
+Overall Validation: ✅ PASSED
+
+PERFORMANCE METRICS:
+Total Execution Time: 4.78s
+Average Time per Format: 0.13s
+
+DETAILED RESULTS:
+  1m              | ✅ PASS | 0.13s | One minute ago
+  5m              | ✅ PASS | 0.13s | Five minutes ago
+  30m             | ✅ PASS | 0.13s | Thirty minutes ago
+  1h              | ✅ PASS | 0.13s | One hour ago
+  2h              | ✅ PASS | 0.13s | Two hours ago
+  12h             | ✅ PASS | 0.14s | Twelve hours ago
+  1d              | ✅ PASS | 0.13s | One day ago
+  2d              | ✅ PASS | 0.13s | Two days ago
+  7d              | ✅ PASS | 0.13s | Seven days ago
+  1w              | ✅ PASS | 0.13s | One week ago
+  2w              | ✅ PASS | 0.13s | Two weeks ago
+  1M              | ✅ PASS | 0.13s | One month ago
+  2M              | ✅ PASS | 0.13s | Two months ago
+  6M              | ✅ PASS | 0.13s | Six months ago
+  1y              | ✅ PASS | 0.13s | One year ago
+  today           | ✅ PASS | 0.13s | Today
+  yesterday       | ✅ PASS | 0.13s | Yesterday
+  tomorrow        | ✅ PASS | 0.14s | Tomorrow
+  monday          | ✅ PASS | 0.14s | Monday
+  tuesday         | ✅ PASS | 0.14s | Tuesday
+  wednesday       | ✅ PASS | 0.13s | Wednesday
+  thursday        | ✅ PASS | 0.13s | Thursday
+  friday          | ✅ PASS | 0.13s | Friday
+  saturday        | ✅ PASS | 0.13s | Saturday
+  sunday          | ✅ PASS | 0.13s | Sunday
+  last-monday     | ✅ PASS | 0.13s | Last Monday
+  last-friday     | ✅ PASS | 0.13s | Last Friday
+  this-week       | ✅ PASS | 0.13s | This week
+  last-week       | ✅ PASS | 0.13s | Last week
+  this-month      | ✅ PASS | 0.13s | This month
+  last-month      | ✅ PASS | 0.13s | Last month
+  this-year       | ✅ PASS | 0.13s | This year
+  last-year       | ✅ PASS | 0.13s | Last year
+  2025-01-01      | ✅ PASS | 0.13s | Absolute date: January 1, 2025
+  2024-12-25      | ✅ PASS | 0.13s | Absolute date: December 25, 2024
+  2024-06-15      | ✅ PASS | 0.13s | Absolute date: June 15, 2024
+
+================================================================================

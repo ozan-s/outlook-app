@@ -3436,3 +3436,6 @@
 2025-06-30 07:06:36 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 1, retrying: Connection failed
 2025-06-30 07:06:36 - outlook_cli.utils.connection_monitor - WARNING - Connection error on attempt 2, retrying: Connection failed
 2025-06-30 07:06:36 - outlook_cli.utils.connection_monitor - ERROR - Function failed after 3 attempts
+2025-06-30 07:44:36 - outlook_cli.cli - INFO - Starting folders command with tree=False
+2025-06-30 07:45:18 - outlook_cli.cli - INFO - Starting folders command with tree=False
+2025-06-30 07:45:37 - outlook_cli.cli - INFO - Starting folders command with tree=False

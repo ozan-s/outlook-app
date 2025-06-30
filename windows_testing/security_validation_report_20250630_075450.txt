@@ -1,0 +1,71 @@
+================================================================================
+SECURITY VALIDATION REPORT
+================================================================================
+Timestamp: 2025-06-30 07:54:50
+Total Security Tests: 26
+Passed: 19
+Failed: 7
+Security Violations: 0
+Pass Rate: 73.1%
+Security Rating: POOR
+Overall Validation: ❌ FAILED
+
+SECURITY SUMMARY:
+Vulnerability Rate: 0.0%
+Critical Issues: 0
+Security Rating: POOR
+
+DETAILED SECURITY TEST RESULTS:
+  SQL Injection - DROP TABLE               | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  SQL Injection - OR condition             | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  SQL Injection - DELETE                   | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Command Injection - ls command           | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+  Command Injection - backticks            | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+  Command Injection - command substitution | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Command Injection - pipe                 | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+    Issue: Potential information disclosure: password
+    Issue: Potential information disclosure: token
+    Issue: Potential information disclosure: auth
+  Command Injection - dangerous rm         | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Path Traversal - etc/passwd              | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+    Issue: Potential information disclosure: key
+  Path Traversal - Windows system          | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+  Path Traversal - root access             | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+    Issue: Potential information disclosure: key
+  Script Injection - XSS                   | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Script Injection - JavaScript            | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Template Injection - Math                | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input not properly validated
+  Buffer Overflow - Long sender            | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Buffer Overflow - Long subject           | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Unicode Null Byte                        | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+  URL Encoding Attack                      | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Binary Data Injection                    | ✅ SECURE     | Expected: UNSAFE | Actual: UNSAFE
+    Issue: Malicious input was accepted (should be rejected)
+  LDAP Injection - Wildcard                | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  LDAP Injection - Complex                 | ❌ VULNERABLE | Expected: UNSAFE | Actual: SAFE
+  Resource Exhaustion - All historic       | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Resource Exhaustion - All senders        | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Valid Command - Folders                  | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Valid Command - Read Limited             | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+  Valid Command - Find Recent              | ✅ SECURE     | Expected: SAFE | Actual: SAFE
+
+SECURITY TEST CATEGORIES:
+  • SQL Injection Prevention
+  • Command Injection Prevention
+  • Path Traversal Prevention
+  • Script Injection Prevention
+  • Buffer Overflow Handling
+  • Unicode/Encoding Attack Prevention
+  • LDAP Injection Prevention
+  • Resource Exhaustion Protection
+  • Input Validation and Sanitization
+
+================================================================================
