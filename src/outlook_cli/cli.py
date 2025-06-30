@@ -610,12 +610,28 @@ def handle_find(args):
             result_count=len(results),
         )
 
-        # Paginate and display results
-        paginator = Paginator(results, page_size=10)
-        current_page = paginator.get_current_page()
+        # Check if streaming (--all flag) or pagination (--limit flag)
+        if args.all:
+            # Use streaming display for --all flag
+            from outlook_cli.services.streaming_display import StreamingResultDisplay
+            from outlook_cli.services.streaming_paginator import StreamingPaginator
+            
+            streaming_display = StreamingResultDisplay()
+            streaming_paginator = StreamingPaginator()
+            
+            # Show warning for large result sets
+            if len(results) > 1000:
+                streaming_display.show_large_result_warning(len(results))
+            
+            # Stream results in chunks
+            streaming_display.stream_results(results, chunk_size=streaming_paginator.get_chunk_size())
+        else:
+            # Use existing pagination for --limit flag (backward compatibility)
+            paginator = Paginator(results, page_size=10)
+            current_page = paginator.get_current_page()
 
-        # Display paginated emails
-        _display_email_page(paginator, current_page)
+            # Display paginated emails
+            _display_email_page(paginator, current_page)
 
     except ResourceExceededError as e:
         print(f"{Fore.RED}Error: {str(e)}{Style.RESET_ALL}")
