@@ -98,8 +98,8 @@ class FilterValidationTestFramework:
         print("  📧 Testing read status filters...")
         
         tests = [
-            (['read', '--is-read', '--limit', '5'], 'read_filter'),
-            (['read', '--is-unread', '--limit', '5'], 'unread_filter')
+            (['find', '--is-read', '--limit', '5'], 'read_filter'),
+            (['find', '--is-unread', '--limit', '5'], 'unread_filter')
         ]
         
         results = []
@@ -201,7 +201,7 @@ class FilterValidationTestFramework:
         
         tests = [
             (['find', '--importance', 'high', '--limit', '5'], 'importance_filter'),
-            (['read', '--sender', 'outlook', '--limit', '3'], 'sender_filter'),
+            (['find', '--sender', 'outlook', '--limit', '3'], 'sender_filter'),
             (['find', '--subject', 'meeting', '--limit', '3'], 'subject_filter')
         ]
         

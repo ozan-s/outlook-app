@@ -157,54 +157,54 @@ class UnicodeValidator:
         return [
             # European languages (Latin scripts)
             (['find', '--sender', 'josé.garcía@company.com'], 'Spanish Characters', 'josé.garcía'),
-            (['read', '--subject', 'Réunion'], 'French Characters', 'Réunion'),
+            (['find', '--subject', 'Réunion'], 'French Characters', 'Réunion'),
             (['find', '--sender', 'müller'], 'German Umlauts', 'müller'),
-            (['read', '--subject', 'naïve'], 'French Diacritics', 'naïve'),
+            (['find', '--subject', 'naïve'], 'French Diacritics', 'naïve'),
             (['find', '--sender', 'château'], 'French Circumflex', 'château'),
             
             # Scandinavian languages
-            (['read', '--subject', 'København'], 'Danish Characters', 'København'),
+            (['find', '--subject', 'København'], 'Danish Characters', 'København'),
             (['find', '--sender', 'åse'], 'Norwegian/Swedish', 'åse'),
-            (['read', '--subject', 'Örebro'], 'Swedish Ö', 'Örebro'),
+            (['find', '--subject', 'Örebro'], 'Swedish Ö', 'Örebro'),
             
             # Eastern European (Cyrillic)
             (['find', '--sender', 'Москва'], 'Russian Cyrillic', 'Москва'),
-            (['read', '--subject', 'Україна'], 'Ukrainian Cyrillic', 'Україна'),
+            (['find', '--subject', 'Україна'], 'Ukrainian Cyrillic', 'Україна'),
             (['find', '--sender', 'България'], 'Bulgarian Cyrillic', 'България'),
             
             # East Asian languages
-            (['read', '--subject', '会議'], 'Japanese Kanji', '会議'),
+            (['find', '--subject', '会議'], 'Japanese Kanji', '会議'),
             (['find', '--sender', '北京'], 'Chinese Characters', '北京'),
-            (['read', '--subject', '서울'], 'Korean Hangul', '서울'),
+            (['find', '--subject', '서울'], 'Korean Hangul', '서울'),
             
             # Middle Eastern languages (RTL)
             (['find', '--subject', 'مرحبا'], 'Arabic Script', 'مرحبا'),
-            (['read', '--subject', 'שלום'], 'Hebrew Script', 'שלום'),
+            (['find', '--subject', 'שלום'], 'Hebrew Script', 'שלום'),
             
             # Special Unicode characters
             (['find', '--subject', 'café'], 'Composed Characters', 'café'),
-            (['read', '--subject', 'naïve'], 'Decomposed Characters', 'naïve'),
+            (['find', '--subject', 'naïve'], 'Decomposed Characters', 'naïve'),
             (['find', '--subject', '™®©'], 'Trademark Symbols', '™®©'),
-            (['read', '--subject', '€£¥'], 'Currency Symbols', '€£¥'),
+            (['find', '--subject', '€£¥'], 'Currency Symbols', '€£¥'),
             (['find', '--subject', '—–''""'], 'Punctuation Marks', '—–''""'),
             
             # Emoji and symbols (common in modern corporate communication)
-            (['read', '--subject', '📧💼'], 'Emoji Characters', '📧💼'),
+            (['find', '--subject', '📧💼'], 'Emoji Characters', '📧💼'),
             (['find', '--subject', '✓✗'], 'Check Marks', '✓✗'),
-            (['read', '--subject', '⚠️📊'], 'Warning/Chart Emoji', '⚠️📊'),
+            (['find', '--subject', '⚠️📊'], 'Warning/Chart Emoji', '⚠️📊'),
             
             # Combined scripts (multilingual)
             (['find', '--subject', 'Meeting会議Réunion'], 'Mixed Scripts', 'Meeting会議Réunion'),
-            (['read', '--sender', 'user@société.com'], 'Mixed Email', 'user@société.com'),
+            (['find', '--sender', 'user@société.com'], 'Mixed Email', 'user@société.com'),
             
             # Edge cases and potential problems
             (['find', '--subject', 'test\u200b'], 'Zero Width Space', 'test\u200b'),
-            (['read', '--subject', 'café\u0301'], 'Combining Characters', 'café\u0301'),
+            (['find', '--subject', 'café\u0301'], 'Combining Characters', 'café\u0301'),
             (['find', '--subject', '\ufeff'], 'Byte Order Mark', '\ufeff'),
             
             # Corporate Exchange DN patterns with Unicode
             (['find', '--sender', '/O=SOCIÉTÉ/OU=EXCHANGE'], 'Exchange DN Unicode', '/O=SOCIÉTÉ/OU=EXCHANGE'),
-            (['read', '--sender', 'CN=José García'], 'Exchange CN Unicode', 'CN=José García'),
+            (['find', '--sender', 'CN=José García'], 'Exchange CN Unicode', 'CN=José García'),
         ]
     
     def run_comprehensive_unicode_tests(self) -> Dict[str, Any]:

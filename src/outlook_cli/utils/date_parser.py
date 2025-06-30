@@ -56,6 +56,10 @@ def parse_relative_date(date_str: str) -> datetime:
     original_date_str = date_str.strip()
     date_str = original_date_str.lower()
     
+    # Security validation: reject path traversal attempts and suspicious patterns
+    if any(pattern in date_str for pattern in ['..', '/', '\\', 'etc', 'passwd', 'shadow']):
+        raise ValueError(f"Invalid date format: '{original_date_str}' contains suspicious characters")
+    
     # Handle relative days (7d, 30d)
     days_match = re.match(r'^(\d+)d$', date_str)
     if days_match:
