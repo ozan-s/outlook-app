@@ -20,10 +20,19 @@ class StreamingResultDisplay:
             emails: List of emails to display
             chunk_size: Number of emails per chunk
         """
+        total_emails = len(emails)
+        total_chunks = (total_emails + chunk_size - 1) // chunk_size  # Ceiling division
+        
         # Process emails in chunks
         for i in range(0, len(emails), chunk_size):
             chunk = emails[i:i + chunk_size]
             chunk_num = (i // chunk_size) + 1
+            
+            # Show progress for large result sets
+            if total_emails > 100:
+                emails_processed = min(i + chunk_size, total_emails)
+                self.show_progress_indication(emails_processed, total_emails, chunk_num, total_chunks)
+            
             self.display_streaming_chunk(chunk, chunk_num)
     
     def show_large_result_warning(self, total_count: int) -> None:
@@ -35,6 +44,20 @@ class StreamingResultDisplay:
         """
         print(f"Warning: Large result set detected ({total_count} emails)")
         print("Streaming results to prevent memory issues...")
+        print()
+    
+    def show_progress_indication(self, emails_processed: int, total_emails: int, chunk_num: int, total_chunks: int) -> None:
+        """
+        Show progress indication for streaming operations.
+        
+        Args:
+            emails_processed: Number of emails processed so far
+            total_emails: Total number of emails to process
+            chunk_num: Current chunk number
+            total_chunks: Total number of chunks
+        """
+        percentage = (emails_processed / total_emails) * 100
+        print(f"Streaming progress: {emails_processed}/{total_emails} emails ({percentage:.1f}%) - Chunk {chunk_num}/{total_chunks}")
         print()
     
     def display_streaming_chunk(self, chunk: List[Email], chunk_num: int) -> None:
