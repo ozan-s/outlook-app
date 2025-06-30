@@ -125,7 +125,7 @@ class TestCLIEnhancedParser:
                 main()
                 args = mock_handle.call_args[0][0]
                 assert hasattr(args, 'limit')
-                assert args.limit == '50'
+                assert args.limit == 50
                 
         with patch.object(sys, 'argv', ['ocli', 'find', '--keyword', 'test', '--all']):
             with patch('outlook_cli.cli.handle_find') as mock_handle:
@@ -218,7 +218,7 @@ class TestCLIEnhancedParser:
                 assert args.folders == ['Inbox', 'Work']
                 assert args.not_sender == 'spam@example.com'
                 assert args.not_subject == 'URGENT'
-                assert args.limit == '25'
+                assert args.limit == 25
                 assert args.sort_by == 'received_date'
                 assert args.sort_order == 'asc'
                 

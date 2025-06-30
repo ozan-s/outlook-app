@@ -42,6 +42,28 @@
               raise ValueError(f"Invalid adapter type: '{adapter_type}'")
   ```
 
+### Shared Argument Builder Pattern for CLI Consistency
+- **Problem**: Multiple CLI commands need identical filtering arguments, leading to duplication and inconsistency
+- **Solution**: Extract common argument definitions into reusable builder functions
+- **LLM Benefit**: Ensures predictable, consistent argument patterns across commands
+- **Implementation**:
+  ```python
+  def add_common_filter_arguments(parser):
+      """Add all common filtering arguments to a command parser."""
+      add_date_filter_arguments(parser)
+      add_read_status_filter_arguments(parser)
+      add_attachment_filter_arguments(parser)
+      add_content_filter_arguments(parser)
+      add_sorting_arguments(parser)
+  
+  # Usage in command definition
+  read_parser = subparsers.add_parser('read', help='Read emails...')
+  add_common_filter_arguments(read_parser)  # Consistent args
+  
+  find_parser = subparsers.add_parser('find', help='Search emails...')
+  add_common_filter_arguments(find_parser)  # Same args, same behavior
+  ```
+
 ### CLI Argument Parser Pattern with Mutually Exclusive Groups
 - **Problem**: Some CLI flags conflict (e.g., --is-read vs --is-unread, --limit vs --all)
 - **Solution**: Use argparse mutually exclusive groups instead of custom validation

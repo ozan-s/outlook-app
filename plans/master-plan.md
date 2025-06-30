@@ -39,7 +39,7 @@ Enhance the existing Outlook CLI with powerful filtering capabilities and folder
 - [x] **Milestone 010: Windows Testing Checkpoint #2 - Core Filtering Validation** ✅ 2025-06-30
 
 ### Phase 4: Advanced Features (Performance & UX)
-- [ ] ~Milestone 012: Tree view for `folders` command~ (Completed in 001)
+- [x] **Milestone 012: CLI Argument Standardization and Simplification** ✅ 2025-06-30
 - [ ] Milestone 013: Streaming output for large result sets
 - [ ] Milestone 014: Performance optimization and large mailbox handling
 
@@ -370,7 +370,23 @@ Each milestone includes validation with:
 - **Performance Tests**: Timing validation for large result sets
 - **Windows Manual Tests**: Real COM interface validation at strategic points
 
+### Milestone 012: CLI Argument Standardization and Simplification ✅ COMPLETE
+**Scope**: Standardize CLI argument structure, eliminate duplication, improve consistency for LLM integration
+**Integration Points**: CLI argument parsing, shared argument builders, help text formatting
+**Validates**: Consistent argument types, reduced code duplication, predictable CLI patterns
+**Actual Time**: 2 hours (targeted improvement)
+**Delivered**: Shared argument builder functions, consistent --limit types, improved help text, mutually exclusive folder arguments
+**LLM Impact**: Eliminated type inconsistencies and unpredictable patterns that could confuse LLM integration
+
 ## Adaptation Log
+
+### 2025-06-30: After Milestone 012 (CLI Argument Standardization)
+- **Scope Achieved**: CLI arguments standardized for LLM-friendly patterns without complexity reduction
+- **Technical Debt Resolved**: Eliminated argument duplication (~50 lines), fixed type inconsistencies
+- **Architecture Pattern**: Shared argument builder functions (add_common_filter_arguments) for maintainability
+- **LLM Readiness**: Consistent, predictable CLI interface suitable for LLM integration
+- **Impact on UX Milestone**: User-focused improvements (validation, presets, config files) deferred in favor of LLM integration
+- **Rationale**: Standardization solved LLM confusion issues; complexity concerns are human-user focused and can be addressed later
 
 ### 2025-06-30: After Milestone 011A (Refactor Shared Filtering Infrastructure)
 - **Completed Successfully**: Eliminated code duplication through FilterParsingService and CommandProcessingService

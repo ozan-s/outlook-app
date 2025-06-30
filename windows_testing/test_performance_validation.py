@@ -183,7 +183,7 @@ class PerformanceValidator:
             
             # Content filtering
             (['find', '--importance', 'high', '--limit', '20'], 'Importance Filter'),
-            (['read', '--sender', 'outlook', '--limit', '25'], 'Sender Filter'),
+            (['read', '--not-sender', 'noreply', '--limit', '25'], 'Sender Exclusion Filter'),
             
             # Complex combinations
             (['find', '--since', '1w', '--has-attachment', '--importance', 'high'], 'Complex Filter Combo 1'),
