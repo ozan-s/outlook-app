@@ -69,7 +69,7 @@ class PyWin32OutlookAdapter(OutlookAdapter):
             consecutive_failures = 0
             max_consecutive_failures = 3
             
-            while consecutive_failures < max_consecutive_failures:
+            while consecutive_failures < max_consecutive_failures and index <= folders_collection.Count + max_consecutive_failures:
                 try:
                     account_folder = folders_collection[index]
                     # Add account folders recursively with depth limiting
@@ -82,8 +82,9 @@ class PyWin32OutlookAdapter(OutlookAdapter):
                     consecutive_failures += 1
                     index += 1
                     
-                    # Safety check: don't iterate beyond reasonable bounds
-                    if index > folders_collection.Count + max_consecutive_failures:
+                    # Additional safety check for infinite loops
+                    if consecutive_failures >= max_consecutive_failures:
+                        self._logger.warning(f"Too many consecutive failures ({consecutive_failures}) at top level, stopping enumeration")
                         break
             
             self._logger.info(f"Successfully enumerated {len(folders)} folders")
@@ -176,7 +177,7 @@ class PyWin32OutlookAdapter(OutlookAdapter):
                         consecutive_failures = 0
                         max_consecutive_failures = 3
                         
-                        while consecutive_failures < max_consecutive_failures:
+                        while consecutive_failures < max_consecutive_failures and index <= subfolder_count + max_consecutive_failures:
                             try:
                                 subfolder = subfolders[index]
                                 folders.extend(self._get_folders_recursive(subfolder, folder_path, depth + 1, max_depth))
@@ -188,8 +189,9 @@ class PyWin32OutlookAdapter(OutlookAdapter):
                                 consecutive_failures += 1
                                 index += 1
                                 
-                                # Safety check: don't iterate beyond reasonable bounds
-                                if index > subfolder_count + max_consecutive_failures:
+                                # Additional safety check for infinite loops in problematic COM collections
+                                if consecutive_failures >= max_consecutive_failures:
+                                    self._logger.warning(f"Too many consecutive failures ({consecutive_failures}) in {folder_path}, stopping enumeration")
                                     break
                                     
                 except (com_error, Exception) as e:

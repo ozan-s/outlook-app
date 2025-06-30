@@ -3447,3 +3447,6 @@
 2025-06-30 10:15:58 - outlook_cli.cli - INFO - Starting folders command with tree=False
 2025-06-30 10:15:58 - outlook_cli.utils.timeout_handler - INFO - Starting folder enumeration with 60.0s timeout
 2025-06-30 10:15:58 - outlook_cli.utils.timeout_handler - INFO - Completed folder enumeration
+2025-06-30 10:17:19 - outlook_cli.cli - INFO - Starting folders command with tree=False
+2025-06-30 10:17:19 - outlook_cli.utils.timeout_handler - INFO - Starting folder enumeration with 60.0s timeout
+2025-06-30 10:17:19 - outlook_cli.utils.timeout_handler - INFO - Completed folder enumeration
